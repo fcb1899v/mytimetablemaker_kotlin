@@ -1,4 +1,4 @@
-package com.example.mytimetablemaker
+package com.example.timetable
 
 import android.annotation.SuppressLint
 import android.app.backup.BackupAgentHelper

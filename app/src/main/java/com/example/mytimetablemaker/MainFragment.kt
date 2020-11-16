@@ -1,4 +1,4 @@
-package com.example.mytimetablemaker
+package com.example.timetable
 
 import android.content.Context
 import android.content.Intent
