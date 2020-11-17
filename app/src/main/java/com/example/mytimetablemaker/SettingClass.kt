@@ -1,4 +1,4 @@
-package com.example.timetable
+package com.example.mytimetablemaker
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
@@ -17,7 +17,7 @@ import android.widget.TextView
 import androidx.core.view.isVisible
 import androidx.preference.PreferenceManager
 
-class SettingClass{
+class Setting {
 
     //スイッチの表示変更
     fun display2Switch(switch: Switch, key: String, checked: Boolean, changelinelayout: LinearLayout, settinglayout: LinearLayout) {

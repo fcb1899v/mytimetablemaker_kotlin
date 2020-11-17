@@ -1,0 +1,691 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".GoOrBack2Fragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout12"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_gravity="center"
+        android:gravity="center"
+        tools:ignore="ObsoleteLayoutParam">
+
+        <LinearLayout
+            android:id="@+id/linearlayout12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints,NotSibling">
+
+            <TextView
+                android:id="@+id/countdown12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/nexttime"
+                android:textColor="@color/colorGray"
+                android:textSize="40sp" />
+
+            <LinearLayout
+                android:id="@+id/linearlayout121"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/lineartimelayout120"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    tools:ignore="NestedWeights">
+
+                    <TextView
+                        android:id="@+id/stationName120"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/office"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="14sp"
+                        tools:ignore="NestedWeights,TooManyViews" />
+
+                    <TextView
+                        android:id="@+id/startTime120"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="0.8"
+                        android:gravity="center"
+                        android:text="@string/nexttime"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="28sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearlinelayout120"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:id="@+id/lineLine120"
+                            android:layout_width="25dp"
+                            android:layout_height="35dp"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:background="@color/colorGray"
+                            android:gravity="center"
+                            android:paddingStart="2dp"
+                            android:paddingEnd="2dp"
+                            app:srcCompat="@drawable/ic_clock2"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <TextView
+                        android:id="@+id/lineName120"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="0.8"
+                        android:gravity="center"
+                        android:text="@string/walking"
+                        android:textColor="@color/colorGray" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lineartimelayout121"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    tools:ignore="NestedWeights">
+
+                    <TextView
+                        android:id="@+id/stationName121"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/depsta2"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/startTime121"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="0.8"
+                        android:gravity="center"
+                        android:text="@string/nexttime"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="28sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearlinelayout121"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:id="@+id/lineLine121"
+                            android:layout_width="25dp"
+                            android:layout_height="35dp"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:background="@color/colorAccent"
+                            android:gravity="center"
+                            android:paddingStart="2dp"
+                            android:paddingEnd="2dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/ic_clock2"
+                            tools:ignore="ContentDescription" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <TextView
+                        android:id="@+id/lineName121"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="0.8"
+                        android:gravity="center"
+                        android:text="@string/line"
+                        android:textColor="@color/colorAccent" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lineartimelayout122"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    tools:ignore="NestedWeights">
+
+                    <TextView
+                        android:id="@+id/stationName122"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/arrsta1"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="14sp"
+                        tools:ignore="NestedWeights" />
+
+                    <TextView
+                        android:id="@+id/startTime122"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="0.8"
+                        android:gravity="center"
+                        android:text="@string/nexttime"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="28sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearlayout122"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/linearlinelayout122"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    tools:ignore="NestedWeights">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:id="@+id/lineLine122"
+                            android:layout_width="25dp"
+                            android:layout_height="35dp"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:background="@color/colorGray"
+                            android:gravity="center"
+                            android:paddingStart="2dp"
+                            android:paddingEnd="2dp"
+                            app:srcCompat="@drawable/ic_clock2"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <TextView
+                        android:id="@+id/lineName122"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="0.8"
+                        android:gravity="center"
+                        android:text="@string/walking"
+                        android:textColor="@color/colorGray" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lineartimelayout123"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    tools:ignore="NestedWeights">
+
+                    <TextView
+                        android:id="@+id/stationName123"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/depsta2"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="14sp"
+                        tools:ignore="NestedWeights" />
+
+                    <TextView
+                        android:id="@+id/startTime123"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="0.8"
+                        android:gravity="center"
+                        android:text="@string/nexttime"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="28sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearlinelayout123"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    tools:ignore="DisableBaselineAlignment">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:id="@+id/lineLine123"
+                            android:layout_width="25dp"
+                            android:layout_height="35dp"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:background="@color/colorAccent"
+                            android:gravity="center"
+                            android:paddingStart="2dp"
+                            android:paddingEnd="2dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/ic_clock2"
+                            tools:ignore="ContentDescription" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <TextView
+                        android:id="@+id/lineName123"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="0.8"
+                        android:gravity="center"
+                        android:text="@string/line2"
+                        android:textColor="@color/colorAccent"
+                        tools:ignore="NestedWeights" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lineartimelayout124"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    tools:ignore="NestedWeights">
+
+                    <TextView
+                        android:id="@+id/stationName124"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/arrsta2"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="14sp"
+                        tools:ignore="NestedWeights" />
+
+                    <TextView
+                        android:id="@+id/startTime124"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="0.8"
+                        android:gravity="center"
+                        android:text="@string/nexttime"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="28sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearlayout123"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/linearlinelayout124"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    tools:ignore="NestedWeights">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:id="@+id/lineLine124"
+                            android:layout_width="25dp"
+                            android:layout_height="35dp"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:background="@color/colorGray"
+                            android:gravity="center"
+                            android:paddingStart="2dp"
+                            android:paddingEnd="2dp"
+                            app:srcCompat="@drawable/ic_clock2"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <TextView
+                        android:id="@+id/lineName124"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="0.8"
+                        android:gravity="center"
+                        android:text="@string/walking"
+                        android:textColor="@color/colorGray" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lineartimelayout125"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    tools:ignore="NestedWeights">
+
+                    <TextView
+                        android:id="@+id/stationName125"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/depsta3"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="14sp"
+                        tools:ignore="NestedWeights" />
+
+                    <TextView
+                        android:id="@+id/startTime125"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="0.8"
+                        android:gravity="center"
+                        android:text="@string/nexttime"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="28sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearlinelayout125"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:id="@+id/lineLine125"
+                            android:layout_width="25dp"
+                            android:layout_height="35dp"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:background="@color/colorAccent"
+                            android:gravity="center"
+                            android:paddingStart="2dp"
+                            android:paddingEnd="2dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/ic_clock2"
+                            tools:ignore="ContentDescription" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <TextView
+                        android:id="@+id/lineName125"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="0.8"
+                        android:gravity="center"
+                        android:text="@string/line3"
+                        android:textColor="@color/colorAccent" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lineartimelayout126"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    tools:ignore="NestedWeights">
+
+                    <TextView
+                        android:id="@+id/stationName126"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/arrsta3"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/startTime126"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="0.8"
+                        android:gravity="center"
+                        android:text="@string/nexttime"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="28sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearlayout12e"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/linearlinelayout12e"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    tools:ignore="NestedWeights">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:id="@+id/lineLine12e"
+                            android:layout_width="25dp"
+                            android:layout_height="35dp"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:background="@color/colorGray"
+                            android:gravity="center"
+                            android:paddingStart="2dp"
+                            android:paddingEnd="2dp"
+                            app:srcCompat="@drawable/ic_clock2"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <TextView
+                        android:id="@+id/lineName12e"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="0.8"
+                        android:gravity="center"
+                        android:text="@string/walking"
+                        android:textColor="@color/colorGray" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearlayoutend12e"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/stationName12e"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/home"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="14sp"
+                        tools:ignore="NestedWeights" />
+
+                    <TextView
+                        android:id="@+id/startTime12e"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="0.8"
+                        android:gravity="center"
+                        android:text="@string/nexttime"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="28sp" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

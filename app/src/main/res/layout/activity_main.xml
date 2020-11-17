@@ -1,18 +1,238 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<!--suppress ALL -->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutMain"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity" >
 
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/currentDateLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <Button
+                android:id="@+id/currentdate"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1.2"
+                android:background="@color/colorPrimaryDark"
+                android:gravity="center"
+                android:text="@string/currentdate"
+                android:textColor="@color/colorWhite"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/currenttime"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@color/colorPrimaryDark"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:text="@string/currenttime"
+                android:textColor="@color/colorWhite"
+                android:textSize="24sp" />
+
+            <ImageView
+                android:id="@+id/settingimageview"
+                android:layout_width="25dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                app:srcCompat="@drawable/ic_settings1"
+                tools:ignore="ContentDescription" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/constraintgobackLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="5dp"
+            android:background="@color/colorPrimaryDark"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/currentDateLayout">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/backbutton"
+                style="@style/Widget.MaterialComponents.Button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/colorWhite"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:text="@string/switchback"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:cornerRadius="15dp"
+                app:layout_constraintBottom_toBottomOf="@+id/switchbox"
+                app:layout_constraintStart_toStartOf="@+id/switchbox"
+                app:layout_constraintTop_toTopOf="@+id/switchbox"
+                app:strokeColor="@color/colorPrimaryDark"
+                app:strokeWidth="3dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/gobutton"
+                style="@style/Widget.MaterialComponents.Button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/colorWhite"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:text="@string/switchgo"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
+                android:textColor="@color/colorLightGray"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:cornerRadius="15dp"
+                app:layout_constraintBottom_toBottomOf="@+id/switchbox"
+                app:layout_constraintStart_toEndOf="@+id/switchtext"
+                app:layout_constraintTop_toTopOf="@+id/switchbox"
+                app:strokeColor="@color/colorPrimaryDark"
+                app:strokeWidth="3dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/timestartbutton"
+                style="@style/Widget.MaterialComponents.Button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/colorWhite"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:text="@string/timestart"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
+                android:textColor="@color/colorAccent"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:cornerRadius="15sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/switchbutton"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/timestopbutton"
+                style="@style/Widget.MaterialComponents.Button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/colorWhite"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:text="@string/timestop"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
+                android:textColor="@color/colorLightGray"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:cornerRadius="15sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/switchbox"
+                app:layout_constraintStart_toEndOf="@+id/timebutton"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:id="@+id/centerLine"
+        android:layout_width="2dp"
+        android:layout_height="0dp"
+        android:background="@color/colorPrimaryDark"
+        app:layout_constraintBottom_toTopOf="@+id/adview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+
+    <ScrollView
+        android:id="@+id/FragmentScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="top"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/adview"
+        app:layout_constraintVertical_bias="0.0">
+
+        <LinearLayout
+            android:id="@+id/FragmentConstraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            tools:ignore="DisableBaselineAlignment,ScrollViewSize">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/goorback1fragment"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/goorback2fragment"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        ads:adSize="SMART_BANNER"
+        ads:adUnitId="ca-app-pub-1585283309075901/4381654099"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/FragmentScrollView"></com.google.android.gms.ads.AdView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

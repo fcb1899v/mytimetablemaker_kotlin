@@ -1,4 +1,4 @@
-package com.example.timetable
+package com.example.mytimetablemaker
 
 import android.annotation.SuppressLint
 import android.app.backup.BackupAgentHelper
@@ -10,7 +10,7 @@ import android.os.Looper
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import androidx.appcompat.app.AppCompatActivity
-import com.example.timetable.Application.Companion.context
+import com.example.mytimetablemaker.Application.Companion.context
 import kotlinx.android.synthetic.main.activity_main.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
 
         //設定画面に移動
         settingimageview.setOnClickListener {
-            startActivity(Intent(this, PreferenceActivity::class.java))
+            startActivity(Intent(this, SettingsActivity::class.java))
         }
 
         //＜日付および時刻に関する設定＞
@@ -101,13 +101,13 @@ class MainActivity : AppCompatActivity() {
             //帰宅または外出ルート1の表示（GoorBack1Fragmentの呼び出し）
             if (savedInstanceState == null) {
                 supportFragmentManager.beginTransaction()
-                        .replace(R.id.goorback1fragment, GoorBack1Fragment.newInstance(currentday, currenthhmmss, goorback1))
+                        .replace(R.id.goorback1fragment, GoOrBack1Fragment.newInstance(currentday, currenthhmmss, goorback1))
                         .commitAllowingStateLoss()
             }
             //帰宅または外出ルート2の表示（Go2Fragmentの呼び出し）
             if (savedInstanceState == null) {
                 supportFragmentManager.beginTransaction()
-                        .replace(R.id.goorback2fragment, GoorBack2Fragment.newInstance(currentday, currenthhmmss, goorback2))
+                        .replace(R.id.goorback2fragment, GoOrBack2Fragment.newInstance(currentday, currenthhmmss, goorback2))
                         .commitAllowingStateLoss()
             }
 
@@ -147,3 +147,121 @@ for (i: Int in 0 until jsonfilearray.size) {
 }
  */
 
+/*
+//ファイルをコピー
+fun copyData (inputstream: InputStream, outputstream: OutputStream) {
+    try {
+        val buffer = ByteArray(1024)
+        var length: Int?
+        while (true) {
+            length = inputstream.read(buffer)
+            if (length <= 0)
+                break
+            outputstream.write(buffer, 0, length)
+        }
+        outputstream.flush()
+        outputstream.close()
+        inputstream.close()
+    } catch (e: IOException) {
+        throw IOException()
+    }
+}
+
+//指定のフォルダから指定のJSONファイルを読取する関数
+fun readJSONFile(folder: File, jsonfilename: String): String {
+    val readjsonfile: String = File(folder, jsonfilename).bufferedReader().readText()
+    File(folder, jsonfilename).bufferedReader().close()
+    return readjsonfile
+}
+
+//指定のフォルダから複数の指定のJSONファイルを読取する関数
+fun readJSONFileArray(folder: File, jsonfilename: Array<String>): Array<String> {
+    var readjsonfilearray: Array<String> = arrayOf()
+    for (i: Int in 0 until jsonfilename.size) {
+        readjsonfilearray += readJSONFile(folder, jsonfilename[i])
+    }
+    return readjsonfilearray
+}
+
+//使用するJSONファイルの配列を作成
+fun makeJSONFileArray(goorback: String, changeline: Int): Array<String> {
+    var makejsonfilearray: Array<String> = arrayOf()
+    for (i: Int in 0..changeline) {
+        makejsonfilearray += goorback + "timetable" + (i + 1).toString() + ".json"
+    }
+    return makejsonfilearray
+}
+
+//JSONのkeyを指定してArray<Int>データを取得する関数
+fun getSettingIntArray(readjsonarray: Array<String>, key: String): Array<Int> {
+    var settingintarray: Array<Int> = arrayOf()
+    for (i: Int in 0 until readjsonarray.size) {
+        settingintarray += JSONObject(readjsonarray[i]).getInt(key)
+    }
+    return settingintarray
+}
+
+//JSONのkeyを指定してArray<String>データを取得する関数
+fun getSettingStringArray(readjsonarray: Array<String>, key: String): Array<String> {
+    var settingintarray: Array<String> = arrayOf()
+    for (i: Int in 0 until readjsonarray.size) {
+        settingintarray += JSONObject(readjsonarray[i]).getString(key)
+    }
+    return settingintarray
+}
+
+//JSOｎファイルから時刻データを取得
+private fun getTimeDataFromJson(readjsonfile: String, hour: String, currentday: Int): Array<Int> {
+
+    //土日祝
+    val jsonarraydata: JSONArray = if (currentday == 0 || currentday == 6) {
+        JSONObject(readjsonfile).getJSONObject("Weekend").getJSONArray(hour)
+        //平日
+    } else {
+        JSONObject(readjsonfile).getJSONObject("Weekday").getJSONArray(hour)
+    }
+    var starttimearray: Array<Int> = arrayOf()
+
+    return if (jsonarraydata.length() > 0) {
+        for (i: Int in 0 until jsonarraydata.length()) {
+            starttimearray += jsonarraydata.getInt(i)
+        }
+        starttimearray
+    } else {
+        arrayOf()
+    }
+}
+
+//JSOｎファイルから取得した時刻データから時刻表を作成
+private fun getTimetableFromJson(jsonfilename: String, currentday: Int): Array<Int> {
+    var timetable: Array<Int> = arrayOf()
+    for (i: Int in 0..21) {
+        timetable += getTimeDataFromJson(jsonfilename, (i + 4).toString(), currentday)
+            .map { it }.takeWhile { it < 60 }.map { it + (i + 4) * 100 }.toTypedArray().sortedArray()
+    }
+    return timetable
+}
+
+//ルート内の各路線の時刻表の配列を生成
+fun getTimetableArrayFromJson(readjsonarray: Array<String>, currentday: Int): Array<Array<Int>> {
+    var timetablearray: Array<Array<Int>> = arrayOf()
+    for (i: Int in 0 until readjsonarray.size) {
+        timetablearray += getTimetableFromJson(readjsonarray[i], currentday)
+    }
+    return timetablearray
+}
+
+//JSOｎファイルから乗換時間の配列を取得
+fun getWalkTimeArray(readjsonfile: String, key: String): Array<Int> {
+    val jsonarraydata: JSONArray = JSONObject(readjsonfile).getJSONObject(key).getJSONArray("walktime")
+    var walktimearray: Array<Int> = arrayOf()
+    return if (jsonarraydata.length() > 0) {
+        for (i: Int in 0 until jsonarraydata.length()) {
+            walktimearray += jsonarraydata.getInt(i)
+        }
+        walktimearray
+    } else {
+        arrayOf()
+    }
+}
+*/

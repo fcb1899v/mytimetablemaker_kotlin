@@ -1,4 +1,4 @@
-package com.example.timetable
+package com.example.mytimetablemaker
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -13,7 +13,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 
-class SettingFragment : Fragment() {
+class SettingsFragment : Fragment() {
 
     //クラスの呼び出し
     private val setting = Setting()
@@ -74,7 +74,7 @@ class SettingFragment : Fragment() {
             changelinetext[i]!!.text = goorbackarray[i].changeLineString
             ////乗換回数の変更
             changelinebutton[i]!!.setOnClickListener {
-                Setting().setChangeLineDialog(changelinetext[i]!!, context!!, goorbackarray[i])
+                setting.setChangeLineDialog(changelinetext[i]!!, context!!, goorbackarray[i])
                 changelinetext[i]!!.text = goorbackarray[i].changeLineString
             }
             ////乗換回数の変更
@@ -107,6 +107,6 @@ class SettingFragment : Fragment() {
 
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_setting, container, false)
+        return inflater.inflate(R.layout.fragment_settings, container, false)
     }
 }

@@ -1,3 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">mytimetablemaker</string>
+
+    //Color
+    <string name="coloraccent">#03DAC5</string>
+    <string name="primarydark">#3700B3</string>
+    <string name="lightgray">#808080</string>
+    <string name="black">#000000</string>
+    <string name="red">#FF0000</string>
+    <string name="yellow">#FFFF00</string>
+    <string name="white">#FFFFFF</string>
+
+    <string-array name="linecolorlist">
+        <item>DEFAULT</item>
+        <item>RED</item>
+        <item>ORANGE</item>
+        <item>YELLOW</item>
+        <item>YELLOW GREEN</item>
+        <item>GREEN</item>
+        <item>BLUE GREEN</item>
+        <item>LIGHT BLUE</item>
+        <item>BLUE</item>
+        <item>NAVY BLUE</item>
+        <item>PURPLE</item>
+        <item>PINK</item>
+        <item>DARK RED</item>
+        <item>BROWN</item>
+        <item>GOLD</item>
+        <item>SILVER</item>
+        <item>BLACK</item>
+    </string-array>
+    <string-array name="linecolorvalue">
+        <item>#03DAC5</item>
+        <item>#FF0000</item>
+        <item>#F68B1E</item>
+        <item>#FFD400</item>
+        <item>#99CC00</item>
+        <item>#009933</item>
+        <item>#00AC9A</item>
+        <item>#00BAE8</item>
+        <item>#0000FF</item>
+        <item>#003686</item>
+        <item>#A757A8</item>
+        <item>#E85298</item>
+        <item>#C9252F</item>
+        <item>#BB6633</item>
+        <item>#C5C544</item>
+        <item>#89A1AD</item>
+        <item>#000000</item>
+    </string-array>
+
+    //Action
+    <string name="register">Register</string>
+    <string name="cancel">Cancel</string>
+    <string name="add">Add</string>
+    <string name="delete">Delete</string>
+    <string name="ok">OK</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+
+
+    //Main Activity
+    <string name="app_name">My Transit Makers</string>
+    <string name="switchback">Back</string>
+    <string name="switchgo">Go</string>
+    <string name="timestart">Start</string>
+    <string name="timestop">Stop</string>
+    <string name="currentdate">MON 00/00/0000</string>
+    <string name="currenttime">00:00:00</string>
+    <string name="testtext">0000</string>
+
+    //Main Fragment
+    <string name="nexttime">00:00</string>
+    <string name="office">Office</string>
+    <string name="home">Home</string>
+    <string name="depsta1">Dep. Sta.1</string>
+    <string name="arrsta1">Arr. Sta.1</string>
+    <string name="depsta2">Dep. Sta.2</string>
+    <string name="arrsta2">Arr. Sta.2</string>
+    <string name="depsta3">Dep. Sta.3</string>
+    <string name="arrsta3">Arr. Sta.3</string>
+    <string name="line1">Line 1</string>
+    <string name="line2">Line 2</string>
+    <string name="line3">Line 3</string>
+
+    //Timetable Activity
+    <string name="timetabletitle">Timetable</string>
+    <string name="xxxstation">XXX station</string>
+    <string name="yyylineforzzzstation">(YYY line for ZZZ station)</string>
+    <string name="weekday">Weekday</string>
+    <string name="weekend">Weekend</string>
+    <string name="hourunit">Hour</string>
+    <string name="hour04">4</string>
+    <string name="hour05">5</string>
+    <string name="hour06">6</string>
+    <string name="hour07">7</string>
+    <string name="hour08">8</string>
+    <string name="hour09">9</string>
+    <string name="hour10">10</string>
+    <string name="hour11">11</string>
+    <string name="hour12">12</string>
+    <string name="hour13">13</string>
+    <string name="hour14">14</string>
+    <string name="hour15">15</string>
+    <string name="hour16">16</string>
+    <string name="hour17">17</string>
+    <string name="hour18">18</string>
+    <string name="hour19">19</string>
+    <string name="hour20">20</string>
+    <string name="hour21">21</string>
+    <string name="hour22">22</string>
+    <string name="hour23">23</string>
+    <string name="hour24">24</string>
+    <string name="hour25">25</string>
+    <string name="inputtime">Add and delete departure time</string>
+    <string name="inputtimehint">Enter 0~59 ［min］</string>
+    <string name="copytime">Copy your timetable</string>
+    <string name="copyalltime">Copy all the times ?</string>
+
+    //Settings
+    <string name="settingtitle">Settings</string>
+    <string name="settingchangelinetitle">Setting number of transfers</string>
+    <string name="changelinesettingtitle">Number of transfers</string>
+    <string name="back1changelinesettingtitle">Number of transfers on route home 1</string>
+    <string name="back2changelinesettingtitle">Number of transfers on route home 2</string>
+    <string name="go1changelinesettingtitle">Number of transfers on outgoing route 1</string>
+    <string name="go2changelinesettingtitle">Number of transfers on outgoing route 2</string>
+    <string name="routehome1">Route home 1 </string>
+    <string name="routehome2">Route home 2</string>
+    <string name="outgoingroute1">Outgoing route 1</string>
+    <string name="outgoingroute2">Outgoing route 2</string>
+    <string name="root2displaytitle">Displaying route 2</string>
+    <string name="varioussettingtitle">Various settings</string>
+    <string name="information">About</string>
+    <string name="privacypolicy">Terms and privacy policy</string>
+    <string name="settingmethod">How to setup</string>
+    <string name="linkcollection">Links for setting up timetable</string>
+    <string name="version">Version</string>
+    <string name="one.zero.zero">1.0.0</string>
+    <string name="notset">Not set</string>
+    <string name="zero">Zero</string>
+    <string name="once">Once</string>
+    <string name="twice">Twice</string>
+    <string-array name="changelinelist">
+        <item>Zero</item>
+        <item>Once</item>
+        <item>Twice</item>
+    </string-array>
+    <string-array name="changelinevalue">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    //Various Settings
+    <string name="varioussettings">Various settings on</string>
+    <string name="back1route">route home 1</string>
+    <string name="go1route">outgoing route 1</string>
+    <string name="back2route">route home 2</string>
+    <string name="go2route">outgoing route 2</string>
+
+    //Setting station name
+    <string name="stationsettingtitle">Setting your station name</string>
+    <string name="settingstationnametitle">Setting your station name :\n</string>
+    <string name="settingdepartplacetitle">Setting your departure place</string>
+    <string name="settingdestinationtitle">Setting your destination</string>
+    <string name="departstation">departure station </string>
+    <string name="arrivestation">arrival station </string>
+    <string name="depsta">Dep. Sta.</string>
+    <string name="arrsta">Arr. Sta.</string>
+    <string name="departurepoint">Departure point</string>
+    <string name="destination">Destination</string>
+    <string name="departstation1">Departure station 1</string>
+    <string name="arrivestation1">Arrivel station 1</string>
+    <string name="departstation2">Departure station 2</string>
+    <string name="arrivestation2">Arrivel station 2</string>
+    <string name="departstation3">Departure station 3</string>
+    <string name="arrivestation3">Arrivel station 3</string>
+    <string name="character10hint">Maximum 20 Characters</string>
+
+    //Setting line information
+    <string name="linenamesettingtitle">Setting your line name</string>
+    <string name="settinglinenametitle">Setting your line name :\n</string>
+    <string name="settinglinecolortitle">Setting your line color</string>
+    <string name="settinglinecolorbutton">Setting line color</string>
+    <string name="ridetimesettingtitle">Setting your ride time</string>
+    <string name="settingridetimetitle">Setting your ride time [min] :\n</string>
+    <string name="settingtimetabletitle">Setting your timetable :\n</string>
+    <string name="line">Line </string>
+    <string name="minite2hint">Enter 0~99 ［min］</string>
+    <string name="minutesunit">[min]</string>
+
+    //Setting transportation
+    <string name="transportationsettingtitle">Setting your transportation</string>
+    <string name="settingtransportationtitle">Setting your transportation :</string>
+    <string name="transittimesettingtitle">Setting your transit time</string>
+    <string name="settingtransittimetitle">Setting your transit time [min] : </string>
+    <string name="fromdeparturepoint">From departure point</string>
+    <string name="fromdestination">From destination</string>
+    <string name="fromarrivestation1">From arrival station 1</string>
+    <string name="fromarrivestation2">From arrival station 2</string>
+    <string name="todeparturepoint">To departure point</string>
+    <string name="todestination">To destination</string>
+    <string name="from">\nFrom</string>
+    <string name="to">\nTo</string>
+    <string name="he"> </string>
+    <string name="kara"> </string>
+    <string name="walking">Walking</string>
+    <string name="bicycle">Bicycle</string>
+    <string name="car">Car</string>
+    <string-array name="transportationlist">
+        <item>Walking</item>
+        <item>Bicycle</item>
+        <item>Car</item>
+    </string-array>
+
+    //時刻表の設定
+    <string name="timetablesetting">Set up timetable</string>
+    <string name="koron">for</string>
+    <string name="houmen"> </string>
+    <string name="jidai">:00-</string>
+    <string name="otherrouteline">Other route of Line</string>
+    <string name="picturebutton">Select your timetable picture</string>
+    <string name="timetablehint">Enter 0～59 [min] separated by a space</string>
+
 </resources>

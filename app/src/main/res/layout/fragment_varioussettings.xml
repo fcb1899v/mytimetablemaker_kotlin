@@ -1,0 +1,1027 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".VariousSettingsFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:ignore="UselessParent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorGray"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@color/colorAccent"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    tools:ignore="NestedWeights">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_marginStart="15dp"
+                        android:layout_weight="1"
+                        android:gravity="start|center_vertical"
+                        android:text="@string/stationsettingtitle"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        tools:ignore="InefficientWeight" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="0.3dp"
+                    android:layout_weight="1"
+                    android:background="@color/colorWhite"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    tools:ignore="NestedWeights">
+
+                    <TextView
+                        android:id="@+id/departpointbutton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_weight="1"
+                        android:gravity="start|center_vertical"
+                        android:text="@string/departurepoint"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/departpointtext"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right|center_vertical"
+                        android:layout_marginEnd="15dp"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:text="@string/notset"
+                        android:textColor="@color/colorGray"
+                        android:textSize="18sp"
+                        tools:ignore="RtlHardcoded" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="0.3dp"
+                    android:layout_weight="1"
+                    android:background="@color/colorWhite"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    tools:ignore="NestedWeights">
+
+                    <TextView
+                        android:id="@+id/departstation1button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_weight="1"
+                        android:gravity="start|center_vertical"
+                        android:text="@string/departstation1"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/departstation1text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right|center_vertical"
+                        android:layout_marginEnd="15dp"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:text="@string/notset"
+                        android:textColor="@color/colorGray"
+                        android:textSize="18sp"
+                        tools:ignore="RtlHardcoded" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="0.3dp"
+                    android:layout_weight="1"
+                    android:background="@color/colorWhite"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    tools:ignore="NestedWeights">
+
+                    <TextView
+                        android:id="@+id/arrivestation1button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_weight="1"
+                        android:gravity="start|center_vertical"
+                        android:text="@string/arrivestation1"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/arrivestation1text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right|center_vertical"
+                        android:layout_marginEnd="15dp"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:text="@string/notset"
+                        android:textColor="@color/colorGray"
+                        android:textSize="18sp"
+                        tools:ignore="RtlHardcoded" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/station2layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="0.3dp"
+                        android:layout_weight="1"
+                        android:background="@color/colorWhite"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        tools:ignore="NestedWeights">
+
+                        <TextView
+                            android:id="@+id/departstation2button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_weight="1"
+                            android:gravity="start|center_vertical"
+                            android:text="@string/departstation2"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="18sp" />
+
+                        <TextView
+                            android:id="@+id/departstation2text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right|center_vertical"
+                            android:layout_marginEnd="15dp"
+                            android:layout_weight="1"
+                            android:gravity="end"
+                            android:text="@string/notset"
+                            android:textColor="@color/colorGray"
+                            android:textSize="18sp"
+                            tools:ignore="RtlHardcoded" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="0.3dp"
+                        android:layout_weight="1"
+                        android:background="@color/colorWhite"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        tools:ignore="NestedWeights">
+
+                        <TextView
+                            android:id="@+id/arrivestation2button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_weight="1"
+                            android:gravity="start|center_vertical"
+                            android:text="@string/arrivestation2"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="18sp" />
+
+                        <TextView
+                            android:id="@+id/arrivestation2text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right|center_vertical"
+                            android:layout_marginEnd="15dp"
+                            android:layout_weight="1"
+                            android:gravity="end"
+                            android:text="@string/notset"
+                            android:textColor="@color/colorGray"
+                            android:textSize="18sp"
+                            tools:ignore="RtlHardcoded" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/station3layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="0.3dp"
+                        android:layout_weight="1"
+                        android:background="@color/colorWhite"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        tools:ignore="NestedWeights">
+
+                        <TextView
+                            android:id="@+id/departstation3button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_weight="1"
+                            android:gravity="start|center_vertical"
+                            android:text="@string/departstation3"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="18sp" />
+
+                        <TextView
+                            android:id="@+id/departstation3text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right|center_vertical"
+                            android:layout_marginEnd="15dp"
+                            android:layout_weight="1"
+                            android:gravity="end"
+                            android:text="@string/notset"
+                            android:textColor="@color/colorGray"
+                            android:textSize="18sp"
+                            tools:ignore="RtlHardcoded" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="0.3dp"
+                        android:layout_weight="1"
+                        android:background="@color/colorWhite"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        tools:ignore="NestedWeights">
+
+                        <TextView
+                            android:id="@+id/arrivestation3button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_weight="1"
+                            android:gravity="start|center_vertical"
+                            android:text="@string/arrivestation3"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="18sp" />
+
+                        <TextView
+                            android:id="@+id/arrivestation3text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right|center_vertical"
+                            android:layout_marginEnd="15dp"
+                            android:layout_weight="1"
+                            android:gravity="end"
+                            android:text="@string/notset"
+                            android:textColor="@color/colorGray"
+                            android:textSize="18sp"
+                            tools:ignore="RtlHardcoded" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="0.3dp"
+                    android:layout_weight="1"
+                    android:background="@color/colorWhite"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    tools:ignore="NestedWeights">
+
+                    <TextView
+                        android:id="@+id/arrivepointbutton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_weight="1"
+                        android:gravity="start|center_vertical"
+                        android:text="@string/destination"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/arrivepointtext"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right|center_vertical"
+                        android:layout_marginEnd="15dp"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:text="@string/notset"
+                        android:textColor="@color/colorGray"
+                        android:textSize="18sp"
+                        tools:ignore="RtlHardcoded" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@color/colorAccent"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    tools:ignore="NestedWeights">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_marginStart="15dp"
+                        android:layout_weight="1"
+                        android:gravity="start|center_vertical"
+                        android:text="@string/linenamesettingtitle"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        tools:ignore="InefficientWeight" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="0.3dp"
+                    android:layout_weight="1"
+                    android:background="@color/colorWhite"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    tools:ignore="NestedWeights">
+
+                    <TextView
+                        android:id="@+id/linename1button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_weight="1"
+                        android:gravity="start|center_vertical"
+                        android:text="@string/line1"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/linename1text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right|center_vertical"
+                        android:layout_marginEnd="15dp"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:text="@string/notset"
+                        android:textColor="@color/colorGray"
+                        android:textSize="18sp"
+                        tools:ignore="RtlHardcoded" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linename2layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="0.3dp"
+                    android:layout_weight="1"
+                    android:background="@color/colorWhite"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    tools:ignore="NestedWeights">
+
+                    <TextView
+                        android:id="@+id/linename2button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_weight="1"
+                        android:gravity="start|center_vertical"
+                        android:text="@string/line2"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/linename2text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right|center_vertical"
+                        android:layout_marginEnd="15dp"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:text="@string/notset"
+                        android:textColor="@color/colorGray"
+                        android:textSize="18sp"
+                        tools:ignore="RtlHardcoded" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linename3layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="0.3dp"
+                    android:layout_weight="1"
+                    android:background="@color/colorWhite"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    tools:ignore="NestedWeights">
+
+                    <TextView
+                        android:id="@+id/linename3button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_weight="1"
+                        android:gravity="start|center_vertical"
+                        android:text="@string/line3"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/linename3text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right|center_vertical"
+                        android:layout_marginEnd="15dp"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:text="@string/notset"
+                        android:textColor="@color/colorGray"
+                        android:textSize="18sp"
+                        tools:ignore="RtlHardcoded" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@color/colorAccent"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    tools:ignore="NestedWeights">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_marginStart="15dp"
+                        android:layout_weight="1"
+                        android:gravity="start|center_vertical"
+                        android:text="@string/ridetimesettingtitle"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        tools:ignore="InefficientWeight" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="0.3dp"
+                    android:layout_weight="1"
+                    android:background="@color/colorWhite"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    tools:ignore="NestedWeights">
+
+                    <TextView
+                        android:id="@+id/ridetime1button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_weight="1"
+                        android:gravity="start|center_vertical"
+                        android:text="@string/line1"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/ridetime1text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right|center_vertical"
+                        android:layout_marginEnd="15dp"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:text="@string/notset"
+                        android:textColor="@color/colorGray"
+                        android:textSize="18sp"
+                        tools:ignore="RtlHardcoded" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ridetime2layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="0.3dp"
+                    android:layout_weight="1"
+                    android:background="@color/colorWhite"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    tools:ignore="NestedWeights">
+
+                    <TextView
+                        android:id="@+id/ridetime2button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_weight="1"
+                        android:gravity="start|center_vertical"
+                        android:text="@string/line2"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/ridetime2text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right|center_vertical"
+                        android:layout_marginEnd="15dp"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:text="@string/notset"
+                        android:textColor="@color/colorGray"
+                        android:textSize="18sp"
+                        tools:ignore="RtlHardcoded" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ridetime3layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="0.3dp"
+                    android:layout_weight="1"
+                    android:background="@color/colorWhite"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    tools:ignore="NestedWeights">
+
+                    <TextView
+                        android:id="@+id/ridetime3button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_weight="1"
+                        android:gravity="start|center_vertical"
+                        android:text="@string/line3"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/ridetime3text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right|center_vertical"
+                        android:layout_marginEnd="15dp"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:text="@string/notset"
+                        android:textColor="@color/colorGray"
+                        android:textSize="18sp"
+                        tools:ignore="RtlHardcoded" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@color/colorAccent"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    tools:ignore="NestedWeights">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_marginStart="15dp"
+                        android:layout_weight="1"
+                        android:gravity="start|center_vertical"
+                        android:text="@string/transportationsettingtitle"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        tools:ignore="InefficientWeight" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="0.3dp"
+                    android:layout_weight="1"
+                    android:background="@color/colorWhite"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    tools:ignore="NestedWeights">
+
+                    <TextView
+                        android:id="@+id/transportation1button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_weight="1"
+                        android:gravity="start|center_vertical"
+                        android:text="@string/fromdeparturepoint"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/transportation1text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right|center_vertical"
+                        android:layout_marginEnd="15dp"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:text="@string/notset"
+                        android:textColor="@color/colorGray"
+                        android:textSize="18sp"
+                        tools:ignore="RtlHardcoded" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/transportation2layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="0.3dp"
+                    android:layout_weight="1"
+                    android:background="@color/colorWhite"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    tools:ignore="NestedWeights">
+
+                    <TextView
+                        android:id="@+id/transportation2button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_weight="1"
+                        android:gravity="start|center_vertical"
+                        android:text="@string/fromarrivestation1"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/transportation2text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right|center_vertical"
+                        android:layout_marginEnd="15dp"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:text="@string/notset"
+                        android:textColor="@color/colorGray"
+                        android:textSize="18sp"
+                        tools:ignore="RtlHardcoded" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/transportation3layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="0.3dp"
+                    android:layout_weight="1"
+                    android:background="@color/colorWhite"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    tools:ignore="NestedWeights">
+
+                    <TextView
+                        android:id="@+id/transportation3button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_weight="1"
+                        android:gravity="start|center_vertical"
+                        android:text="@string/fromarrivestation2"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/transportation3text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right|center_vertical"
+                        android:layout_marginEnd="15dp"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:text="@string/notset"
+                        android:textColor="@color/colorGray"
+                        android:textSize="18sp"
+                        tools:ignore="RtlHardcoded" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="0.3dp"
+                    android:layout_weight="1"
+                    android:background="@color/colorWhite"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    tools:ignore="NestedWeights">
+
+                    <TextView
+                        android:id="@+id/transportationebutton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_weight="1"
+                        android:gravity="start|center_vertical"
+                        android:text="@string/todestination"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/transportationetext"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right|center_vertical"
+                        android:layout_marginEnd="15dp"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:text="@string/notset"
+                        android:textColor="@color/colorGray"
+                        android:textSize="18sp"
+                        tools:ignore="RtlHardcoded" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@color/colorAccent"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    tools:ignore="NestedWeights">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_marginStart="15dp"
+                        android:layout_weight="1"
+                        android:gravity="start|center_vertical"
+                        android:text="@string/transittimesettingtitle"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        tools:ignore="InefficientWeight" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="0.3dp"
+                    android:layout_weight="1"
+                    android:background="@color/colorWhite"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    tools:ignore="NestedWeights">
+
+                    <TextView
+                        android:id="@+id/transittime1button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_weight="1"
+                        android:gravity="start|center_vertical"
+                        android:text="@string/fromdeparturepoint"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/transittime1text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right|center_vertical"
+                        android:layout_marginEnd="15dp"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:text="@string/notset"
+                        android:textColor="@color/colorGray"
+                        android:textSize="18sp"
+                        tools:ignore="RtlHardcoded" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/transittime2layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="0.3dp"
+                    android:layout_weight="1"
+                    android:background="@color/colorWhite"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    tools:ignore="NestedWeights">
+
+                    <TextView
+                        android:id="@+id/transittime2button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_weight="1"
+                        android:gravity="start|center_vertical"
+                        android:text="@string/fromarrivestation1"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/transittime2text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right|center_vertical"
+                        android:layout_marginEnd="15dp"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:text="@string/notset"
+                        android:textColor="@color/colorGray"
+                        android:textSize="18sp"
+                        tools:ignore="RtlHardcoded,TooManyViews" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/transittime3layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="0.3dp"
+                    android:layout_weight="1"
+                    android:background="@color/colorWhite"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    tools:ignore="NestedWeights">
+
+                    <TextView
+                        android:id="@+id/transittime3button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_weight="1"
+                        android:gravity="start|center_vertical"
+                        android:text="@string/fromarrivestation2"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="18sp"
+                        tools:ignore="TooManyViews" />
+
+                    <TextView
+                        android:id="@+id/transittime3text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right|center_vertical"
+                        android:layout_marginEnd="15dp"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:text="@string/notset"
+                        android:textColor="@color/colorGray"
+                        android:textSize="18sp"
+                        tools:ignore="RtlHardcoded" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="0.3dp"
+                    android:layout_weight="1"
+                    android:background="@color/colorWhite"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    tools:ignore="NestedWeights">
+
+                    <TextView
+                        android:id="@+id/transittimeebutton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_weight="1"
+                        android:gravity="start|center_vertical"
+                        android:text="@string/todestination"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/transittimeetext"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right|center_vertical"
+                        android:layout_marginEnd="15dp"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:text="@string/notset"
+                        android:textColor="@color/colorGray"
+                        android:textSize="18sp"
+                        tools:ignore="RtlHardcoded" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>

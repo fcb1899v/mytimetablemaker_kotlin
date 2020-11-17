@@ -1,4 +1,4 @@
-package com.example.timetable
+package com.example.mytimetablemaker
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog

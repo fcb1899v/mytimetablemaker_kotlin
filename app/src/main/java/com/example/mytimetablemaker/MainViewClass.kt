@@ -1,4 +1,4 @@
-package com.example.timetable
+package com.example.mytimetablemaker
 
 import android.content.SharedPreferences
 import android.graphics.Color.parseColor
@@ -8,7 +8,7 @@ import androidx.preference.PreferenceManager
 import java.text.SimpleDateFormat
 import java.util.*
 
-class MainViewClass {
+class MainView {
 
     //　日時をローカライズ表示のStringで取得する関数
     fun localizeDateString(date: Date, skeleton: String): String {
