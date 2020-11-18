@@ -1,8 +1,6 @@
 package com.example.mytimetablemaker
 
 import android.annotation.SuppressLint
-import android.app.backup.BackupAgentHelper
-import android.app.backup.SharedPreferencesBackupHelper
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
@@ -10,7 +8,6 @@ import android.os.Looper
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import androidx.appcompat.app.AppCompatActivity
-import com.example.mytimetablemaker.Application.Companion.context
 import kotlinx.android.synthetic.main.activity_main.*
 import java.text.SimpleDateFormat
 import java.util.*

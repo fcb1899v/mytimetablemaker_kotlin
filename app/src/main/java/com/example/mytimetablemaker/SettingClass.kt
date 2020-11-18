@@ -1,6 +1,5 @@
 package com.example.mytimetablemaker
 
-import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
@@ -28,9 +27,7 @@ class Setting {
 
         //スイッチの変更による表示の変更
         switch.setOnCheckedChangeListener { _, isChecked: Boolean ->
-            val sharedpreference: SharedPreferences = PreferenceManager.getDefaultSharedPreferences(
-                    Application.context
-            )
+            val sharedpreference: SharedPreferences = PreferenceManager.getDefaultSharedPreferences(Application.context)
             sharedpreference.edit().putBoolean("dummy", true).apply()
             sharedpreference.edit().putBoolean(key, isChecked).apply()
             changelinelayout.isVisible = isChecked

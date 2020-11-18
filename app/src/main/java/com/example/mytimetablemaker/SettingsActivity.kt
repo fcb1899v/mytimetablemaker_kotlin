@@ -4,14 +4,14 @@ import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 
-class SettingsActivity : AppCompatActivity() {
+class SettingsActivity: AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
 
         supportFragmentManager.beginTransaction()
-                .replace(R.id.main_preference, SettingsFragment())
+                .replace(R.id.main_settings, SettingsFragment())
                 .commitAllowingStateLoss()
         supportFragmentManager.addOnBackStackChangedListener {
             if (supportFragmentManager.backStackEntryCount == 0) {

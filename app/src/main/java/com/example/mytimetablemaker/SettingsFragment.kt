@@ -44,8 +44,8 @@ class SettingsFragment : Fragment() {
         changelinetext += view.findViewById<TextView?>(R.id.go2changelinetext)
 
         //乗換回数設定のLinearLayout
-        val back2changelinelayout: LinearLayout? = view.findViewById<LinearLayout?>(R.id.back2changelinelayout)
-        val go2changelinelayout: LinearLayout? = view.findViewById<LinearLayout?>(R.id.go2changelinelayout)
+        val back2changelinelayout: LinearLayout? = view.findViewById(R.id.back2changelinelayout)
+        val go2changelinelayout: LinearLayout? = view.findViewById(R.id.go2changelinelayout)
 
         //表示する路線名のTextViewの設定
         var varioussettingbutton: Array<TextView?> = arrayOf()
@@ -55,19 +55,19 @@ class SettingsFragment : Fragment() {
         varioussettingbutton += view.findViewById<TextView?>(R.id.go2settingbutton)
 
         //各種設定のLinearLayout
-        val back2settinglayout: LinearLayout? = view.findViewById<LinearLayout?>(R.id.back2settinglayout)
-        val go2settinglayout: LinearLayout? = view.findViewById<LinearLayout?>(R.id.go2settinglayout)
+        val back2settinglayout: LinearLayout? = view.findViewById(R.id.back2settinglayout)
+        val go2settinglayout: LinearLayout? = view.findViewById(R.id.go2settinglayout)
 
         //ルート2を表示・非表示するSwitchの設定
-        val back2switch: Switch? = view.findViewById<Switch?>(R.id.back2switch)
-        val go2switch: Switch? = view.findViewById<Switch?>(R.id.go2switch)
+        val back2switch: Switch? = view.findViewById(R.id.back2switch)
+        val go2switch: Switch? = view.findViewById(R.id.go2switch)
 
         //バージョンの表示
-        val versiontext: TextView? = view.findViewById<TextView?>(R.id.versionnumber)
+        val versiontext: TextView? = view.findViewById(R.id.versionnumber)
         versiontext!!.text = versionName
 
         //リンク
-        val privacypolicy: TextView? = view.findViewById<TextView?>(R.id.privacypolicy)
+        val privacypolicy: TextView? = view.findViewById(R.id.privacypolicy)
 
         for (i in 0..3) {
             //乗換回数の表示
@@ -85,7 +85,7 @@ class SettingsFragment : Fragment() {
                 val fragment = VariousSettingsFragment()
                 fragment.arguments = bundle
                 parentFragmentManager.beginTransaction()
-                        .replace(R.id.main_preference, fragment)
+                        .replace(R.id.main_settings, fragment)
                         .commitAllowingStateLoss()
                 (activity as AppCompatActivity).supportActionBar?.title = title
             }

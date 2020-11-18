@@ -9,8 +9,8 @@ android {
         applicationId "com.mytimetablemaker"
         minSdkVersion 24
         targetSdkVersion 30
-        versionCode 25
-        versionName "1.2.5"
+        versionCode 26
+        versionName "1.2.6"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

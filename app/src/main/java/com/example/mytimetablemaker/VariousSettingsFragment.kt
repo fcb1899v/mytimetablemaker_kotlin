@@ -2,7 +2,6 @@ package com.example.mytimetablemaker
 
 import android.content.Context
 import android.content.Intent
-import android.graphics.Color
 import android.graphics.Color.parseColor
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -26,12 +25,12 @@ class VariousSettingsFragment: Fragment() {
         val changeline: Int = goorback!!.changeLine
 
         //出発地・到着地を設定するボタンの設定
-        val departpointbutton: TextView? = view.findViewById<TextView?>(R.id.departpointbutton)
-        val arrivepointbutton: TextView? = view.findViewById<TextView?>(R.id.arrivepointbutton)
+        val departpointbutton: TextView? = view.findViewById(R.id.departpointbutton)
+        val arrivepointbutton: TextView? = view.findViewById(R.id.arrivepointbutton)
 
         //設定した出発地・到着地を表示するテキストの設定
-        val departpointtext: TextView? = view.findViewById<TextView?>(R.id.departpointtext)
-        val arrivepointtext: TextView? = view.findViewById<TextView?>(R.id.arrivepointtext)
+        val departpointtext: TextView? = view.findViewById(R.id.departpointtext)
+        val arrivepointtext: TextView? = view.findViewById(R.id.arrivepointtext)
 
         //乗車駅を設定するボタンの設定
         var departstationbutton: Array<TextView?> = arrayOf()
