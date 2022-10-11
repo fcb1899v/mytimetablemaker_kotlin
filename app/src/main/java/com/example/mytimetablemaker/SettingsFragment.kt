@@ -16,7 +16,6 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
-@Suppress("UNREACHABLE_CODE")
 class SettingsFragment : Fragment() {
 
     //クラスの呼び出し

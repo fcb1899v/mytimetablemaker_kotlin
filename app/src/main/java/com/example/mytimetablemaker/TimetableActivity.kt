@@ -1,15 +1,14 @@
 package com.example.mytimetablemaker
 
-import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Color
-import android.net.Uri
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.example.mytimetablemaker.databinding.ActivityTimetableBinding
 import java.io.InputStream
@@ -102,36 +101,20 @@ class TimetableActivity: AppCompatActivity() {
 
         val pictureselectbutton: Button = binding.pictureselectbutton
         pictureselectbutton.setOnClickListener {
-            val intent: Intent = Intent(Intent.ACTION_OPEN_DOCUMENT).apply{
-                addCategory(Intent.CATEGORY_OPENABLE)
-                type = "image/*"
-            }
-            startActivityForResult(intent, READ_REQUEST_CODE)
+            getImageLauncher.launch("image/*")
         }
     }
 
-    companion object {
-        private const val READ_REQUEST_CODE: Int = 42
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (resultCode != RESULT_OK) {
-            return
-        }
-        when (requestCode) {
-            READ_REQUEST_CODE -> {
-                try {
-                    data?.data?.also { uri: Uri ->
-                        val inputStream: InputStream? = contentResolver?.openInputStream(uri)
-                        val picture: Bitmap = BitmapFactory.decodeStream(inputStream)
-                        val pictureview: ImageView = binding.PictureView
-                        pictureview.setImageBitmap(picture)
-                    }
-                } catch (e: Exception) {
-                    //Toast.makeText(this, "エラーが発生しました"), Toast.LENGTH_LONG).show()
-                }
-            }
+    private val getImageLauncher = registerForActivityResult(
+        ActivityResultContracts.GetContent()
+    ) { uri ->
+        if (uri != null) {
+            val inputStream: InputStream? = contentResolver?.openInputStream(uri)
+            val picture: Bitmap = BitmapFactory.decodeStream(inputStream)
+            val pictureview: ImageView = binding.PictureView
+            pictureview.setImageBitmap(picture)
+        } else {
+            // 画像選択がキャンセルされた
         }
     }
 

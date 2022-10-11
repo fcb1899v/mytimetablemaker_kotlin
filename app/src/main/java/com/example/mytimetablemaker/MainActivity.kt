@@ -1,6 +1,5 @@
 package com.example.mytimetablemaker
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
@@ -25,7 +24,6 @@ class MainActivity: AppCompatActivity() {
     //ViewBinding
     private lateinit var binding: ActivityMainBinding
 
-    @SuppressLint("SimpleDateFormat")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
