@@ -1,15 +1,14 @@
 package com.example.mytimetablemaker
 
-import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Color
-import android.net.Uri
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.example.mytimetablemaker.databinding.ActivityTimetableBinding
 import java.io.InputStream
@@ -35,29 +34,14 @@ class TimetableActivity: AppCompatActivity() {
         val intentcurrentday = "currentday"
 
         //時刻表の時刻表示のTextViewを配列として初期取得
-        var weekdayhour: Array<TextView?> = arrayOf()
-        weekdayhour += arrayOf(binding.weekdayhour04)
-        weekdayhour += arrayOf(binding.weekdayhour05)
-        weekdayhour += arrayOf(binding.weekdayhour06)
-        weekdayhour += arrayOf(binding.weekdayhour07)
-        weekdayhour += arrayOf(binding.weekdayhour08)
-        weekdayhour += arrayOf(binding.weekdayhour09)
-        weekdayhour += arrayOf(binding.weekdayhour10)
-        weekdayhour += arrayOf(binding.weekdayhour11)
-        weekdayhour += arrayOf(binding.weekdayhour12)
-        weekdayhour += arrayOf(binding.weekdayhour13)
-        weekdayhour += arrayOf(binding.weekdayhour14)
-        weekdayhour += arrayOf(binding.weekdayhour15)
-        weekdayhour += arrayOf(binding.weekdayhour16)
-        weekdayhour += arrayOf(binding.weekdayhour17)
-        weekdayhour += arrayOf(binding.weekdayhour18)
-        weekdayhour += arrayOf(binding.weekdayhour19)
-        weekdayhour += arrayOf(binding.weekdayhour20)
-        weekdayhour += arrayOf(binding.weekdayhour21)
-        weekdayhour += arrayOf(binding.weekdayhour22)
-        weekdayhour += arrayOf(binding.weekdayhour23)
-        weekdayhour += arrayOf(binding.weekdayhour24)
-        weekdayhour += arrayOf(binding.weekdayhour25)
+        val weekdayhour: Array<TextView?> = arrayOf(
+            binding.weekdayhour04, binding.weekdayhour05, binding.weekdayhour06, binding.weekdayhour07,
+            binding.weekdayhour08, binding.weekdayhour09, binding.weekdayhour10, binding.weekdayhour11,
+            binding.weekdayhour12, binding.weekdayhour13, binding.weekdayhour14, binding.weekdayhour15,
+            binding.weekdayhour16, binding.weekdayhour17, binding.weekdayhour18, binding.weekdayhour19,
+            binding.weekdayhour20, binding.weekdayhour21, binding.weekdayhour22, binding.weekdayhour23,
+            binding.weekdayhour24, binding.weekdayhour25
+        )
         //フラグメントから渡されたデータ
         intent?.apply {
             goorback = getStringExtra(intentgoorback).toString()
@@ -117,36 +101,20 @@ class TimetableActivity: AppCompatActivity() {
 
         val pictureselectbutton: Button = binding.pictureselectbutton
         pictureselectbutton.setOnClickListener {
-            val intent: Intent = Intent(Intent.ACTION_OPEN_DOCUMENT).apply{
-                addCategory(Intent.CATEGORY_OPENABLE)
-                type = "image/*"
-            }
-            startActivityForResult(intent, READ_REQUEST_CODE)
+            getImageLauncher.launch("image/*")
         }
     }
 
-    companion object {
-        private const val READ_REQUEST_CODE: Int = 42
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (resultCode != RESULT_OK) {
-            return
-        }
-        when (requestCode) {
-            READ_REQUEST_CODE -> {
-                try {
-                    data?.data?.also { uri: Uri ->
-                        val inputStream: InputStream? = contentResolver?.openInputStream(uri)
-                        val picture: Bitmap = BitmapFactory.decodeStream(inputStream)
-                        val pictureview: ImageView = binding.PictureView
-                        pictureview.setImageBitmap(picture)
-                    }
-                } catch (e: Exception) {
-                    //Toast.makeText(this, "エラーが発生しました"), Toast.LENGTH_LONG).show()
-                }
-            }
+    private val getImageLauncher = registerForActivityResult(
+        ActivityResultContracts.GetContent()
+    ) { uri ->
+        if (uri != null) {
+            val inputStream: InputStream? = contentResolver?.openInputStream(uri)
+            val picture: Bitmap = BitmapFactory.decodeStream(inputStream)
+            val pictureview: ImageView = binding.PictureView
+            pictureview.setImageBitmap(picture)
+        } else {
+            // 画像選択がキャンセルされた
         }
     }
 
