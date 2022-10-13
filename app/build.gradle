@@ -10,8 +10,8 @@ android {
         applicationId "com.mytimetablemaker"
         minSdkVersion 24
         targetSdkVersion 33
-        versionCode 46
-        versionName "1.4.6"
+        versionCode 44
+        versionName "1.4.4"
         testInstrumentationRunner "androidx.test.runer.AndroidJUnitRunner"
     }
 
@@ -50,7 +50,6 @@ dependencies {
 
     implementation "androidx.activity:activity-ktx:1.6.0"
     implementation "androidx.fragment:fragment-ktx:1.5.3"
-    implementation "androidx.annotation:annotation:1.5.0"
 
     implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'androidx.core:core-ktx:1.9.0'
@@ -67,10 +66,9 @@ dependencies {
     implementation 'com.google.android.gms:play-services-tasks:18.0.2'
     implementation 'com.google.firebase:firebase-common-ktx:20.1.2'
 
-
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
-    testImplementation 'junit:junit:4.13.2'
+    testImplementation 'junit:junit:4.13'
 
     //AdMob広告
     implementation 'com.google.android.gms:play-services-ads:21.3.0'
@@ -79,12 +77,10 @@ dependencies {
     //Firebase ユーザー認証
     implementation 'com.google.firebase:firebase-auth:21.0.8'
     implementation 'com.google.firebase:firebase-auth-ktx'
-    implementation('com.google.firebase:firebase-auth') {
-        exclude module: "play-services-safetynet"
-    }
     //Firebase Database
     implementation 'com.google.firebase:firebase-database:20.0.6'
     implementation 'com.google.firebase:firebase-firestore:24.3.1'
     //Firebase UI (Used in FirebaseUIActivity
-    implementation 'com.firebaseui:firebase-ui-auth:8.0.2'
+    implementation 'com.firebaseui:firebase-ui-auth:7.2.0'
+
 }
