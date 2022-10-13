@@ -7,7 +7,6 @@ import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
 import com.google.android.gms.ads.MobileAds
 
-@Suppress("DEPRECATION")
 class AdMobClass {
 
     fun setAdMob(adview: AdView, context: Context) {
