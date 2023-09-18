@@ -1,39 +1,36 @@
 package com.example.mytimetablemaker
 
 //時刻表タイトルを取得
-fun String.timeTableTitle(arrivestation: String) =
-        "($this ${R.string.koron.strings} $arrivestation${R.string.houmen.strings})"
+fun String.timeTableTitle(arriveStation: String) =
+        "($this ${R.string.colon.strings} $arriveStation${R.string.houmen.strings})"
 
 //内部ストレージに保存された各時間の時刻表データをStringとして取得
-fun String.timeTableKey(i: Int, hour: Int, currentday: Int): String =
-        "${this}timetable${i + 1}hour${hour.addZeroTime}${currentday.weekDayOrEnd}"
+fun String.timeTableKey(i: Int, hour: Int, currentDay: Int): String =
+        "${this}timetable${i + 1}hour${hour.addZeroTime}${currentDay.weekDayOrEnd}"
 
 //内部ストレージに保存された各時間の時刻表データをStringとして取得
-fun String.timeTableString(i: Int, hour: Int, currentday: Int): String =
-        timeTableKey(i, hour, currentday).savedText("").timeSorting.timeString
+fun String.timeTableString(i: Int, hour: Int, currentDay: Int): String =
+        timeTableKey(i, hour, currentDay).savedText("").timeSorting.timeString
 
 //内部ストレージに保存された各時間の時刻表データをInt配列として取得
-fun String.timeTableArrayInt(i: Int, hour: Int, currentday: Int): Array<Int> =
-        "${this}timetable${i + 1}hour${hour.addZeroTime}${currentday.weekDayOrEnd}".savedText("")
-                .timeSorting.timeArrayInt(hour)
+fun String.timeTableArrayInt(i: Int, hour: Int, currentDay: Int): Array<Int> =
+        "${this}timetable${i + 1}hour${hour.addZeroTime}${currentDay.weekDayOrEnd}".savedText("").timeSorting.timeArrayInt(hour)
+//全時刻のPreferenceに保存されている発車時刻の文字列を配列で取得する関数
+fun String.getTimetableStringArray(i: Int, currentDay: Int): Array<String> =
+        (4..25).map{this.timeTableString(i, it, currentDay)}.toTypedArray()
 
 //
-val Int.weekDayOrEnd get() = when(this) { 0, 6 -> "weekend" else -> "weekday" }
-
+val Int.weekDayOrEnd: String get() =
+        when(this) { 0, 6 -> "weekend" else -> "weekday" }
 //
-fun Int.dayOrEndString(weekendstring: String, weekdaystring: String): String = when (this) {
-    0, 6 -> weekendstring
-    else -> weekdaystring
-}
-
+fun Int.dayOrEndString(weekendString: String, weekdayString: String): String =
+        when (this) { 0, 6 -> weekendString else -> weekdayString }
 //
-fun Int.dayOrEndColor(weekendcolor: Int, weekdaycolor: Int): Int = when (this) {
-    0, 6 -> weekendcolor
-    else -> weekdaycolor
-}
-
+fun Int.dayOrEndColor(weekendColor: Int, weekdayColor: Int): Int =
+        when (this) { 0, 6 -> weekendColor else -> weekdayColor }
 //
-val Int.otherDay: Int get() = when (this) { in 1..5 -> 0 else -> 1 }
+val Int.otherDay: Int get() =
+        when (this) { 0, 6 -> 1 else -> 0 }
 
 //
 fun String.timeArrayInt(hour: Int): Array<Int> = if (this != "") { this

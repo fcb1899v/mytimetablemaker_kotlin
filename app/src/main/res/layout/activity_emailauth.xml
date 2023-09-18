@@ -5,32 +5,32 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:ads="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main_layout"
+    android:id="@+id/signInLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorAccent"
     android:orientation="vertical">
 
     <ImageView
-        android:id="@+id/authimageview"
+        android:id="@+id/signInImage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:scaleType="fitEnd"
-        app:layout_constraintBottom_toTopOf="@+id/authprimaryback"
+        app:layout_constraintBottom_toTopOf="@+id/signInBackGround"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/splash"
         tools:ignore="ContentDescription" />
 
     <View
-        android:id="@+id/authprimaryback"
+        android:id="@+id/signInBackGround"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:background="@color/colorPrimary"
-        app:layout_constraintTop_toBottomOf="@+id/authimageview"
+        app:layout_constraintTop_toBottomOf="@+id/signInImage"
         app:layout_constraintBottom_toBottomOf="parent" />
 
     <ScrollView
-        android:id="@+id/scrollView2"
+        android:id="@+id/signInScrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -44,7 +44,7 @@
             android:orientation="vertical">
 
             <ProgressBar
-                android:id="@+id/progressBar"
+                android:id="@+id/signInProgressBar"
                 style="?android:attr/progressBarStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -53,19 +53,18 @@
                 tools:ignore="MissingConstraints" />
 
             <LinearLayout
-                android:id="@+id/linearLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/titleText"
+                    android:id="@+id/signInTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="30dp"
                     android:layout_marginBottom="50dp"
-                    android:text="@string/app_name"
+                    android:text="@string/appName"
                     android:textColor="@color/colorPrimary"
                     android:textSize="24sp"
                     android:textStyle="bold" />
@@ -73,11 +72,11 @@
                 <EditText
                     android:id="@+id/fieldEmail"
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_height="48dp"
                     android:layout_marginStart="30dp"
                     android:layout_marginEnd="30dp"
                     android:autofillHints=""
-                    android:background="@drawable/customtextfield"
+                    android:background="@drawable/text_field"
                     android:hint="@string/email"
                     android:inputType="textEmailAddress"
                     android:paddingStart="15dp"
@@ -90,12 +89,12 @@
                 <EditText
                     android:id="@+id/fieldPassword"
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_height="48dp"
                     android:layout_marginStart="30dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginEnd="30dp"
                     android:autofillHints=""
-                    android:background="@drawable/customtextfield"
+                    android:background="@drawable/text_field"
                     android:hint="@string/password"
                     android:inputType="textPassword"
                     android:paddingStart="15dp"
@@ -112,7 +111,7 @@
                     android:layout_marginStart="30dp"
                     android:layout_marginTop="30dp"
                     android:layout_marginEnd="30dp"
-                    android:background="@drawable/registerbutton"
+                    android:background="@drawable/register_button"
                     android:text="@string/login"
                     android:textColor="@color/colorWhite"
                     android:textSize="16sp"
@@ -125,14 +124,14 @@
                     android:layout_marginStart="30dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginEnd="30dp"
-                    android:background="@drawable/nextbutton"
+                    android:background="@drawable/next_button"
                     android:text="@string/signup"
                     android:textColor="@color/colorPrimary"
                     android:textSize="16sp"
                     tools:ignore="ButtonStyle" />
 
                 <TextView
-                    android:id="@+id/sendresetpassbutton"
+                    android:id="@+id/resetPasswordButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="25dp"
@@ -148,7 +147,7 @@
     </ScrollView>
 
     <com.google.android.gms.ads.AdView
-        android:id="@+id/topadview"
+        android:id="@+id/signInAdmobView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         ads:adSize="SMART_BANNER"

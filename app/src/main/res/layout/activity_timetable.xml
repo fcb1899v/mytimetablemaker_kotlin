@@ -11,12 +11,12 @@
     tools:context=".TimetableActivity">
 
     <ScrollView
-        android:id="@+id/timetablescrollview"
+        android:id="@+id/timetableScrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
         android:layout_weight="1"
-        android:background="#FFFFFF"
+        android:background="@color/colorWhite"
         android:gravity="center"
         tools:ignore="ObsoleteLayoutParam,ScrollViewCount,UselessParent">
 
@@ -36,7 +36,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
                     android:layout_weight="1"
-                    android:background="@color/colorPrimaryDark"
+                    android:background="@color/colorPrimary"
                     android:orientation="horizontal"
                     tools:ignore="InefficientWeight">
 
@@ -48,27 +48,24 @@
                         tools:ignore="NestedWeights">
 
                         <TextView
-                            android:id="@+id/timetablestationname"
+                            android:id="@+id/fromStation"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="15dp"
-                            android:layout_marginTop="10dp"
                             android:layout_weight="1"
-                            android:gravity="center_vertical"
-                            android:text="@string/xxxstation"
+                            android:gravity="top"
                             android:textColor="@color/colorWhite"
                             android:textSize="20sp"
                             tools:ignore="NestedWeights,UnusedAttribute" />
 
                         <TextView
-                            android:id="@+id/timetablestationname2"
+                            android:id="@+id/toStation"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="15dp"
                             android:layout_marginBottom="10dp"
                             android:layout_weight="1"
-                            android:gravity="center_vertical"
-                            android:text="@string/yyylineforzzzstation"
+                            android:gravity="top"
                             android:textColor="@color/colorWhite"
                             android:textSize="16sp"
                             ads:autoSizeMinTextSize="10sp"
@@ -76,13 +73,14 @@
                     </LinearLayout>
 
                     <Button
-                        android:id="@+id/daybutton"
-                        android:layout_width="30dp"
-                        android:layout_height="40dp"
+                        android:id="@+id/dayButton"
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:layout_gravity="bottom"
                         android:layout_marginEnd="15dp"
+                        android:layout_marginBottom="6dp"
                         android:layout_weight="1"
-                        android:layout_gravity="center_vertical"
-                        android:background="@drawable/weekbutton"
+                        android:background="@drawable/week_button"
                         android:fontFamily="sans-serif"
                         android:orientation="horizontal"
                         android:text="@string/weekend"
@@ -106,7 +104,7 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/tablelineweekday"
+                        android:id="@+id/tableDay"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_marginStart="1dp"
@@ -127,7 +125,7 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/tablerowhour04"
+                        android:id="@+id/tableHour04"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="1dp"
@@ -141,7 +139,7 @@
                         android:textSize="20sp" />
 
                     <TextView
-                        android:id="@+id/weekdayhour04"
+                        android:id="@+id/tableMinutes04"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_marginStart="1dp"
@@ -161,7 +159,7 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/tablerowhour05"
+                        android:id="@+id/tableHour05"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="1dp"
@@ -175,7 +173,7 @@
                         android:textSize="20sp" />
 
                     <TextView
-                        android:id="@+id/weekdayhour05"
+                        android:id="@+id/tableMinutes05"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_marginStart="1dp"
@@ -195,7 +193,7 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/tablerowhour06"
+                        android:id="@+id/tableHour06"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="1dp"
@@ -209,7 +207,7 @@
                         android:textSize="20sp" />
 
                     <TextView
-                        android:id="@+id/weekdayhour06"
+                        android:id="@+id/tableMinutes06"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_marginStart="1dp"
@@ -229,7 +227,7 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/tablerowhour07"
+                        android:id="@+id/tableHour07"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="1dp"
@@ -243,7 +241,7 @@
                         android:textSize="20sp" />
 
                     <TextView
-                        android:id="@+id/weekdayhour07"
+                        android:id="@+id/tableMinutes07"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_marginStart="1dp"
@@ -263,7 +261,7 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/tablerowhour08"
+                        android:id="@+id/tableHour08"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="1dp"
@@ -277,7 +275,7 @@
                         android:textSize="20sp" />
 
                     <TextView
-                        android:id="@+id/weekdayhour08"
+                        android:id="@+id/tableMinutes08"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_marginStart="1dp"
@@ -297,7 +295,7 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/tablerowhour09"
+                        android:id="@+id/tableHour09"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="1dp"
@@ -311,7 +309,7 @@
                         android:textSize="20sp" />
 
                     <TextView
-                        android:id="@+id/weekdayhour09"
+                        android:id="@+id/tableMinutes09"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_marginStart="1dp"
@@ -331,7 +329,7 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/tablerowhour10"
+                        android:id="@+id/tableHour10"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="1dp"
@@ -345,7 +343,7 @@
                         android:textSize="20sp" />
 
                     <TextView
-                        android:id="@+id/weekdayhour10"
+                        android:id="@+id/tableMinutes10"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_marginStart="1dp"
@@ -365,7 +363,7 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/tablerowhour11"
+                        android:id="@+id/tableHour11"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="1dp"
@@ -379,7 +377,7 @@
                         android:textSize="20sp" />
 
                     <TextView
-                        android:id="@+id/weekdayhour11"
+                        android:id="@+id/tableMinutes11"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_marginStart="1dp"
@@ -399,7 +397,7 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/tablerowhour12"
+                        android:id="@+id/tableHour12"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="1dp"
@@ -413,7 +411,7 @@
                         android:textSize="20sp" />
 
                     <TextView
-                        android:id="@+id/weekdayhour12"
+                        android:id="@+id/tableMinutes12"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_marginStart="1dp"
@@ -433,7 +431,7 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/tablerowhour13"
+                        android:id="@+id/tableHour13"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="1dp"
@@ -447,7 +445,7 @@
                         android:textSize="20sp" />
 
                     <TextView
-                        android:id="@+id/weekdayhour13"
+                        android:id="@+id/tableMinutes13"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_marginStart="1dp"
@@ -467,7 +465,7 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/tablerowhour14"
+                        android:id="@+id/tableHour14"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="1dp"
@@ -481,7 +479,7 @@
                         android:textSize="20sp" />
 
                     <TextView
-                        android:id="@+id/weekdayhour14"
+                        android:id="@+id/tableMinutes14"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_marginStart="1dp"
@@ -501,7 +499,7 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/tablerowhour15"
+                        android:id="@+id/tableHour15"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="1dp"
@@ -515,7 +513,7 @@
                         android:textSize="20sp" />
 
                     <TextView
-                        android:id="@+id/weekdayhour15"
+                        android:id="@+id/tableMinutes15"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_marginStart="1dp"
@@ -535,7 +533,7 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/tablerowhour16"
+                        android:id="@+id/tableHour16"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="1dp"
@@ -549,7 +547,7 @@
                         android:textSize="20sp" />
 
                     <TextView
-                        android:id="@+id/weekdayhour16"
+                        android:id="@+id/tableMinutes16"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_marginStart="1dp"
@@ -569,7 +567,7 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/tablerowhour17"
+                        android:id="@+id/tableHour17"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="1dp"
@@ -583,7 +581,7 @@
                         android:textSize="20sp" />
 
                     <TextView
-                        android:id="@+id/weekdayhour17"
+                        android:id="@+id/tableMinutes17"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_marginStart="1dp"
@@ -603,7 +601,7 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/tablerowhour18"
+                        android:id="@+id/tableHour18"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="1dp"
@@ -617,7 +615,7 @@
                         android:textSize="20sp" />
 
                     <TextView
-                        android:id="@+id/weekdayhour18"
+                        android:id="@+id/tableMinutes18"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_marginStart="1dp"
@@ -637,7 +635,7 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/tablerowhour19"
+                        android:id="@+id/tableHour19"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="1dp"
@@ -651,7 +649,7 @@
                         android:textSize="20sp" />
 
                     <TextView
-                        android:id="@+id/weekdayhour19"
+                        android:id="@+id/tableMinutes19"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_marginStart="1dp"
@@ -671,7 +669,7 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/tablerowhour20"
+                        android:id="@+id/tableHour20"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="1dp"
@@ -685,7 +683,7 @@
                         android:textSize="20sp" />
 
                     <TextView
-                        android:id="@+id/weekdayhour20"
+                        android:id="@+id/tableMinutes20"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_marginStart="1dp"
@@ -706,7 +704,7 @@
                     tools:ignore="TooManyViews">
 
                     <TextView
-                        android:id="@+id/tablerowhour21"
+                        android:id="@+id/tableHour21"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="1dp"
@@ -720,7 +718,7 @@
                         android:textSize="20sp" />
 
                     <TextView
-                        android:id="@+id/weekdayhour21"
+                        android:id="@+id/tableMinutes21"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_marginStart="1dp"
@@ -741,7 +739,7 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/tablerowhour22"
+                        android:id="@+id/tableHour22"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="1dp"
@@ -755,7 +753,7 @@
                         android:textSize="20sp" />
 
                     <TextView
-                        android:id="@+id/weekdayhour22"
+                        android:id="@+id/tableMinutes22"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_marginStart="1dp"
@@ -775,7 +773,7 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/tablerowhour23"
+                        android:id="@+id/tableHour23"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="1dp"
@@ -789,7 +787,7 @@
                         android:textSize="20sp" />
 
                     <TextView
-                        android:id="@+id/weekdayhour23"
+                        android:id="@+id/tableMinutes23"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_marginStart="1dp"
@@ -809,7 +807,7 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/tablerowhour24"
+                        android:id="@+id/tableHour24"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="1dp"
@@ -823,7 +821,7 @@
                         android:textSize="20sp" />
 
                     <TextView
-                        android:id="@+id/weekdayhour24"
+                        android:id="@+id/tableMinutes24"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_marginStart="1dp"
@@ -843,7 +841,7 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/tablerowhour25"
+                        android:id="@+id/tableHour25"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="1dp"
@@ -857,7 +855,7 @@
                         android:textSize="20sp" />
 
                     <TextView
-                        android:id="@+id/weekdayhour25"
+                        android:id="@+id/tableMinutes25"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_marginStart="1dp"
@@ -911,15 +909,15 @@
                         tools:ignore="NestedWeights" />
 
                     <Button
-                        android:id="@+id/pictureselectbutton"
+                        android:id="@+id/pictureSelectButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/onbutton"
+                        android:background="@drawable/on_button"
                         android:gravity="center"
                         android:orientation="horizontal"
                         android:paddingStart="20dp"
                         android:paddingEnd="20dp"
-                        android:text="@string/picturebutton"
+                        android:text="@string/pictureButton"
                         android:textColor="@color/colorWhite"
                         android:textSize="15sp" />
 
@@ -966,7 +964,7 @@
                         android:layout_marginStart="15dp"
                         android:layout_marginEnd="15dp"
 
-                        ads:srcCompat="@drawable/weekbutton"
+                        ads:srcCompat="@drawable/week_button"
                         tools:ignore="ContentDescription" />
 
                     <View
