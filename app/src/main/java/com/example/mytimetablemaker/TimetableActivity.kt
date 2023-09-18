@@ -5,7 +5,6 @@ import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.os.Bundle
 import android.view.MenuItem
-import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
@@ -16,9 +15,9 @@ import java.io.InputStream
 class TimetableActivity: AppCompatActivity() {
 
     //フラグメントから渡されるデータの初期化
-    private var goorback: String = ""
-    private var linenumber: Int = 0
-    private var currentday: Int = 1
+    private var goOrBack: String = ""
+    private var lineNumber: Int = 0
+    private var currentDay: Int = 1
 
     //ViewBinding
     private lateinit var binding: ActivityTimetableBinding
@@ -29,78 +28,79 @@ class TimetableActivity: AppCompatActivity() {
         setContentView(binding.root)
 
         //フラグメントから受け渡されたデータ
-        val intentgoorback = "goorback"
-        val intentlinenumber = "linenumber"
-        val intentcurrentday = "currentday"
+        val intentGoOrBack = "goorback"
+        val intentLineNumber = "linenumber"
+        val intentCurrentDay = "currentday"
 
         //時刻表の時刻表示のTextViewを配列として初期取得
-        val weekdayhour: Array<TextView?> = arrayOf(
-            binding.weekdayhour04, binding.weekdayhour05, binding.weekdayhour06, binding.weekdayhour07,
-            binding.weekdayhour08, binding.weekdayhour09, binding.weekdayhour10, binding.weekdayhour11,
-            binding.weekdayhour12, binding.weekdayhour13, binding.weekdayhour14, binding.weekdayhour15,
-            binding.weekdayhour16, binding.weekdayhour17, binding.weekdayhour18, binding.weekdayhour19,
-            binding.weekdayhour20, binding.weekdayhour21, binding.weekdayhour22, binding.weekdayhour23,
-            binding.weekdayhour24, binding.weekdayhour25
+        val tableMinutes: Array<TextView> = arrayOf(
+            binding.tableMinutes04, binding.tableMinutes05, binding.tableMinutes06, binding.tableMinutes07,
+            binding.tableMinutes08, binding.tableMinutes09, binding.tableMinutes10, binding.tableMinutes11,
+            binding.tableMinutes12, binding.tableMinutes13, binding.tableMinutes14, binding.tableMinutes15,
+            binding.tableMinutes16, binding.tableMinutes17, binding.tableMinutes18, binding.tableMinutes19,
+            binding.tableMinutes20, binding.tableMinutes21, binding.tableMinutes22, binding.tableMinutes23,
+            binding.tableMinutes24, binding.tableMinutes25
         )
+
         //フラグメントから渡されたデータ
         intent?.apply {
-            goorback = getStringExtra(intentgoorback).toString()
-            linenumber = getIntExtra(intentlinenumber, 1)
-            currentday = getIntExtra(intentcurrentday, 1)
+            goOrBack = getStringExtra(intentGoOrBack).toString()
+            lineNumber = getIntExtra(intentLineNumber, 1)
+            currentDay = getIntExtra(intentCurrentDay, 1)
         }
 
-        //アクションバーの表示設定
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.title = getString(R.string.timetabletitle)
+        //AppBarの表示設定
+        supportActionBar?.apply{
+            elevation = 0.0F
+            setDisplayHomeAsUpEnabled(true)
+        }
 
         //時刻表のタイトル
-        val departstation: String = goorback.departStation(linenumber, "${R.string.depsta.strings}${linenumber + 1}")
-        val linename: String = goorback.lineName(linenumber, "${R.string.line.strings}${linenumber + 1}")
-        val arrivestation: String = goorback.arriveStation(linenumber, "${R.string.arrsta.strings}${linenumber + 1}")
-        val timetabletitle: String = linename.timeTableTitle(arrivestation)
-        binding.timetablestationname.text = departstation
-        binding.timetablestationname2.text = timetabletitle
+        binding.fromStation.text = goOrBack.departStation(lineNumber)
+        val lineName: String = goOrBack.lineName(lineNumber)
+        val arriveStation: String = goOrBack.arriveStation(lineNumber)
+        val timetableTitle: String = lineName.timeTableTitle(arriveStation)
+        binding.toStation.text = timetableTitle
 
         //平日または土日の表示
-        binding.tablelineweekday.text = currentday.dayOrEndString(getString(R.string.weekend), getString(R.string.weekday))
-        binding.tablelineweekday.setTextColor(currentday.dayOrEndColor(Color.RED, Color.WHITE))
-        binding.daybutton.text = currentday.dayOrEndString(R.string.weekday.strings, R.string.weekend.strings)
-        binding.daybutton.setTextColor(currentday.dayOrEndColor(R.string.primarydark.setColor, Color.RED))
-
-        val timetable = Timetable()
-
-        //時刻の表示
-        val timetablearray: Array<String> = timetable.getTimetableStringArray(goorback, linenumber, currentday)
-        for (i: Int in 0..21) { weekdayhour[i]?.text = timetablearray[i] }
+        binding.tableDay.apply{
+            text = currentDay.dayOrEndString(getString(R.string.weekend), getString(R.string.weekday))
+            setTextColor(currentDay.dayOrEndColor(Color.RED, Color.WHITE))
+        }
 
         //平日と土日祝の表示の切替
-        binding.daybutton.setOnClickListener {
-            when (binding.daybutton.text) {
-                getString(R.string.weekday) -> {
-                    timetable.getTimetableText(binding.tablelineweekday, 1)
-                    timetable.getTimetableButton(binding.daybutton, 1)
-                    val timetablechange: Array<String> = timetable.getTimetableStringArray(goorback, linenumber, 1)
-                    for (i: Int in 0..21) { weekdayhour[i]?.text = timetablechange[i] }
+        binding.dayButton.apply{
+            text = currentDay.dayOrEndString(R.string.weekday.strings, R.string.weekend.strings)
+            setTextColor(currentDay.dayOrEndColor(R.string.primaryDark.setColor, Color.RED))
+            setOnClickListener {
+                val currentDay = if (binding.dayButton.text == getString(R.string.weekday)) 1 else 0
+                binding.tableDay.apply {
+                    text = currentDay.dayOrEndString(R.string.weekend.strings, R.string.weekday.strings)
+                    setTextColor(currentDay.dayOrEndColor(Color.RED, Color.WHITE))
                 }
-                else -> {
-                    timetable.getTimetableText(binding.tablelineweekday, 0)
-                    timetable.getTimetableButton(binding.daybutton, 0)
-                    val timetablechange: Array<String> = timetable.getTimetableStringArray(goorback, linenumber, 0)
-                    for (i: Int in 0..21) { weekdayhour[i]?.text = timetablechange[i] }
+                binding.dayButton.apply {
+                    text = currentDay.dayOrEndString(R.string.weekday.strings, R.string.weekend.strings)
+                    setTextColor(currentDay.dayOrEndColor(R.string.primaryDark.setColor, Color.RED))
+                }
+                for (i: Int in 0..21) {
+                    tableMinutes[i].text = goOrBack.getTimetableStringArray(lineNumber, currentDay)[i]
                 }
             }
         }
 
-        //時刻表の時刻の設定
+        //時刻表の時刻の表示および設定
         for (i: Int in 0..21) {
-            weekdayhour[i]?.setOnClickListener {
-                val daynumber: Int = when (binding.daybutton.text) { getString(R.string.weekday) -> 0 else -> 1 }
-                timetable.makeTimetableDialog (weekdayhour[i]!!, this, goorback, linenumber, i + 4, daynumber, weekdayhour)
+            tableMinutes[i].apply{
+                text = goOrBack.getTimetableStringArray(lineNumber, currentDay)[i]
+                setOnClickListener {
+                    val dayNumber: Int = when (currentDay) { 0, 6 -> 0 else -> 1 }
+                    Timetable(context, goOrBack, dayNumber).makeTimetableDialog (tableMinutes[i], lineNumber, i + 4, tableMinutes)
+                }
             }
         }
 
-        val pictureselectbutton: Button = binding.pictureselectbutton
-        pictureselectbutton.setOnClickListener {
+        //写真撮影
+        binding.pictureSelectButton.setOnClickListener {
             getImageLauncher.launch("image/*")
         }
     }
@@ -111,8 +111,8 @@ class TimetableActivity: AppCompatActivity() {
         if (uri != null) {
             val inputStream: InputStream? = contentResolver?.openInputStream(uri)
             val picture: Bitmap = BitmapFactory.decodeStream(inputStream)
-            val pictureview: ImageView = binding.PictureView
-            pictureview.setImageBitmap(picture)
+            val pictureView: ImageView = binding.PictureView
+            pictureView.setImageBitmap(picture)
         } else {
             // 画像選択がキャンセルされた
         }

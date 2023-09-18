@@ -11,18 +11,18 @@ import com.example.mytimetablemaker.databinding.FragmentGoorback2Binding
 
 class GoOrBack2Fragment : Fragment() {
 
-    //MainActivityから受け渡されるデータのパラメータ
-    private val ARG_currentday = "currentday"
-    private val ARG_currenthhmmss = "currenthhmmss"
-    private val ARG_goorback2 = "back2"
+    //MainActivityから受け渡されるパラメータ
+    private val argCurrentDay = "currentday"
+    private val argCurrentHHMMSS = "currenthhmmss"
+    private val argGoOrBack2 = "goorback2"
 
-    //MainActivityから受け渡されるデータの初期化
-    private var currentday: Int = 0
-    private var currenthhmmss: Int = 0
-    private var goorback2: String = ""
+    //MainActivityから渡されたデータ
+    private var currentDay: Int = 0
+    private var currentHHMMSS: Int = 0
+    private var goOrBack2: String = ""
 
     //クラスの呼び出し
-    private val mainfragment = MainFragment()
+    private val mainFragment = MainFragment()
 
     //ViewBinding
     private lateinit var binding: FragmentGoorback2Binding
@@ -30,75 +30,52 @@ class GoOrBack2Fragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentGoorback2Binding.inflate(layoutInflater, container, false)
 
-        //表示する出発地名・目的地名のTextViewの設定
-        val departurepointview2: TextView = binding.stationName120
-        val arrivalpointview2: TextView = binding.stationName12e
+        val textView2: Map<String, Array<TextView>> = mapOf(
+            "depart" to arrayOf(binding.stationName120, binding.stationName121, binding.stationName123, binding.stationName125),
+            "arrive" to arrayOf(binding.stationName12e, binding.stationName122, binding.stationName124, binding.stationName126),
+            "line" to arrayOf(binding.lineName121, binding.lineName123, binding.lineName125),
+            "transport" to arrayOf(binding.lineName12e, binding.lineName120, binding.lineName122, binding.lineName124),
+            "departTime" to  arrayOf(binding.startTime120, binding.startTime121, binding.startTime123, binding.startTime125),
+            "arriveTime" to  arrayOf(binding.startTime12e, binding.startTime122, binding.startTime124, binding.startTime126),
+            "countdown" to arrayOf(binding.countdown12),
+        )
 
-        //表示する乗車駅名のTextViewの設定
-        val departstationview2: Array<TextView> =
-            arrayOf(binding.stationName121, binding.stationName123, binding.stationName125)
-
-        //表示する降車駅名のTextViewの設定
-        val arrivestationview2: Array<TextView> =
-            arrayOf(binding.stationName122, binding.stationName124, binding.stationName126)
-
-        //表示する路線名のTextViewの設定
-        val linenameview2: Array<TextView> =
-            arrayOf(binding.lineName121, binding.lineName123, binding.lineName125)
-
-        //表示する路線のViewの設定
-        val linelineview2: Array<View> =
-            arrayOf(binding.lineLine121, binding.lineLine123, binding.lineLine125)
-
-        //表示する移動手段方法のTextViewの設定
-        val transportview2: Array<TextView> =
-            arrayOf(binding.lineName12e, binding.lineName120, binding.lineName122, binding.lineName124)
-
-        //表示する移動手段のViewの設定
-        val transitline2: Array<View> =
-            arrayOf(binding.lineLine12e, binding.lineLine120, binding.lineLine122, binding.lineLine124)
+        val view2: Map<String, Array<View>> = mapOf(
+            "line" to arrayOf(binding.lineLine121, binding.lineLine123, binding.lineLine125),
+            "transit" to arrayOf(binding.lineLine12e, binding.lineLine120, binding.lineLine122, binding.lineLine124),
+        )
 
         //表示するレイアウトの設定
-        val layoutview2: Array<LinearLayout> =
+        val layoutView2: Array<LinearLayout> =
             arrayOf(binding.linearlayout122, binding.linearlayout123)
 
-        //表示する時刻のTextViewの設定
-        val timeview2: Array<TextView> =
-            arrayOf(binding.startTime120, binding.startTime12e, binding.startTime121, binding.startTime122,
-                binding.startTime123, binding.startTime124, binding.startTime125, binding.startTime126)
-
-        //表示するカウントダウンのTextViewの設定
-        val countdownview2: TextView = binding.countdown12
-
         //MainActivityから渡されたデータ
-        val currentday: Int = currentday
-        val currenthhmmss: Int = currenthhmmss
-        val goorback2: String = goorback2
+        val currentDay: Int = currentDay
+        val currentHHMMSS: Int = currentHHMMSS
+        val goOrBack2: String = goOrBack2
 
-        mainfragment.mainFun(requireContext(), currentday, currenthhmmss, goorback2,
-            departurepointview2, departstationview2, arrivestationview2, arrivalpointview2,
-            linenameview2, linelineview2, transportview2, transitline2, layoutview2, timeview2, countdownview2)
-
+        mainFragment.mainFun(requireContext(), currentDay, currentHHMMSS, goOrBack2, textView2, view2, layoutView2)
         return binding.root
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            currentday = it.getInt(ARG_currentday)
-            currenthhmmss = it.getInt(ARG_currenthhmmss)
-            goorback2 = it.getString(ARG_goorback2)!!
+            currentDay = it.getInt(argCurrentDay)
+            currentHHMMSS = it.getInt(argCurrentHHMMSS)
+            goOrBack2 = it.getString(argGoOrBack2)!!
         }
     }
 
     companion object {
         @JvmStatic
-        fun newInstance(currentday: Int, currenthhmmss: Int, goorback2: String) = GoOrBack2Fragment().apply {
-            arguments = Bundle().apply {
-                putInt(ARG_currentday, currentday)
-                putInt(ARG_currenthhmmss, currenthhmmss)
-                putString(ARG_goorback2, goorback2)
+        fun newInstance(currentDay: Int, currentHHMMSS: Int, goOrBack2: String) =
+            GoOrBack2Fragment().apply {
+                arguments = Bundle().apply {
+                    putInt(argCurrentDay, currentDay)
+                    putInt(argCurrentHHMMSS, currentHHMMSS)
+                    putString(argGoOrBack2, goOrBack2)
+                }
             }
-        }
     }
 }

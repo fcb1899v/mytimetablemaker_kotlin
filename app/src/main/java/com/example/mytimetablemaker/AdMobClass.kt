@@ -7,13 +7,13 @@ import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
 import com.google.android.gms.ads.MobileAds
 
-class AdMobClass {
+class AdMob {
 
     fun setAdMob(adview: AdView, context: Context) {
         //Admob広告
         MobileAds.initialize(context)
-        val adrequest: AdRequest = AdRequest.Builder().build()
-        adview.loadAd(adrequest)
+        val adRequest: AdRequest = AdRequest.Builder().build()
+        adview.loadAd(adRequest)
 
         adview.adListener = object : AdListener() {
             override fun onAdLoaded() {

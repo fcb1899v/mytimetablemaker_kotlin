@@ -39,7 +39,7 @@
                 android:layout_marginBottom="5dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="@string/nexttime"
+                android:text="@string/nextTime"
                 android:textColor="@color/colorGray"
                 android:textSize="40sp" />
 
@@ -53,7 +53,7 @@
                 android:orientation="vertical">
 
                 <LinearLayout
-                    android:id="@+id/lineartimelayout120"
+                    android:id="@+id/timeLayout120"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -81,14 +81,14 @@
                         android:layout_gravity="center"
                         android:layout_weight="0.8"
                         android:gravity="center"
-                        android:text="@string/nexttime"
+                        android:text="@string/nextTime"
                         android:textColor="@color/colorPrimaryDark"
                         android:textSize="28sp" />
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/linearlinelayout120"
+                    android:id="@+id/lineLayout120"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -134,7 +134,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/lineartimelayout121"
+                    android:id="@+id/timeLayout121"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -150,7 +150,7 @@
                         android:layout_gravity="center"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:text="@string/depsta2"
+                        android:text="@string/depSta"
                         android:textColor="@color/colorPrimaryDark"
                         android:textSize="14sp" />
 
@@ -161,14 +161,14 @@
                         android:layout_gravity="center"
                         android:layout_weight="0.8"
                         android:gravity="center"
-                        android:text="@string/nexttime"
+                        android:text="@string/nextTime"
                         android:textColor="@color/colorPrimaryDark"
                         android:textSize="28sp" />
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/linearlinelayout121"
+                    android:id="@+id/lineLayout121"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -214,7 +214,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/lineartimelayout122"
+                    android:id="@+id/timeLayout122"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -230,7 +230,7 @@
                         android:layout_gravity="center"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:text="@string/arrsta1"
+                        android:text="@string/arrSta"
                         android:textColor="@color/colorPrimaryDark"
                         android:textSize="14sp"
                         tools:ignore="NestedWeights" />
@@ -242,7 +242,7 @@
                         android:layout_gravity="center"
                         android:layout_weight="0.8"
                         android:gravity="center"
-                        android:text="@string/nexttime"
+                        android:text="@string/nextTime"
                         android:textColor="@color/colorPrimaryDark"
                         android:textSize="28sp" />
 
@@ -260,7 +260,7 @@
                 android:orientation="vertical">
 
                 <LinearLayout
-                    android:id="@+id/linearlinelayout122"
+                    android:id="@+id/lineLayout122"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -307,7 +307,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/lineartimelayout123"
+                    android:id="@+id/timeLayout123"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -323,7 +323,7 @@
                         android:layout_gravity="center"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:text="@string/depsta2"
+                        android:text="@string/depSta"
                         android:textColor="@color/colorPrimaryDark"
                         android:textSize="14sp"
                         tools:ignore="NestedWeights" />
@@ -335,14 +335,14 @@
                         android:layout_gravity="center"
                         android:layout_weight="0.8"
                         android:gravity="center"
-                        android:text="@string/nexttime"
+                        android:text="@string/nextTime"
                         android:textColor="@color/colorPrimaryDark"
                         android:textSize="28sp" />
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/linearlinelayout123"
+                    android:id="@+id/lineLayout123"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -383,14 +383,14 @@
                         android:layout_gravity="center"
                         android:layout_weight="0.8"
                         android:gravity="center"
-                        android:text="@string/line2"
+                        android:text="@string/line"
                         android:textColor="@color/colorAccent"
                         tools:ignore="NestedWeights" />
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/lineartimelayout124"
+                    android:id="@+id/timeLayout124"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -406,7 +406,7 @@
                         android:layout_gravity="center"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:text="@string/arrsta2"
+                        android:text="@string/arrSta"
                         android:textColor="@color/colorPrimaryDark"
                         android:textSize="14sp"
                         tools:ignore="NestedWeights" />
@@ -418,7 +418,7 @@
                         android:layout_gravity="center"
                         android:layout_weight="0.8"
                         android:gravity="center"
-                        android:text="@string/nexttime"
+                        android:text="@string/nextTime"
                         android:textColor="@color/colorPrimaryDark"
                         android:textSize="28sp" />
 
@@ -436,7 +436,7 @@
                 android:orientation="vertical">
 
                 <LinearLayout
-                    android:id="@+id/linearlinelayout124"
+                    android:id="@+id/lineLayout124"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -483,7 +483,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/lineartimelayout125"
+                    android:id="@+id/timeLayout125"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -499,7 +499,7 @@
                         android:layout_gravity="center"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:text="@string/depsta3"
+                        android:text="@string/depSta"
                         android:textColor="@color/colorPrimaryDark"
                         android:textSize="14sp"
                         tools:ignore="NestedWeights" />
@@ -511,14 +511,14 @@
                         android:layout_gravity="center"
                         android:layout_weight="0.8"
                         android:gravity="center"
-                        android:text="@string/nexttime"
+                        android:text="@string/nextTime"
                         android:textColor="@color/colorPrimaryDark"
                         android:textSize="28sp" />
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/linearlinelayout125"
+                    android:id="@+id/lineLayout125"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -558,13 +558,13 @@
                         android:layout_gravity="center"
                         android:layout_weight="0.8"
                         android:gravity="center"
-                        android:text="@string/line3"
+                        android:text="@string/line"
                         android:textColor="@color/colorAccent" />
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/lineartimelayout126"
+                    android:id="@+id/timeLayout126"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -580,7 +580,7 @@
                         android:layout_gravity="center"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:text="@string/arrsta3"
+                        android:text="@string/arrSta"
                         android:textColor="@color/colorPrimaryDark"
                         android:textSize="14sp" />
 
@@ -591,7 +591,7 @@
                         android:layout_gravity="center"
                         android:layout_weight="0.8"
                         android:gravity="center"
-                        android:text="@string/nexttime"
+                        android:text="@string/nextTime"
                         android:textColor="@color/colorPrimaryDark"
                         android:textSize="28sp" />
 
@@ -607,7 +607,7 @@
                 android:orientation="vertical">
 
                 <LinearLayout
-                    android:id="@+id/linearlinelayout12e"
+                    android:id="@+id/lineLayout12e"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -655,7 +655,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/linearlayoutend12e"
+                    android:id="@+id/timeLayout12e"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -682,7 +682,7 @@
                         android:layout_gravity="center"
                         android:layout_weight="0.8"
                         android:gravity="center"
-                        android:text="@string/nexttime"
+                        android:text="@string/nextTime"
                         android:textColor="@color/colorPrimaryDark"
                         android:textSize="28sp" />
 

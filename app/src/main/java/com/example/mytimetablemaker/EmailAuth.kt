@@ -3,34 +3,52 @@ package com.example.mytimetablemaker
 import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.net.Uri
+import android.text.InputType
 import android.util.Log
 import android.view.Gravity
 import android.widget.EditText
 import android.widget.Toast
 import androidx.preference.PreferenceManager
-import com.example.mytimetablemaker.Application.Companion.context
 import com.google.android.gms.tasks.Task
-import com.google.firebase.auth.*
+import com.google.firebase.auth.AuthResult
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
+import com.google.firebase.auth.FirebaseAuthInvalidUserException
+import com.google.firebase.auth.FirebaseAuthUserCollisionException
+import com.google.firebase.auth.FirebaseAuthWeakPasswordException
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
-class EmailAuth(private val auth: FirebaseAuth) {
+class EmailAuth(
+    private val context: Context,
+) {
+    private val myPreference = MyPreference(context)
+    private val firestore = FirebaseFirestore(context)
 
-    private val setting = Setting()
-    private val firebasefirestore = FirebaseFirestore()
+    private fun setEditEmail(edittext: EditText) {
+        edittext.apply {
+            setHint(R.string.hint_email)
+            gravity = Gravity.CENTER
+            inputType = InputType.TYPE_CLASS_TEXT
+            setTextColor(Color.BLACK)
+            textSize = 20F
+        }
+    }
 
     //サインアップ入力のエラー処理
-    fun signupToast(email: String, password: String, confirmpassword: String): Boolean {
-        val message =  String.format("email: %s, password: %s, confirmpassword: %s", email, password, confirmpassword)
+    fun signupToast(email: String, password: String, confirmPassword: String): Boolean {
+        val message =  String.format("email: %s, password: %s, confirmpassword: %s", email, password, confirmPassword)
         Log.d("Signup", message)
-        var toastflag = false
+        var toastFlag = false
         when {
-            email.isEmpty() -> makeAuthToast(R.string.hint_email.strings)
-            password.isEmpty() -> makeAuthToast(R.string.hint_password.strings)
-            confirmpassword.isEmpty() -> makeAuthToast(R.string.hint_confirmpassword.strings)
-            password != confirmpassword -> makeAuthToast(R.string.confirmpassword_not_match.strings)
-            else -> toastflag = true
+            email.isBlank() -> makeAuthToast(R.string.hint_email.strings)
+            password.isBlank() -> makeAuthToast(R.string.hint_password.strings)
+            confirmPassword.isBlank() -> makeAuthToast(R.string.hint_confirm_password.strings)
+            password != confirmPassword -> makeAuthToast(R.string.confirm_password_not_match.strings)
+            else -> toastFlag = true
         }
-        return toastflag
+        return toastFlag
     }
 
     //サインアップ時のメッセージ表示及び処理
@@ -59,21 +77,21 @@ class EmailAuth(private val auth: FirebaseAuth) {
         val message = R.string.signup_successfully.strings
         Log.d("Signup", message)
         makeAuthToast(message)
-        setting.prefSaveBoolean(context, "savepref", false)
-        sendEmailVerrification()
+        myPreference.prefSaveBoolean("savepref", false)
+        sendEmailVerification()
     }
 
     //認証メールの送信
-    private fun sendEmailVerrification() {
-        val successmessage = R.string.send_auth_mail_successfully.strings
-        val errormessage = R.string.send_auth_mail_unsuccessfully.strings
-        auth.currentUser?.sendEmailVerification()?.addOnCompleteListener { task: Task<Void> ->
+    private fun sendEmailVerification() {
+        val successMessage = R.string.send_auth_mail_successfully.strings
+        val errorMessage = R.string.send_auth_mail_unsuccessfully.strings
+        Firebase.auth.currentUser?.sendEmailVerification()?.addOnCompleteListener { task: Task<Void> ->
             if (task.isSuccessful) {
-                Log.d("Signup", successmessage)
-                makeAuthToast(successmessage)
+                Log.d("Signup", successMessage)
+                makeAuthToast(successMessage)
             } else {
-                Log.d("Signup", errormessage)
-                makeAuthAlert(context, R.string.send_auth_mail_error.strings, errormessage)
+                Log.d("Signup", errorMessage)
+                makeAuthAlert(context, R.string.send_auth_mail_error.strings, errorMessage)
             }
         }
     }
@@ -82,13 +100,13 @@ class EmailAuth(private val auth: FirebaseAuth) {
     fun loginToast(email: String, password: String): Boolean {
         val message = String.format("email: %s, password: %s", email, password)
         Log.d("Login", message)
-        var toastflag = false
+        var toastFlag = false
         when {
             email.isEmpty() -> makeAuthToast(R.string.hint_email.strings)
             password.isEmpty() -> makeAuthToast(R.string.hint_password.strings)
-            else -> toastflag = true
+            else -> toastFlag = true
         }
-        return toastflag
+        return toastFlag
     }
 
     //ログイン時のメッセージ表示
@@ -103,29 +121,29 @@ class EmailAuth(private val auth: FirebaseAuth) {
     //初めてのログインでなければPreferencesの保存データを消去する
     private fun login() {
         val pref = PreferenceManager.getDefaultSharedPreferences(context)
-        val firstlogin = pref.getBoolean("firstlogin", false)
-        if (firstlogin) {
+        val isFirstLogin = pref.getBoolean("firstlogin", false)
+        if (isFirstLogin) {
             Log.d("Login", "First Login")
         } else {
             Log.d("Login", "Not First Login")
-            firebasefirestore.getFirestore(context)
-            setting.prefSaveBoolean(context, "firstlogin", true)
+            firestore.getFirestore(context)
+            myPreference.prefSaveBoolean("firstlogin", true)
         }
-        setting.prefSaveBoolean(context, "loggedin",true)
+        myPreference.prefSaveBoolean("loggedin",true)
     }
 
     //ログイン成功のメッセージ表示
     private fun loginSuccessMessage(context: Context): Boolean {
-        val successmessage = R.string.login_successfully.strings
-        val errormessage = R.string.not_verified_account.strings
-        return if (auth.currentUser!!.isEmailVerified) {
-            Log.d("Login", successmessage)
+        val successMessage = R.string.login_successfully.strings
+        val errorMessage = R.string.not_verified_account.strings
+        return if (Firebase.auth.currentUser!!.isEmailVerified) {
+            Log.d("Login", successMessage)
             login()
-            makeAuthToast(successmessage)
+            makeAuthToast(successMessage)
             true
         } else {
-            Log.d("Login", errormessage)
-            makeAuthAlert(context, errormessage, R.string.auth_mail_check.strings)
+            Log.d("Login", errorMessage)
+            makeAuthAlert(context, errorMessage, R.string.auth_mail_check.strings)
             false
         }
     }
@@ -160,10 +178,10 @@ class EmailAuth(private val auth: FirebaseAuth) {
     //ログアウト後の処理
     fun afterLogoutAccount() {
         val message = R.string.logged_out.strings
-        auth.signOut()
+        Firebase.auth.signOut()
         Log.d("Logout", message)
-        firebasefirestore.resetPreferenceData()
-        setting.prefSaveBoolean(context, "loggedin",false)
+        firestore.resetPreferenceData()
+        myPreference.prefSaveBoolean("loggedin",false)
         makeAuthToast(message)
     }
 
@@ -177,24 +195,24 @@ class EmailAuth(private val auth: FirebaseAuth) {
     //アカウント削除後の処理
     fun afterDeleteAccount() {
         val message = R.string.delete_account_successfully.strings
-        auth.signOut()
+        Firebase.auth.signOut()
         Log.d("DeleteAccount", message)
-        firebasefirestore.resetPreferenceData()
-        setting.prefSaveBoolean(context, "loggedin",false)
+        firestore.resetPreferenceData()
+        myPreference.prefSaveBoolean("loggedin",false)
         makeAuthToast(message)
     }
 
     //パスワードリセットメールの送信
     private fun passwordReset(context: Context, email: String) {
-        val successmessage = R.string.send_auth_mail_successfully.strings
-        val errormessage = R.string.send_reset_mail_unsuccessfully.strings
-        auth.sendPasswordResetEmail(email).addOnCompleteListener { task: Task<Void> ->
+        val successMessage = R.string.send_auth_mail_successfully.strings
+        val errorMessage = R.string.send_reset_mail_unsuccessfully.strings
+        Firebase.auth.sendPasswordResetEmail(email).addOnCompleteListener { task: Task<Void> ->
             if (task.isSuccessful) {
-                Log.d("PasswordReset", successmessage)
-                makeAuthToast(successmessage)
+                Log.d("PasswordReset", successMessage)
+                makeAuthToast(successMessage)
             } else {
-                Log.d("PasswordReset", errormessage)
-                makeAuthAlert(context, R.string.password_reset_error.strings, errormessage)
+                Log.d("PasswordReset", errorMessage)
+                makeAuthAlert(context, R.string.password_reset_error.strings, errorMessage)
             }
         }
     }
@@ -202,7 +220,7 @@ class EmailAuth(private val auth: FirebaseAuth) {
     //パスワードリセット
     fun sendPasswordResetMailDialog(context: Context) {
         val edittext = EditText(context)
-        setting.setEditEmail(edittext)
+        setEditEmail(edittext)
         AlertDialog.Builder(context).apply {
             setTitle(R.string.password_reset.strings)
             setMessage(R.string.reset_password.strings)
@@ -237,12 +255,12 @@ class EmailAuth(private val auth: FirebaseAuth) {
     //プライバシーポリシーページへの遷移
     fun intentPrivacyPolicy(): Intent {
         return Intent(Intent.ACTION_VIEW).apply {
-            data = Uri.parse(R.string.privacypolicyurl.strings)
+            data = Uri.parse(R.string.privacyPolicyUrl.strings)
         }
     }
 }
 
-//enum class FirebaseAuthError(val errorcode: String) {
+//enum class FirebaseAuthError(val errorCode: String) {
 //    USER_NOT_FOUND("ERROR_USER_NOT_FOUND"),
 //    INVALID_EMAIL("ERROR_INVALID_EMAIL"),
 //    WRONG_PASSWORD("ERROR_WRONG_PASSWORD"),

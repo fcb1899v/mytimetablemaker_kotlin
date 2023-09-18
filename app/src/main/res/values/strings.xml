@@ -2,15 +2,15 @@
 <resources>
 
     //Color
-    <string name="coloraccent">#03DAC5</string>
-    <string name="primarydark">#3700B3</string>
-    <string name="lightgray">#808080</string>
+    <string name="colorAccent">#03DAC5</string>
+    <string name="primaryDark">#3700B3</string>
+    <string name="lightGray">#808080</string>
     <string name="black">#000000</string>
     <string name="red">#FF0000</string>
     <string name="yellow">#FFFF00</string>
     <string name="white">#FFFFFF</string>
 
-    <string-array name="linecolorlist">
+    <string-array name="lineColorList">
         <item>DEFAULT</item>
         <item>RED</item>
         <item>ORANGE</item>
@@ -29,7 +29,7 @@
         <item>SILVER</item>
         <item>BLACK</item>
     </string-array>
-    <string-array name="linecolorvalue">
+    <string-array name="lineColorValue">
         <item>#03DAC5</item>
         <item>#FF0000</item>
         <item>#F68B1E</item>
@@ -59,36 +59,107 @@
     <string name="no">No</string>
 
     //Main Activity
-    <string name="app_name">My Transit Makers</string>
-    <string name="switchback">Back</string>
-    <string name="switchgo">Go</string>
-    <string name="timestart">Start</string>
-    <string name="timestop">Stop</string>
-    <string name="currentdate">MON 00/00/0000</string>
-    <string name="currenttime">00:00:00</string>
-    <string name="testtext">0000</string>
-
-    //Main Fragment
-    <string name="nexttime">00:00</string>
+    <string name="appName">My Transit Makers</string>
+    <string name="switchBack">Back</string>
+    <string name="switchGo">Go</string>
+    <string name="timeStart">Start</string>
+    <string name="timeStop">Stop</string>
+    <string name="nextTime">00:00</string>
     <string name="office">Office</string>
     <string name="home">Home</string>
-    <string name="depsta1">Dep. Sta.1</string>
-    <string name="arrsta1">Arr. Sta.1</string>
-    <string name="depsta2">Dep. Sta.2</string>
-    <string name="arrsta2">Arr. Sta.2</string>
-    <string name="depsta3">Dep. Sta.3</string>
-    <string name="arrsta3">Arr. Sta.3</string>
-    <string name="line1">Line 1</string>
-    <string name="line2">Line 2</string>
-    <string name="line3">Line 3</string>
+
+    //Settings
+    <string name="settingsTitle">Settings</string>
+    <string name="variousSettings">Various Settings</string>
+    <string name="settingsChangeLineTitle">Setting number of transfers</string>
+    <string name="back1Route">Route home 1</string>
+    <string name="back2Route">Route home 2</string>
+    <string name="go1Route">Outgoing route 1</string>
+    <string name="go2Route">Outgoing route 2</string>
+    <string name="displayRoute2Title">Displaying route 2</string>
+    <string name="about">About</string>
+    <string name="privacyPolicy">terms and privacy policy</string>
+    <string name="privacyPolicyAgree">I have read and agree to the \n<u>terms and privacy policy</u></string>
+    <string name="privacyPolicyUrl">https://nakajimamasao-appstudio.web.app/terms</string>
+    <string name="settingsMethod">How to setup</string>
+    <string name="linkCollection">Links for setting up timetable</string>
+    <string name="version">Version</string>
+    <string name="notSet">Not set</string>
+    <string name="zero">Zero</string>
+    <string name="once">Once</string>
+    <string name="twice">Twice</string>
+    <string-array name="changeLineList">
+        <item>Zero</item>
+        <item>Once</item>
+        <item>Twice</item>
+    </string-array>
+    <string-array name="changeLineValue">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    //Setting station name
+    <string name="settingStationTitle">Setting your station name</string>
+    <string name="settingStationName">Setting your station name :\n</string>
+    <string name="settingDepartPointTitle">Setting your departure point</string>
+    <string name="settingDestinationTitle">Setting your destination</string>
+    <string name="departStation">Depart station </string>
+    <string name="arriveStation">Arrive station </string>
+    <string name="depSta">Dep. Sta.</string>
+    <string name="arrSta">Arr. Sta.</string>
+    <string name="departurePoint">Departure point</string>
+    <string name="destination">Destination</string>
+    <string name="departStation1">Depart station 1</string>
+    <string name="arriveStation1">Arrive station 1</string>
+    <string name="departStation2">Depart station 2</string>
+    <string name="arriveStation2">Arrive station 2</string>
+    <string name="departStation3">Depart station 3</string>
+    <string name="arriveStation3">Arrive station 3</string>
+    <string name="character10Hint">Maximum 20 Characters</string>
+
+    //Setting line information
+    <string name="settingLineNameTitle">Setting your line name</string>
+    <string name="settingLineName">Setting your line name :\n</string>
+    <string name="settingLineColorTitle">Setting your line color</string>
+    <string name="settingLineColorButton">Setting line color</string>
+    <string name="settingRideTimeTitle">Setting your ride time</string>
+    <string name="settingRideTime">Setting your ride time [min] :\n</string>
+    <string name="settingTimetable">Setting your timetable :\n</string>
+    <string name="line">Line </string>
+    <string name="minutes2Hint">Enter 0~99 ［min］</string>
+    <string name="minutesUnit">[min]</string>
+
+    //Setting transportation
+    <string name="settingTransportationTitle">Setting your transportation</string>
+    <string name="settingTransportation">Setting your transportation :</string>
+    <string name="settingTransitTimeTitle">Setting your transit time</string>
+    <string name="settingTransitTime">Setting your transit time [min] : </string>
+    <string name="fromDeparturePoint">From departure point</string>
+    <string name="fromDestination">From destination</string>
+    <string name="fromArriveStation1">From arrive station 1</string>
+    <string name="fromArriveStation2">From arrive station 2</string>
+    <string name="toDeparturePoint">To departure point</string>
+    <string name="toDestination">To destination</string>
+    <string name="from">\nFrom</string>
+    <string name="to">\nTo</string>
+    <string name="he"> </string>
+    <string name="kara"> </string>
+    <string name="walking">Walking</string>
+    <string name="bicycle">Bicycle</string>
+    <string name="car">Car</string>
+    <string-array name="transportationList">
+        <item>Walking</item>
+        <item>Bicycle</item>
+        <item>Car</item>
+    </string-array>
+
 
     //Timetable Activity
-    <string name="timetabletitle">Timetable</string>
-    <string name="xxxstation">XXX station</string>
-    <string name="yyylineforzzzstation">(YYY line for ZZZ station)</string>
+    <string name="timetableTitle">Setting Timetable</string>
     <string name="weekday">Weekday</string>
     <string name="weekend">Weekend</string>
-    <string name="hourunit">Hour</string>
+    <string name="hourUnit">Hour</string>
     <string name="hour04">4</string>
     <string name="hour05">5</string>
     <string name="hour06">6</string>
@@ -111,127 +182,25 @@
     <string name="hour23">23</string>
     <string name="hour24">24</string>
     <string name="hour25">25</string>
-    <string name="inputtime">Add and delete departure time</string>
-    <string name="inputtimehint">Enter 0~59 ［min］</string>
-    <string name="copytime">Copy your timetable</string>
-    <string name="copyalltime">Copy all the times ?</string>
-
-    //Settings
-    <string name="settingtitle">Settings</string>
-    <string name="settingchangelinetitle">Setting number of transfers</string>
-    <string name="changelinesettingtitle">Number of transfers</string>
-    <string name="back1changelinesettingtitle">Number of transfers on route home 1</string>
-    <string name="back2changelinesettingtitle">Number of transfers on route home 2</string>
-    <string name="go1changelinesettingtitle">Number of transfers on outgoing route 1</string>
-    <string name="go2changelinesettingtitle">Number of transfers on outgoing route 2</string>
-    <string name="routehome1">Route home 1 </string>
-    <string name="routehome2">Route home 2</string>
-    <string name="outgoingroute1">Outgoing route 1</string>
-    <string name="outgoingroute2">Outgoing route 2</string>
-    <string name="root2displaytitle">Displaying route 2</string>
-    <string name="varioussettingtitle">Various settings</string>
-    <string name="information">About</string>
-    <string name="privacypolicy">terms and privacy policy</string>
-    <string name="privacypolicyagree">I have read and agree to the \n<u>terms and privacy policy</u></string>
-    <string name="privacypolicyurl">https://nakajimamasao-appstudio.web.app/privacypolicy.html</string>
-    <string name="settingmethod">How to setup</string>
-    <string name="linkcollection">Links for setting up timetable</string>
-    <string name="version">Version</string>
-    <string name="one.zero.zero">1.0.0</string>
-    <string name="notset">Not set</string>
-    <string name="zero">Zero</string>
-    <string name="once">Once</string>
-    <string name="twice">Twice</string>
-    <string-array name="changelinelist">
-        <item>Zero</item>
-        <item>Once</item>
-        <item>Twice</item>
-    </string-array>
-    <string-array name="changelinevalue">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-    </string-array>
-
-    //Various Settings
-    <string name="varioussettings">Various settings on</string>
-    <string name="back1route">route home 1</string>
-    <string name="go1route">outgoing route 1</string>
-    <string name="back2route">route home 2</string>
-    <string name="go2route">outgoing route 2</string>
-
-    //Setting station name
-    <string name="stationsettingtitle">Setting your station name</string>
-    <string name="settingstationnametitle">Setting your station name :\n</string>
-    <string name="settingdepartplacetitle">Setting your departure place</string>
-    <string name="settingdestinationtitle">Setting your destination</string>
-    <string name="departstation">departure station </string>
-    <string name="arrivestation">arrival station </string>
-    <string name="depsta">Dep. Sta.</string>
-    <string name="arrsta">Arr. Sta.</string>
-    <string name="departurepoint">Departure point</string>
-    <string name="destination">Destination</string>
-    <string name="departstation1">Departure station 1</string>
-    <string name="arrivestation1">Arrivel station 1</string>
-    <string name="departstation2">Departure station 2</string>
-    <string name="arrivestation2">Arrivel station 2</string>
-    <string name="departstation3">Departure station 3</string>
-    <string name="arrivestation3">Arrivel station 3</string>
-    <string name="character10hint">Maximum 20 Characters</string>
-
-    //Setting line information
-    <string name="linenamesettingtitle">Setting your line name</string>
-    <string name="settinglinenametitle">Setting your line name :\n</string>
-    <string name="settinglinecolortitle">Setting your line color</string>
-    <string name="settinglinecolorbutton">Setting line color</string>
-    <string name="ridetimesettingtitle">Setting your ride time</string>
-    <string name="settingridetimetitle">Setting your ride time [min] :\n</string>
-    <string name="settingtimetabletitle">Setting your timetable :\n</string>
-    <string name="line">Line </string>
-    <string name="minite2hint">Enter 0~99 ［min］</string>
-    <string name="minutesunit">[min]</string>
-
-    //Setting transportation
-    <string name="transportationsettingtitle">Setting your transportation</string>
-    <string name="settingtransportationtitle">Setting your transportation :</string>
-    <string name="transittimesettingtitle">Setting your transit time</string>
-    <string name="settingtransittimetitle">Setting your transit time [min] : </string>
-    <string name="fromdeparturepoint">From departure point</string>
-    <string name="fromdestination">From destination</string>
-    <string name="fromarrivestation1">From arrival station 1</string>
-    <string name="fromarrivestation2">From arrival station 2</string>
-    <string name="todeparturepoint">To departure point</string>
-    <string name="todestination">To destination</string>
-    <string name="from">\nFrom</string>
-    <string name="to">\nTo</string>
-    <string name="he"> </string>
-    <string name="kara"> </string>
-    <string name="walking">Walking</string>
-    <string name="bicycle">Bicycle</string>
-    <string name="car">Car</string>
-    <string-array name="transportationlist">
-        <item>Walking</item>
-        <item>Bicycle</item>
-        <item>Car</item>
-    </string-array>
-
-    //Timetable Settings
-    <string name="timetablesetting">Set up timetable</string>
-    <string name="koron">for</string>
+    <string name="inputTime">Add and delete departure time</string>
+    <string name="inputTimeHint">Enter 0~59 ［min］</string>
+    <string name="copyTime">Copy your timetable</string>
+    <string name="copyAllTime">Copy all the times ?</string>
+    <string name="colon">for</string>
     <string name="houmen"> </string>
     <string name="jidai">:00-</string>
-    <string name="otherrouteline">Other route of Line</string>
-    <string name="picturebutton">Select your timetable picture</string>
-    <string name="timetablehint">Enter 0～59 [min] separated by a space</string>
+    <string name="routeOtherLine">Other route of Line</string>
+    <string name="pictureButton">Select your timetable picture</string>
+    <string name="settingTimetableHint">Enter 0～59 [min] separated by a space</string>
 
     //FirebaseAuth
     <string name="account">Account</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
-    <string name="confirmpassword">Confirm Password</string>
+    <string name="confirm_password">Confirm Password</string>
     <string name="hint_email">Enter your email address</string>
     <string name="hint_password">Enter your password</string>
-    <string name="hint_confirmpassword">Enter your confirm password</string>
+    <string name="hint_confirm_password">Enter your confirm password</string>
 
     //Login
     <string name="login">Login</string>
@@ -245,7 +214,7 @@
     <string name="signup">Sign Up</string>
     <string name="signup_successfully">Sign up successfully</string>
     <string name="signup_error">Sign up error</string>
-    <string name="send_authmail">Send a verification email?</string>
+    <string name="send_auth_mail">Send a verification email?</string>
     <string name="send_auth_mail_error">Verification email error</string>
     <string name="send_auth_mail_successfully">Verification email Sent successfully</string>
     <string name="send_auth_mail_unsuccessfully">Verification email could not be sent</string>
@@ -255,7 +224,7 @@
     <string name="incorrect_password">Incorrect password</string>
     <string name="incorrect_email_or_password">Incorrect email or password</string>
     <string name="incorrect_email_format">Incorrect email format</string>
-    <string name="confirmpassword_not_match">"Confirm password don't match"</string>
+    <string name="confirm_password_not_match">"Confirm password don't match"</string>
 
     //Auth Error
     <string name="email_not_registered">This email is not registered</string>

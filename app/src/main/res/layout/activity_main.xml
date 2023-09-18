@@ -15,7 +15,7 @@
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimaryDark"
+        android:background="@color/colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -32,34 +32,98 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <Button
-                android:id="@+id/currentdate"
-                style="?android:attr/borderlessButtonStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="1.2"
-                android:background="@color/colorPrimaryDark"
-                android:gravity="center"
-                android:text="@string/currentdate"
-                android:textColor="@color/colorWhite"
-                android:textSize="18sp" />
-
-            <Button
-                android:id="@+id/currenttime"
+                android:id="@+id/currentDate"
                 style="?android:attr/borderlessButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_weight="1"
-                android:background="@color/colorPrimaryDark"
+                android:background="@color/colorPrimary"
+                android:gravity="center"
+                android:text="-"
+                android:textColor="@color/colorWhite"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/currentTime"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@color/colorPrimary"
+                android:text="-"
                 android:gravity="center"
                 android:orientation="horizontal"
-                android:text="@string/currenttime"
                 android:textColor="@color/colorWhite"
                 android:textSize="24sp" />
 
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/buttonsLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="5dp"
+            android:background="@color/colorPrimary"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/currentDateLayout">
+
+            <Button
+                android:id="@+id/backButton"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/on_button"
+                android:text="@string/switchBack"
+                android:textColor="@color/colorWhite"
+                android:textSize="15sp"
+                android:textStyle="bold"/>
+
+            <Button
+                android:id="@+id/goButton"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/off_button"
+                android:text="@string/switchGo"
+                android:textColor="@color/colorWhite"
+                android:textSize="15sp"
+                android:textStyle="bold"/>
+
+            <Button
+                android:id="@+id/timeStartButton"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/on_button"
+                android:text="@string/timeStart"
+                android:textColor="@color/colorWhite"
+                android:textSize="15sp"
+                android:textStyle="bold"/>
+
+            <Button
+                android:id="@+id/timeStopButton"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/off_button"
+                android:text="@string/timeStop"
+                android:textColor="@color/colorWhite"
+                android:textSize="15sp"
+                android:textStyle="bold"/>
+
             <ImageView
-                android:id="@+id/settingimageview"
+                android:id="@+id/settingsButton"
                 android:layout_width="25dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
@@ -69,96 +133,20 @@
 
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/constraintgobackLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="5dp"
-            android:background="@color/colorPrimaryDark"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/currentDateLayout">
-
-            <Button
-                android:id="@+id/backbutton"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:background="@drawable/onbutton"
-                android:text="@string/switchback"
-                android:textColor="@color/colorWhite"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@+id/switchbox"
-                app:layout_constraintStart_toStartOf="@+id/switchbox"
-                app:layout_constraintTop_toTopOf="@+id/switchbox" />
-
-            <Button
-                android:id="@+id/gobutton"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:background="@drawable/offbutton"
-                android:text="@string/switchgo"
-                android:textColor="@color/colorWhite"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@+id/switchbox"
-                app:layout_constraintStart_toEndOf="@+id/switchtext"
-                app:layout_constraintTop_toTopOf="@+id/switchbox" />
-
-            <Button
-                android:id="@+id/timestartbutton"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:background="@drawable/onbutton"
-                android:text="@string/timestart"
-                android:textColor="@color/colorWhite"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/switchbutton"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <Button
-                android:id="@+id/timestopbutton"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:background="@drawable/offbutton"
-                android:text="@string/timestop"
-                android:textColor="@color/colorWhite"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/switchbox"
-                app:layout_constraintTop_toTopOf="parent" />
-
-        </LinearLayout>
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <View
         android:id="@+id/centerLine"
         android:layout_width="2dp"
         android:layout_height="0dp"
-        android:background="@color/colorPrimaryDark"
+        android:background="@color/colorPrimary"
         app:layout_constraintBottom_toTopOf="@+id/adview"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
     <ScrollView
-        android:id="@+id/FragmentScrollView"
+        android:id="@+id/fragmentScrollView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:gravity="top"
@@ -169,26 +157,24 @@
         app:layout_constraintVertical_bias="0.0">
 
         <LinearLayout
-            android:id="@+id/FragmentConstraintLayout"
+            android:id="@+id/fragmentLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             tools:ignore="DisableBaselineAlignment,ScrollViewSize">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/goorback1fragment"
+                android:id="@+id/goOrBack1Fragment"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1">
-
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/goorback2fragment"
+                android:id="@+id/goOrBack2Fragment"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1">
-
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </LinearLayout>
@@ -196,7 +182,7 @@
     </ScrollView>
 
     <com.google.android.gms.ads.AdView
-        android:id="@+id/adview"
+        android:id="@+id/admobView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         ads:adSize="SMART_BANNER"
@@ -204,6 +190,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/FragmentScrollView"></com.google.android.gms.ads.AdView>
+        app:layout_constraintTop_toBottomOf="@id/fragmentScrollView">
+    </com.google.android.gms.ads.AdView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

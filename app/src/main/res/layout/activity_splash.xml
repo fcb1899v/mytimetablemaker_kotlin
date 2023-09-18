@@ -9,21 +9,21 @@
     android:background="@color/colorAccent">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/splashImage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:scaleType="fitEnd"
-        app:layout_constraintBottom_toTopOf="@+id/primaryback"
+        app:layout_constraintBottom_toTopOf="@+id/splashBackground"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/splash"
         tools:ignore="ContentDescription" />
 
     <View
-        android:id="@+id/primaryback"
+        android:id="@+id/splashBackground"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="50dp"
         android:background="@color/colorPrimary"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/splashImage"
         app:layout_constraintBottom_toBottomOf="parent" />
 
 

@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:ads="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main_layout"
+    android:id="@+id/signUpLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorAccent"
@@ -21,7 +21,7 @@
             android:orientation="vertical" >
 
             <ProgressBar
-                android:id="@+id/progressBar"
+                android:id="@+id/signUpProgressBar"
                 style="?android:attr/progressBarStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -30,14 +30,13 @@
                 tools:ignore="MissingConstraints" />
 
             <LinearLayout
-                android:id="@+id/linearLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/titleText"
+                    android:id="@+id/signUpTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="30dp"
@@ -50,11 +49,11 @@
                 <EditText
                     android:id="@+id/fieldEmail"
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_height="48dp"
                     android:layout_marginStart="30dp"
                     android:layout_marginEnd="30dp"
                     android:autofillHints=""
-                    android:background="@drawable/customtextfield"
+                    android:background="@drawable/text_field"
                     android:hint="@string/email"
                     android:inputType="textEmailAddress"
                     android:paddingStart="15dp"
@@ -67,12 +66,12 @@
                 <EditText
                     android:id="@+id/fieldPassword"
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_height="48dp"
                     android:layout_marginStart="30dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginEnd="30dp"
                     android:autofillHints=""
-                    android:background="@drawable/customtextfield"
+                    android:background="@drawable/text_field"
                     android:hint="@string/password"
                     android:inputType="textPassword"
                     android:paddingStart="15dp"
@@ -85,13 +84,13 @@
                 <EditText
                     android:id="@+id/fieldConfirmPassword"
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_height="48dp"
                     android:layout_marginStart="30dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginEnd="30dp"
                     android:autofillHints=""
-                    android:background="@drawable/customtextfield"
-                    android:hint="@string/confirmpassword"
+                    android:background="@drawable/text_field"
+                    android:hint="@string/confirm_password"
                     android:inputType="textPassword"
                     android:paddingStart="15dp"
                     android:textColor="@color/colorPrimary"
@@ -101,13 +100,13 @@
                     tools:ignore="RtlSymmetry" />
 
                 <Button
-                    android:id="@+id/signupregisterbutton"
+                    android:id="@+id/signUpRegisterButton"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="48dp"
                     android:layout_marginStart="30dp"
                     android:layout_marginTop="40dp"
                     android:layout_marginEnd="30dp"
-                    android:background="@drawable/notbutton"
+                    android:background="@drawable/not_button"
                     android:text="@string/register"
                     android:textColor="@color/colorWhite"
                     android:textSize="16sp"
@@ -120,20 +119,20 @@
                     android:orientation="horizontal">
 
                     <CheckBox
-                        android:id="@+id/signupcheckbox"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:id="@+id/signUpCheckBox"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
                         android:layout_margin="5dp"
                         android:layout_gravity="center"
                         android:theme="@style/MyCheckBox" />
 
                     <TextView
-                        android:id="@+id/signupprivacypolicy"
+                        android:id="@+id/signUpPrivacyPolicy"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
                         android:layout_gravity="center"
-                        android:text="@string/privacypolicyagree"
+                        android:text="@string/privacyPolicyAgree"
                         android:textColor="@color/colorWhite"
                         android:textSize="16sp" />
 
@@ -146,7 +145,7 @@
     </ScrollView>
 
     <com.google.android.gms.ads.AdView
-        android:id="@+id/signupadview"
+        android:id="@+id/signUpAdmobView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         ads:adSize="SMART_BANNER"

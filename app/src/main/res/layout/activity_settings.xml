@@ -9,7 +9,7 @@
     tools:context=".SettingsActivity">
 
     <FrameLayout
-        android:id="@+id/main_settings"
+        android:id="@+id/settings"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"

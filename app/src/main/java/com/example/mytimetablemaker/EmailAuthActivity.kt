@@ -8,19 +8,17 @@ import androidx.preference.PreferenceManager
 import com.example.mytimetablemaker.databinding.ActivityEmailauthBinding
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthResult
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
 class EmailAuthActivity : AppCompatActivity() {
 
     //クラスの定義
-    private var auth: FirebaseAuth = Firebase.auth
-    private var emailauth = EmailAuth(auth)
-    private var firebasefirestore = FirebaseFirestore()
-    private var admobclass = AdMobClass()
+    private var emailAuth = EmailAuth(Application.context)
+    private var firestore = FirebaseFirestore(Application.context)
+    private var admob = AdMob()
     private var pref = PreferenceManager.getDefaultSharedPreferences(Application.context)
-    private var loggedin = pref.getBoolean("loggedin", false)
+    private var loggedIn = pref.getBoolean("loggedin", false)
 
     //ViewBinding
     private lateinit var binding: ActivityEmailauthBinding
@@ -30,9 +28,12 @@ class EmailAuthActivity : AppCompatActivity() {
         binding = ActivityEmailauthBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        //ステータスバーの設定
+        window.statusBarColor = getColor(R.color.colorPrimary)
+
         //一度サインインしたらログイン画面をスキップ
-        if (loggedin) {
-            startActivity(emailauth.intentToMainActivity())
+        if (loggedIn) {
+            startActivity(emailAuth.intentToMainActivity())
         }
 
         //サインイン
@@ -50,21 +51,21 @@ class EmailAuthActivity : AppCompatActivity() {
         }
 
         //パスワードリセット
-        binding.sendresetpassbutton.setOnClickListener {
-            emailauth.sendPasswordResetMailDialog(this)
+        binding.resetPasswordButton.setOnClickListener {
+            emailAuth.sendPasswordResetMailDialog(this)
         }
 
         //AdMob
-        admobclass.setAdMob(binding.topadview, this)
+        admob.setAdMob(binding.signInAdmobView, this)
     }
 
     // ログイン処理
     private fun loginAccount(context: Context, email: String, password: String) {
-        if (emailauth.loginToast(email, password)) {
-            auth.signInWithEmailAndPassword(email, password).addOnCompleteListener { task: Task<AuthResult> ->
-                if (emailauth.loginMessage(this, task)) {
-                    firebasefirestore.getFirestoreAtSignIn(context)
-                    startActivity(emailauth.intentToMainActivity())
+        if (emailAuth.loginToast(email, password)) {
+            Firebase.auth.signInWithEmailAndPassword(email, password).addOnCompleteListener { task: Task<AuthResult> ->
+                if (emailAuth.loginMessage(this, task)) {
+                    firestore.getFirestoreAtSignIn(context)
+                    startActivity(emailAuth.intentToMainActivity())
                 }
             }
         }

@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".VariousSettingsFragment">
+    tools:context=".SettingsVariousFragment">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -30,7 +30,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -47,7 +46,7 @@
                         android:layout_marginStart="15dp"
                         android:layout_weight="1"
                         android:gravity="start|center_vertical"
-                        android:text="@string/stationsettingtitle"
+                        android:text="@string/settingStationTitle"
                         android:textColor="@color/colorWhite"
                         android:textSize="18sp"
                         android:textStyle="bold"
@@ -67,25 +66,25 @@
                     tools:ignore="NestedWeights">
 
                     <TextView
-                        android:id="@+id/departpointbutton"
+                        android:id="@+id/departPointButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="15dp"
                         android:layout_weight="1"
                         android:gravity="start|center_vertical"
-                        android:text="@string/departurepoint"
+                        android:text="@string/departurePoint"
                         android:textColor="@color/colorBlack"
                         android:textSize="18sp" />
 
                     <TextView
-                        android:id="@+id/departpointtext"
+                        android:id="@+id/departPointText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="right|center_vertical"
                         android:layout_marginEnd="15dp"
                         android:layout_weight="1"
                         android:gravity="end"
-                        android:text="@string/notset"
+                        android:text="@string/notSet"
                         android:textColor="@color/colorGray"
                         android:textSize="18sp"
                         tools:ignore="RtlHardcoded" />
@@ -104,25 +103,25 @@
                     tools:ignore="NestedWeights">
 
                     <TextView
-                        android:id="@+id/departstation1button"
+                        android:id="@+id/departStationButton1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="15dp"
                         android:layout_weight="1"
                         android:gravity="start|center_vertical"
-                        android:text="@string/departstation1"
+                        android:text="@string/departStation1"
                         android:textColor="@color/colorBlack"
                         android:textSize="18sp" />
 
                     <TextView
-                        android:id="@+id/departstation1text"
+                        android:id="@+id/departStationText1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="right|center_vertical"
                         android:layout_marginEnd="15dp"
                         android:layout_weight="1"
                         android:gravity="end"
-                        android:text="@string/notset"
+                        android:text="@string/notSet"
                         android:textColor="@color/colorGray"
                         android:textSize="18sp"
                         tools:ignore="RtlHardcoded" />
@@ -141,25 +140,25 @@
                     tools:ignore="NestedWeights">
 
                     <TextView
-                        android:id="@+id/arrivestation1button"
+                        android:id="@+id/arriveStationButton1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="15dp"
                         android:layout_weight="1"
                         android:gravity="start|center_vertical"
-                        android:text="@string/arrivestation1"
+                        android:text="@string/arriveStation1"
                         android:textColor="@color/colorBlack"
                         android:textSize="18sp" />
 
                     <TextView
-                        android:id="@+id/arrivestation1text"
+                        android:id="@+id/arriveStationText1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="right|center_vertical"
                         android:layout_marginEnd="15dp"
                         android:layout_weight="1"
                         android:gravity="end"
-                        android:text="@string/notset"
+                        android:text="@string/notSet"
                         android:textColor="@color/colorGray"
                         android:textSize="18sp"
                         tools:ignore="RtlHardcoded" />
@@ -185,25 +184,25 @@
                         tools:ignore="NestedWeights">
 
                         <TextView
-                            android:id="@+id/departstation2button"
+                            android:id="@+id/departStationButton2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="15dp"
                             android:layout_weight="1"
                             android:gravity="start|center_vertical"
-                            android:text="@string/departstation2"
+                            android:text="@string/departStation2"
                             android:textColor="@color/colorBlack"
                             android:textSize="18sp" />
 
                         <TextView
-                            android:id="@+id/departstation2text"
+                            android:id="@+id/departStationText2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="right|center_vertical"
                             android:layout_marginEnd="15dp"
                             android:layout_weight="1"
                             android:gravity="end"
-                            android:text="@string/notset"
+                            android:text="@string/notSet"
                             android:textColor="@color/colorGray"
                             android:textSize="18sp"
                             tools:ignore="RtlHardcoded" />
@@ -222,25 +221,25 @@
                         tools:ignore="NestedWeights">
 
                         <TextView
-                            android:id="@+id/arrivestation2button"
+                            android:id="@+id/arriveStationButton2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="15dp"
                             android:layout_weight="1"
                             android:gravity="start|center_vertical"
-                            android:text="@string/arrivestation2"
+                            android:text="@string/arriveStation2"
                             android:textColor="@color/colorBlack"
                             android:textSize="18sp" />
 
                         <TextView
-                            android:id="@+id/arrivestation2text"
+                            android:id="@+id/arriveStationText2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="right|center_vertical"
                             android:layout_marginEnd="15dp"
                             android:layout_weight="1"
                             android:gravity="end"
-                            android:text="@string/notset"
+                            android:text="@string/notSet"
                             android:textColor="@color/colorGray"
                             android:textSize="18sp"
                             tools:ignore="RtlHardcoded" />
@@ -267,25 +266,25 @@
                         tools:ignore="NestedWeights">
 
                         <TextView
-                            android:id="@+id/departstation3button"
+                            android:id="@+id/departStationButton3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="15dp"
                             android:layout_weight="1"
                             android:gravity="start|center_vertical"
-                            android:text="@string/departstation3"
+                            android:text="@string/departStation3"
                             android:textColor="@color/colorBlack"
                             android:textSize="18sp" />
 
                         <TextView
-                            android:id="@+id/departstation3text"
+                            android:id="@+id/departStationText3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="right|center_vertical"
                             android:layout_marginEnd="15dp"
                             android:layout_weight="1"
                             android:gravity="end"
-                            android:text="@string/notset"
+                            android:text="@string/notSet"
                             android:textColor="@color/colorGray"
                             android:textSize="18sp"
                             tools:ignore="RtlHardcoded" />
@@ -304,25 +303,25 @@
                         tools:ignore="NestedWeights">
 
                         <TextView
-                            android:id="@+id/arrivestation3button"
+                            android:id="@+id/arriveStationButton3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="15dp"
                             android:layout_weight="1"
                             android:gravity="start|center_vertical"
-                            android:text="@string/arrivestation3"
+                            android:text="@string/arriveStation3"
                             android:textColor="@color/colorBlack"
                             android:textSize="18sp" />
 
                         <TextView
-                            android:id="@+id/arrivestation3text"
+                            android:id="@+id/arriveStationText3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="right|center_vertical"
                             android:layout_marginEnd="15dp"
                             android:layout_weight="1"
                             android:gravity="end"
-                            android:text="@string/notset"
+                            android:text="@string/notSet"
                             android:textColor="@color/colorGray"
                             android:textSize="18sp"
                             tools:ignore="RtlHardcoded" />
@@ -343,7 +342,7 @@
                     tools:ignore="NestedWeights">
 
                     <TextView
-                        android:id="@+id/arrivepointbutton"
+                        android:id="@+id/destinationButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="15dp"
@@ -354,14 +353,14 @@
                         android:textSize="18sp" />
 
                     <TextView
-                        android:id="@+id/arrivepointtext"
+                        android:id="@+id/destinationText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="right|center_vertical"
                         android:layout_marginEnd="15dp"
                         android:layout_weight="1"
                         android:gravity="end"
-                        android:text="@string/notset"
+                        android:text="@string/notSet"
                         android:textColor="@color/colorGray"
                         android:textSize="18sp"
                         tools:ignore="RtlHardcoded" />
@@ -392,7 +391,7 @@
                         android:layout_marginStart="15dp"
                         android:layout_weight="1"
                         android:gravity="start|center_vertical"
-                        android:text="@string/linenamesettingtitle"
+                        android:text="@string/settingLineNameTitle"
                         android:textColor="@color/colorWhite"
                         android:textSize="18sp"
                         android:textStyle="bold"
@@ -401,6 +400,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/lineNameLayout1"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
@@ -412,25 +412,25 @@
                     tools:ignore="NestedWeights">
 
                     <TextView
-                        android:id="@+id/linename1button"
+                        android:id="@+id/lineNameButton1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="15dp"
                         android:layout_weight="1"
                         android:gravity="start|center_vertical"
-                        android:text="@string/line1"
+                        android:text="@string/line"
                         android:textColor="@color/colorBlack"
                         android:textSize="18sp" />
 
                     <TextView
-                        android:id="@+id/linename1text"
+                        android:id="@+id/lineNameText1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="right|center_vertical"
                         android:layout_marginEnd="15dp"
                         android:layout_weight="1"
                         android:gravity="end"
-                        android:text="@string/notset"
+                        android:text="@string/notSet"
                         android:textColor="@color/colorGray"
                         android:textSize="18sp"
                         tools:ignore="RtlHardcoded" />
@@ -438,7 +438,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/linename2layout"
+                    android:id="@+id/lineNameLayout2"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
@@ -450,25 +450,25 @@
                     tools:ignore="NestedWeights">
 
                     <TextView
-                        android:id="@+id/linename2button"
+                        android:id="@+id/lineNameButton2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="15dp"
                         android:layout_weight="1"
                         android:gravity="start|center_vertical"
-                        android:text="@string/line2"
+                        android:text="@string/line"
                         android:textColor="@color/colorBlack"
                         android:textSize="18sp" />
 
                     <TextView
-                        android:id="@+id/linename2text"
+                        android:id="@+id/lineNameText2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="right|center_vertical"
                         android:layout_marginEnd="15dp"
                         android:layout_weight="1"
                         android:gravity="end"
-                        android:text="@string/notset"
+                        android:text="@string/notSet"
                         android:textColor="@color/colorGray"
                         android:textSize="18sp"
                         tools:ignore="RtlHardcoded" />
@@ -476,7 +476,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/linename3layout"
+                    android:id="@+id/lineNameLayout3"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
@@ -488,25 +488,25 @@
                     tools:ignore="NestedWeights">
 
                     <TextView
-                        android:id="@+id/linename3button"
+                        android:id="@+id/lineNameButton3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="15dp"
                         android:layout_weight="1"
                         android:gravity="start|center_vertical"
-                        android:text="@string/line3"
+                        android:text="@string/line"
                         android:textColor="@color/colorBlack"
                         android:textSize="18sp" />
 
                     <TextView
-                        android:id="@+id/linename3text"
+                        android:id="@+id/lineNameText3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="right|center_vertical"
                         android:layout_marginEnd="15dp"
                         android:layout_weight="1"
                         android:gravity="end"
-                        android:text="@string/notset"
+                        android:text="@string/notSet"
                         android:textColor="@color/colorGray"
                         android:textSize="18sp"
                         tools:ignore="RtlHardcoded" />
@@ -537,7 +537,7 @@
                         android:layout_marginStart="15dp"
                         android:layout_weight="1"
                         android:gravity="start|center_vertical"
-                        android:text="@string/ridetimesettingtitle"
+                        android:text="@string/settingRideTimeTitle"
                         android:textColor="@color/colorWhite"
                         android:textSize="18sp"
                         android:textStyle="bold"
@@ -546,6 +546,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/rideTimeLayout1"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
@@ -557,25 +558,25 @@
                     tools:ignore="NestedWeights">
 
                     <TextView
-                        android:id="@+id/ridetime1button"
+                        android:id="@+id/rideTimeButton1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="15dp"
                         android:layout_weight="1"
                         android:gravity="start|center_vertical"
-                        android:text="@string/line1"
+                        android:text="@string/line"
                         android:textColor="@color/colorBlack"
                         android:textSize="18sp" />
 
                     <TextView
-                        android:id="@+id/ridetime1text"
+                        android:id="@+id/rideTimeText1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="right|center_vertical"
                         android:layout_marginEnd="15dp"
                         android:layout_weight="1"
                         android:gravity="end"
-                        android:text="@string/notset"
+                        android:text="@string/notSet"
                         android:textColor="@color/colorGray"
                         android:textSize="18sp"
                         tools:ignore="RtlHardcoded" />
@@ -583,7 +584,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/ridetime2layout"
+                    android:id="@+id/rideTimeLayout2"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
@@ -595,25 +596,25 @@
                     tools:ignore="NestedWeights">
 
                     <TextView
-                        android:id="@+id/ridetime2button"
+                        android:id="@+id/rideTimeButton2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="15dp"
                         android:layout_weight="1"
                         android:gravity="start|center_vertical"
-                        android:text="@string/line2"
+                        android:text="@string/line"
                         android:textColor="@color/colorBlack"
                         android:textSize="18sp" />
 
                     <TextView
-                        android:id="@+id/ridetime2text"
+                        android:id="@+id/rideTimeText2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="right|center_vertical"
                         android:layout_marginEnd="15dp"
                         android:layout_weight="1"
                         android:gravity="end"
-                        android:text="@string/notset"
+                        android:text="@string/notSet"
                         android:textColor="@color/colorGray"
                         android:textSize="18sp"
                         tools:ignore="RtlHardcoded" />
@@ -621,7 +622,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/ridetime3layout"
+                    android:id="@+id/rideTimeLayout3"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
@@ -633,25 +634,25 @@
                     tools:ignore="NestedWeights">
 
                     <TextView
-                        android:id="@+id/ridetime3button"
+                        android:id="@+id/rideTimeButton3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="15dp"
                         android:layout_weight="1"
                         android:gravity="start|center_vertical"
-                        android:text="@string/line3"
+                        android:text="@string/line"
                         android:textColor="@color/colorBlack"
                         android:textSize="18sp" />
 
                     <TextView
-                        android:id="@+id/ridetime3text"
+                        android:id="@+id/rideTimeText3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="right|center_vertical"
                         android:layout_marginEnd="15dp"
                         android:layout_weight="1"
                         android:gravity="end"
-                        android:text="@string/notset"
+                        android:text="@string/notSet"
                         android:textColor="@color/colorGray"
                         android:textSize="18sp"
                         tools:ignore="RtlHardcoded" />
@@ -682,7 +683,7 @@
                         android:layout_marginStart="15dp"
                         android:layout_weight="1"
                         android:gravity="start|center_vertical"
-                        android:text="@string/transportationsettingtitle"
+                        android:text="@string/settingTransportationTitle"
                         android:textColor="@color/colorWhite"
                         android:textSize="18sp"
                         android:textStyle="bold"
@@ -691,6 +692,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/transportationLayout1"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
@@ -702,25 +704,25 @@
                     tools:ignore="NestedWeights">
 
                     <TextView
-                        android:id="@+id/transportation1button"
+                        android:id="@+id/transportationButton1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="15dp"
                         android:layout_weight="1"
                         android:gravity="start|center_vertical"
-                        android:text="@string/fromdeparturepoint"
+                        android:text="@string/fromDeparturePoint"
                         android:textColor="@color/colorBlack"
                         android:textSize="18sp" />
 
                     <TextView
-                        android:id="@+id/transportation1text"
+                        android:id="@+id/transportationText1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="right|center_vertical"
                         android:layout_marginEnd="15dp"
                         android:layout_weight="1"
                         android:gravity="end"
-                        android:text="@string/notset"
+                        android:text="@string/notSet"
                         android:textColor="@color/colorGray"
                         android:textSize="18sp"
                         tools:ignore="RtlHardcoded" />
@@ -728,7 +730,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/transportation2layout"
+                    android:id="@+id/transportationLayout2"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
@@ -740,25 +742,25 @@
                     tools:ignore="NestedWeights">
 
                     <TextView
-                        android:id="@+id/transportation2button"
+                        android:id="@+id/transportationButton2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="15dp"
                         android:layout_weight="1"
                         android:gravity="start|center_vertical"
-                        android:text="@string/fromarrivestation1"
+                        android:text="@string/fromArriveStation1"
                         android:textColor="@color/colorBlack"
                         android:textSize="18sp" />
 
                     <TextView
-                        android:id="@+id/transportation2text"
+                        android:id="@+id/transportationText2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="right|center_vertical"
                         android:layout_marginEnd="15dp"
                         android:layout_weight="1"
                         android:gravity="end"
-                        android:text="@string/notset"
+                        android:text="@string/notSet"
                         android:textColor="@color/colorGray"
                         android:textSize="18sp"
                         tools:ignore="RtlHardcoded" />
@@ -766,7 +768,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/transportation3layout"
+                    android:id="@+id/transportationLayout3"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
@@ -778,25 +780,25 @@
                     tools:ignore="NestedWeights">
 
                     <TextView
-                        android:id="@+id/transportation3button"
+                        android:id="@+id/transportationButton3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="15dp"
                         android:layout_weight="1"
                         android:gravity="start|center_vertical"
-                        android:text="@string/fromarrivestation2"
+                        android:text="@string/fromArriveStation2"
                         android:textColor="@color/colorBlack"
                         android:textSize="18sp" />
 
                     <TextView
-                        android:id="@+id/transportation3text"
+                        android:id="@+id/transportationText3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="right|center_vertical"
                         android:layout_marginEnd="15dp"
                         android:layout_weight="1"
                         android:gravity="end"
-                        android:text="@string/notset"
+                        android:text="@string/notSet"
                         android:textColor="@color/colorGray"
                         android:textSize="18sp"
                         tools:ignore="RtlHardcoded" />
@@ -815,25 +817,25 @@
                     tools:ignore="NestedWeights">
 
                     <TextView
-                        android:id="@+id/transportationebutton"
+                        android:id="@+id/transportationButtonEnd"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="15dp"
                         android:layout_weight="1"
                         android:gravity="start|center_vertical"
-                        android:text="@string/todestination"
+                        android:text="@string/toDestination"
                         android:textColor="@color/colorBlack"
                         android:textSize="18sp" />
 
                     <TextView
-                        android:id="@+id/transportationetext"
+                        android:id="@+id/transportationTextEnd"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="right|center_vertical"
                         android:layout_marginEnd="15dp"
                         android:layout_weight="1"
                         android:gravity="end"
-                        android:text="@string/notset"
+                        android:text="@string/notSet"
                         android:textColor="@color/colorGray"
                         android:textSize="18sp"
                         tools:ignore="RtlHardcoded" />
@@ -864,7 +866,7 @@
                         android:layout_marginStart="15dp"
                         android:layout_weight="1"
                         android:gravity="start|center_vertical"
-                        android:text="@string/transittimesettingtitle"
+                        android:text="@string/settingTransitTimeTitle"
                         android:textColor="@color/colorWhite"
                         android:textSize="18sp"
                         android:textStyle="bold"
@@ -873,6 +875,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/transitTimeLayout1"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
@@ -884,25 +887,25 @@
                     tools:ignore="NestedWeights">
 
                     <TextView
-                        android:id="@+id/transittime1button"
+                        android:id="@+id/transitTimeButton1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="15dp"
                         android:layout_weight="1"
                         android:gravity="start|center_vertical"
-                        android:text="@string/fromdeparturepoint"
+                        android:text="@string/fromDeparturePoint"
                         android:textColor="@color/colorBlack"
                         android:textSize="18sp" />
 
                     <TextView
-                        android:id="@+id/transittime1text"
+                        android:id="@+id/transitTimeText1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="right|center_vertical"
                         android:layout_marginEnd="15dp"
                         android:layout_weight="1"
                         android:gravity="end"
-                        android:text="@string/notset"
+                        android:text="@string/notSet"
                         android:textColor="@color/colorGray"
                         android:textSize="18sp"
                         tools:ignore="RtlHardcoded" />
@@ -910,7 +913,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/transittime2layout"
+                    android:id="@+id/transitTimeLayout2"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
@@ -922,25 +925,25 @@
                     tools:ignore="NestedWeights">
 
                     <TextView
-                        android:id="@+id/transittime2button"
+                        android:id="@+id/transitTimeButton2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="15dp"
                         android:layout_weight="1"
                         android:gravity="start|center_vertical"
-                        android:text="@string/fromarrivestation1"
+                        android:text="@string/fromArriveStation1"
                         android:textColor="@color/colorBlack"
                         android:textSize="18sp" />
 
                     <TextView
-                        android:id="@+id/transittime2text"
+                        android:id="@+id/transitTimeText2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="right|center_vertical"
                         android:layout_marginEnd="15dp"
                         android:layout_weight="1"
                         android:gravity="end"
-                        android:text="@string/notset"
+                        android:text="@string/notSet"
                         android:textColor="@color/colorGray"
                         android:textSize="18sp"
                         tools:ignore="RtlHardcoded,TooManyViews" />
@@ -948,7 +951,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/transittime3layout"
+                    android:id="@+id/transitTimeLayout3"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
@@ -960,26 +963,26 @@
                     tools:ignore="NestedWeights">
 
                     <TextView
-                        android:id="@+id/transittime3button"
+                        android:id="@+id/transitTimeButton3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="15dp"
                         android:layout_weight="1"
                         android:gravity="start|center_vertical"
-                        android:text="@string/fromarrivestation2"
+                        android:text="@string/fromArriveStation2"
                         android:textColor="@color/colorBlack"
                         android:textSize="18sp"
                         tools:ignore="TooManyViews" />
 
                     <TextView
-                        android:id="@+id/transittime3text"
+                        android:id="@+id/transitTimeText3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="right|center_vertical"
                         android:layout_marginEnd="15dp"
                         android:layout_weight="1"
                         android:gravity="end"
-                        android:text="@string/notset"
+                        android:text="@string/notSet"
                         android:textColor="@color/colorGray"
                         android:textSize="18sp"
                         tools:ignore="RtlHardcoded" />
@@ -998,25 +1001,25 @@
                     tools:ignore="NestedWeights">
 
                     <TextView
-                        android:id="@+id/transittimeebutton"
+                        android:id="@+id/transitTimeButtonEnd"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="15dp"
                         android:layout_weight="1"
                         android:gravity="start|center_vertical"
-                        android:text="@string/todestination"
+                        android:text="@string/toDestination"
                         android:textColor="@color/colorBlack"
                         android:textSize="18sp" />
 
                     <TextView
-                        android:id="@+id/transittimeetext"
+                        android:id="@+id/transitTimeTextEnd"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="right|center_vertical"
                         android:layout_marginEnd="15dp"
                         android:layout_weight="1"
                         android:gravity="end"
-                        android:text="@string/notset"
+                        android:text="@string/notSet"
                         android:textColor="@color/colorGray"
                         android:textSize="18sp"
                         tools:ignore="RtlHardcoded" />

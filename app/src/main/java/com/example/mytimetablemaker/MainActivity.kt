@@ -6,19 +6,21 @@ import android.os.Handler
 import android.os.Looper
 import android.view.View.GONE
 import android.view.View.VISIBLE
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.example.mytimetablemaker.databinding.ActivityMainBinding
 import java.text.SimpleDateFormat
-import java.util.*
+import java.util.Calendar
+import java.util.Date
+import java.util.Locale
 
 class MainActivity: AppCompatActivity() {
 
     //クラスの定義
     private val handler = Handler(Looper.getMainLooper())
     private var runnable = Runnable {}
-    private val mainview = MainView()
-    private val mainviewdialog = MainViewDialog()
-    private val admobclass = AdMobClass()
+    private val date = MyDate()
+    private val admobClass = AdMob()
     private val calendar: Calendar = Calendar.getInstance()
 
     //ViewBinding
@@ -30,102 +32,115 @@ class MainActivity: AppCompatActivity() {
         setContentView(binding.root)
 
         //時刻を止めるためのフラグ
-        var timeflag = true
+        var timeFlag = true
 
         //帰宅と外出を示すフラグ
-        var gobackflag = true
-        var goorback1 = "back1"
-        var goorback2 = "back2"
+        var goOrBackFlag = true
+        var goOrBack1 = "back1"
+        var goOrBack2 = "back2"
+
+        val button: Map<String, Button> = mapOf(
+            "date" to binding.currentDate,
+            "time" to binding.currentTime,
+            "start" to binding.timeStartButton,
+            "stop" to binding.timeStopButton,
+            "back" to binding.backButton,
+            "go" to binding.goButton,
+        )
+
+        //ステータスバーの設定
+        window.statusBarColor = getColor(R.color.colorPrimary)
 
         //設定画面に移動
-        binding.settingimageview.setOnClickListener {
+        binding.settingsButton.setOnClickListener {
             startActivity(Intent(this, SettingsActivity::class.java))
         }
 
         //＜日付および時刻に関する設定＞
 
         //時刻の停止ボタンの設定（時刻が止まってない場合）
-        binding.timestopbutton.setOnClickListener {
-            if (timeflag) {
-                timeflag = false
-                binding.timestartbutton.setBackgroundResource(R.drawable.offbutton)
-                binding.timestopbutton.setBackgroundResource(R.drawable.onbutton)
+        button["stop"]?.setOnClickListener {
+            if (timeFlag) {
+                timeFlag = false
+                button["start"]?.setBackgroundResource(R.drawable.off_button)
+                button["stop"]?.setBackgroundResource(R.drawable.on_button)
             }
         }
         //時刻の開始ボタンの設定（時刻が止まっている場合）
-        binding.timestartbutton.setOnClickListener {
-            if (!timeflag) {
-                timeflag = true
-                binding.timestartbutton.setBackgroundResource(R.drawable.onbutton)
-                binding.timestopbutton.setBackgroundResource(R.drawable.offbutton)
+        button["start"]?.setOnClickListener {
+            if (!timeFlag) {
+                timeFlag = true
+                button["start"]?.setBackgroundResource(R.drawable.on_button)
+                button["stop"]?.setBackgroundResource(R.drawable.off_button)
             }
         }
+
         //日付の選択および表示（時刻が止まっている場合）
-        binding.currentdate.setOnClickListener {
-            if (!timeflag) {
-                mainviewdialog.setDatePickerDialog(binding.currentdate, this)
+        button["date"]?.setOnClickListener {
+            if (!timeFlag) {
+                date.setDatePickerDialog(button["date"]!!, this)
             }
         }
         //時刻の選択および表示（時刻が止まっている場合）
-        binding.currenttime.setOnClickListener {
-            if (!timeflag) {
-                mainviewdialog.setTimePickerDialog(binding.currenttime, this)
+        button["time"]?.setOnClickListener {
+            if (!timeFlag) {
+                date.setTimePickerDialog(button["time"]!!, this)
             }
         }
 
         //外出画面から帰宅画面に遷移するときの表示変更
-        binding.backbutton.setOnClickListener {
-            if (!gobackflag) {
-                gobackflag = true
-                goorback1 = "back1"
-                goorback2 = "back2"
-                binding.backbutton.setBackgroundResource(R.drawable.onbutton)
-                binding.gobutton.setBackgroundResource(R.drawable.offbutton)
+        button["back"]?.setOnClickListener {
+            if (!goOrBackFlag) {
+                goOrBackFlag = true
+                goOrBack1 = "back1"
+                goOrBack2 = "back2"
+                button["back"]?.setBackgroundResource(R.drawable.on_button)
+                button["go"]?.setBackgroundResource(R.drawable.off_button)
             }
         }
         //帰宅画面から外出画面に遷移するときの表示変更
-        binding.gobutton.setOnClickListener {
-            if (gobackflag) {
-                gobackflag = false
-                goorback1 = "go1"
-                goorback2 = "go2"
-                binding.backbutton.setBackgroundResource(R.drawable.offbutton)
-                binding.gobutton.setBackgroundResource(R.drawable.onbutton)
+        button["go"]?.setOnClickListener {
+            if (goOrBackFlag) {
+                goOrBackFlag = false
+                goOrBack1 = "go1"
+                goOrBack2 = "go2"
+                button["back"]?.setBackgroundResource(R.drawable.off_button)
+                button["go"]?.setBackgroundResource(R.drawable.on_button)
             }
         }
 
         runnable = Runnable {
 
             //現在時刻および現在日時を表示
-            if (timeflag) {
-                binding.currentdate.text = mainview.localizeDateString(Date(), "EEEMMMdyyyy")
-                binding.currenttime.text = mainview.localizeDateString(Date(), "HH:mm:ss")
+            if (timeFlag) {
+                button["date"]?.text = date.localizeDateString(Date(), "EEEMMMdyyyy")
+                button["time"]?.text = date.localizeDateString(Date(), "HH:mm:ss")
             }
 
-            val displaydate: Date = mainview.getLocalizeDate(binding.currentdate.text.toString(), "EEEMMMdyyyy")!!
-            val displaytime: Date = mainview.getLocalizeDate(binding.currenttime.text.toString(), "HH:mm:ss")!!
+            val displayDate: Date = date.getLocalizeDate(button["date"]?.text.toString(), "EEEMMMdyyyy")!!
+            val displayTime: Date = date.getLocalizeDate(button["time"]?.text.toString(), "HH:mm:ss")!!
 
             //表示されている日時の曜日をInt型で取得(日：0 、月：1、火：2、水：3、木：4、金：5、土：6)
-            calendar.time = displaydate
-            val currentday: Int = calendar.get(Calendar.DAY_OF_WEEK) - 1
+            calendar.time = displayDate
+            val currentDay: Int = calendar.get(Calendar.DAY_OF_WEEK) - 1
             //表示されている時刻をInt型で取得
-            val currenthhmmss: Int = SimpleDateFormat("HHmmss").format(displaytime).toInt()
+            val currentHHMMSS: Int = SimpleDateFormat("HHmmss", Locale.US).format(displayTime).toInt()
 
-            //帰宅または外出ルート1の表示（GoorBack1Fragmentの呼び出し）
+            //帰宅または外出ルート1の表示（goOrBack1Fragmentの呼び出し）
             if (savedInstanceState == null) {
                 supportFragmentManager.beginTransaction()
-                    .replace(R.id.goorback1fragment, GoOrBack1Fragment.newInstance(currentday, currenthhmmss, goorback1))
+                    .replace(R.id.goOrBack1Fragment, GoOrBack1Fragment.newInstance(currentDay, currentHHMMSS, goOrBack1))
                     .commitAllowingStateLoss()
             }
             //帰宅または外出ルート2の表示（Go2Fragmentの呼び出し）
             if (savedInstanceState == null) {
                 supportFragmentManager.beginTransaction()
-                    .replace(R.id.goorback2fragment, GoOrBack2Fragment.newInstance(currentday, currenthhmmss, goorback2))
+                    .replace(R.id.goOrBack2Fragment, GoOrBack2Fragment.newInstance(currentDay, currentHHMMSS, goOrBack2))
                     .commitAllowingStateLoss()
             }
 
-            val back2display: Boolean = mainview.getRoute2Switch(goorback2)
-            binding.goorback2fragment.visibility = if (back2display) { VISIBLE } else { GONE }
+            val back2display: Boolean = goOrBack2.getRoute2Switch
+            binding.goOrBack2Fragment.visibility = if (back2display) { VISIBLE } else { GONE }
             binding.centerLine.visibility = if (back2display) { VISIBLE } else { GONE }
 
             //1秒ごとに更新:
@@ -134,6 +149,6 @@ class MainActivity: AppCompatActivity() {
         handler.post(runnable)
 
         //Admob広告
-        admobclass.setAdMob(binding.adview, this)
+        admobClass.setAdMob(binding.admobView, this)
     }
 }
