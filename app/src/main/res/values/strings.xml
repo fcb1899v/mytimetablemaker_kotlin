@@ -127,6 +127,9 @@
     <string name="settingRideTime">Setting your ride time [min] :\n</string>
     <string name="settingTimetable">Setting your timetable :\n</string>
     <string name="line">Line </string>
+    <string name="line1">Line 1</string>
+    <string name="line2">Line 2</string>
+    <string name="line3">Line 3</string>
     <string name="minutes2Hint">Enter 0~99 ［min］</string>
     <string name="minutesUnit">[min]</string>
 
@@ -141,8 +144,8 @@
     <string name="fromArriveStation2">From arrive station 2</string>
     <string name="toDeparturePoint">To departure point</string>
     <string name="toDestination">To destination</string>
-    <string name="from">\nFrom</string>
-    <string name="to">\nTo</string>
+    <string name="from">\nFrom </string>
+    <string name="to">\nTo </string>
     <string name="he"> </string>
     <string name="kara"> </string>
     <string name="walking">Walking</string>
@@ -197,6 +200,7 @@
     <string name="account">Account</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
+    <string name="password_validate">Password (8+ chars: alnum !@#$~)</string>
     <string name="confirm_password">Confirm Password</string>
     <string name="hint_email">Enter your email address</string>
     <string name="hint_password">Enter your password</string>
@@ -220,11 +224,14 @@
     <string name="send_auth_mail_unsuccessfully">Verification email could not be sent</string>
 
     //Input Error
+    <string name="input_error">Input error</string>
     <string name="incorrect_email">Incorrect email</string>
     <string name="incorrect_password">Incorrect password</string>
     <string name="incorrect_email_or_password">Incorrect email or password</string>
     <string name="incorrect_email_format">Incorrect email format</string>
+    <string name="incorrect_password_format">Incorrect password format</string>
     <string name="confirm_password_not_match">"Confirm password don't match"</string>
+    <string name="check_terms_and_policy">Check the terms and privacy policy</string>
 
     //Auth Error
     <string name="email_not_registered">This email is not registered</string>
@@ -246,13 +253,14 @@
     <string name="logout_account">Logout your account?</string>
 
     //Delete Account
-    <string name="delete_your_account">Delete Account</string>
+    <string name="delete_account">Delete Account</string>
     <string name="delete_account_error">Delete account error</string>
-    <string name="delete_account">Deleted your account?</string>
+    <string name="delete_your_account">Deleted your account?</string>
     <string name="delete_account_successfully">Account deleted successfully</string>
     <string name="delete_account_unsuccessfully">Account could not be deleted</string>
 
     //Get data from Firestore
+    <string name="get_data_after_login">Get saved data after login</string>
     <string name="get_saved_data">Get saved data</string>
     <string name="overwritten_current_data">Overwritten current data?</string>
     <string name="get_data_error">Data got error</string>
@@ -260,6 +268,7 @@
     <string name="get_data_unsuccessfully">Data could not be got</string>
 
     //Save data to Firestore
+    <string name="save_data_after_login">Save current data after login</string>
     <string name="save_current_data">Save current data</string>
     <string name="overwritten_saved_data">Overwritten saved data？</string>
     <string name="save_data_error">Data saved error</string>

@@ -9,20 +9,17 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.mytimetablemaker.databinding.FragmentGoorback2Binding
 
-class GoOrBack2Fragment : Fragment() {
+class RouteFragment2 : Fragment() {
 
-    //MainActivityから受け渡されるパラメータ
+    //Parameter from MainActivity
     private val argCurrentDay = "currentday"
     private val argCurrentHHMMSS = "currenthhmmss"
     private val argGoOrBack2 = "goorback2"
 
-    //MainActivityから渡されたデータ
+    //Data from MainActivity
     private var currentDay: Int = 0
     private var currentHHMMSS: Int = 0
     private var goOrBack2: String = ""
-
-    //クラスの呼び出し
-    private val mainFragment = MainFragment()
 
     //ViewBinding
     private lateinit var binding: FragmentGoorback2Binding
@@ -30,6 +27,15 @@ class GoOrBack2Fragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentGoorback2Binding.inflate(layoutInflater, container, false)
 
+        //Data from MainActivity
+        val currentDay: Int = currentDay
+        val currentHHMMSS: Int = currentHHMMSS
+        val goOrBack2: String = goOrBack2
+
+        //Define class
+        val myRouteFragment = MyRouteFragment(requireContext(), currentDay, currentHHMMSS)
+
+        //Define view binding
         val textView2: Map<String, Array<TextView>> = mapOf(
             "depart" to arrayOf(binding.stationName120, binding.stationName121, binding.stationName123, binding.stationName125),
             "arrive" to arrayOf(binding.stationName12e, binding.stationName122, binding.stationName124, binding.stationName126),
@@ -39,22 +45,14 @@ class GoOrBack2Fragment : Fragment() {
             "arriveTime" to  arrayOf(binding.startTime12e, binding.startTime122, binding.startTime124, binding.startTime126),
             "countdown" to arrayOf(binding.countdown12),
         )
-
         val view2: Map<String, Array<View>> = mapOf(
             "line" to arrayOf(binding.lineLine121, binding.lineLine123, binding.lineLine125),
             "transit" to arrayOf(binding.lineLine12e, binding.lineLine120, binding.lineLine122, binding.lineLine124),
         )
-
-        //表示するレイアウトの設定
         val layoutView2: Array<LinearLayout> =
             arrayOf(binding.linearlayout122, binding.linearlayout123)
 
-        //MainActivityから渡されたデータ
-        val currentDay: Int = currentDay
-        val currentHHMMSS: Int = currentHHMMSS
-        val goOrBack2: String = goOrBack2
-
-        mainFragment.mainFun(requireContext(), currentDay, currentHHMMSS, goOrBack2, textView2, view2, layoutView2)
+        myRouteFragment.mainFun(goOrBack2, textView2, view2, layoutView2)
         return binding.root
     }
 
@@ -70,7 +68,7 @@ class GoOrBack2Fragment : Fragment() {
     companion object {
         @JvmStatic
         fun newInstance(currentDay: Int, currentHHMMSS: Int, goOrBack2: String) =
-            GoOrBack2Fragment().apply {
+            RouteFragment2().apply {
                 arguments = Bundle().apply {
                     putInt(argCurrentDay, currentDay)
                     putInt(argCurrentHHMMSS, currentHHMMSS)
