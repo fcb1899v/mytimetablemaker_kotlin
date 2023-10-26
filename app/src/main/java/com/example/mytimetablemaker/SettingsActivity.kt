@@ -14,20 +14,14 @@ class SettingsActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySettingsBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        //AppBarの表示設定
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         supportFragmentManager.beginTransaction()
                 .replace(R.id.settings, SettingsFragment())
                 .commitAllowingStateLoss()
-        supportFragmentManager.addOnBackStackChangedListener {
-            if (supportFragmentManager.backStackEntryCount == 0) {
-                setTitle(R.string.settingsTitle)
-            }
-        }
     }
 
+    //For Back button
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             android.R.id.home -> finish()
@@ -36,6 +30,7 @@ class SettingsActivity: AppCompatActivity() {
         return true
     }
 
+    //For Back button
     override fun onSupportNavigateUp(): Boolean {
         if (supportFragmentManager.popBackStackImmediate()) {
             return true

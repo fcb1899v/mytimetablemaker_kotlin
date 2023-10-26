@@ -2,7 +2,6 @@ package com.example.mytimetablemaker
 
 import android.content.Context
 import android.content.Intent
-import android.graphics.Color.parseColor
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +10,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.mytimetablemaker.databinding.FragmentVarioussettingsBinding
+import java.util.Calendar
 
 //各種設定
 class SettingsVariousFragment: Fragment() {
@@ -21,12 +21,13 @@ class SettingsVariousFragment: Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentVarioussettingsBinding.inflate(layoutInflater, container, false)
 
-        val goOrBack: String? = arguments?.getString("BUNDLE_KEY_GOORBACK")
-        val changeLine: Int = goOrBack!!.changeLine
-        val intentArray: Array<Intent> = changeTimetableActivity(requireContext(), goOrBack)
+        val mySettings = MySettings(requireContext())
+        val myPreference = MyPreference(requireContext())
 
-        //クラスの呼び出し
-        val settings = Settings(requireContext(), goOrBack)
+        val goOrBack: String? = arguments?.getString("BUNDLE_KEY_GOORBACK")
+        val changeLine: Int = myPreference.changeLine(goOrBack!!)
+        val intentArray: Array<Intent> = changeTimetableActivity(requireContext(), goOrBack)
+        val isSettings = true
 
         val layout: Map<String, Array<LinearLayout>> = mapOf(
             "station2" to arrayOf(
@@ -50,8 +51,8 @@ class SettingsVariousFragment: Fragment() {
             "arrive" to arrayOf(binding.destinationText, binding.arriveStationText1, binding.arriveStationText2, binding.arriveStationText3),
             "lineName" to arrayOf(binding.lineNameText1, binding.lineNameText2, binding.lineNameText3),
             "rideTime" to arrayOf(binding.rideTimeText1, binding.rideTimeText2, binding.rideTimeText3),
-            "transportation" to arrayOf(binding.transportationTextEnd, binding.transportationText1, binding.transportationText2, binding.transportationText3),
-            "transitTime" to arrayOf(binding.transitTimeTextEnd, binding.transitTimeText2, binding.transitTimeText2, binding.transitTimeText3)
+            "transportation" to arrayOf(binding.transportationTextE, binding.transportationText1, binding.transportationText2, binding.transportationText3),
+            "transitTime" to arrayOf(binding.transitTimeTextE, binding.transitTimeText1, binding.transitTimeText2, binding.transitTimeText3)
         )
 
         val buttonView: Map<String, Array<TextView>> = mapOf(
@@ -59,68 +60,93 @@ class SettingsVariousFragment: Fragment() {
             "arrive" to arrayOf(binding.destinationButton, binding.arriveStationButton1, binding.arriveStationButton2, binding.arriveStationButton3),
             "lineName" to arrayOf(binding.lineNameButton1, binding.lineNameButton2, binding.lineNameButton3),
             "rideTime" to arrayOf(binding.rideTimeButton1, binding.rideTimeButton2, binding.rideTimeButton3),
-            "transportation" to arrayOf(binding.transportationButtonEnd, binding.transportationButton1, binding.transportationButton2, binding.transportationButton3),
-            "transitTime" to arrayOf(binding.transitTimeButtonEnd, binding.transitTimeButton2, binding.transitTimeButton2, binding.transitTimeButton3)
+            "transportation" to arrayOf(binding.transportationButtonE, binding.transportationButton1, binding.transportationButton2, binding.transportationButton3),
+            "transitTime" to arrayOf(binding.transitTimeButtonE, binding.transitTimeButton1, binding.transitTimeButton2, binding.transitTimeButton3)
         )
 
         //設定値の表示
-        textView["depart"]!![0].text = goOrBack.settingsDepartPoint
-        textView["arrive"]!![0].text = goOrBack.settingsArrivePoint
+        textView["depart"]!![0].apply{
+            val departPointText = myPreference.settingsDepartPoint(goOrBack)
+            text = departPointText
+            setTextColor(departPointText.settingsTextColor)
+        }
+        textView["arrive"]!![0].apply{
+            val arrivePointText = myPreference.settingsArrivePoint(goOrBack)
+            text = arrivePointText
+            setTextColor(arrivePointText.settingsTextColor)
+        }
 
         for (i: Int in 0..changeLine) {
-            textView["depart"]!![i + 1].text = goOrBack.settingsDepartStation(i)
-            textView["arrive"]!![i + 1].text = goOrBack.settingsArriveStation(i)
+            textView["depart"]!![i + 1].apply{
+                val departStationText = myPreference.settingsDepartStation(goOrBack, i)
+                text = departStationText
+                setTextColor(departStationText.settingsTextColor)
+            }
+            textView["arrive"]!![i + 1].apply{
+                val arriveStationText = myPreference.settingsArriveStation(goOrBack, i)
+                text = arriveStationText
+                setTextColor(arriveStationText.settingsTextColor)
+            }
             textView["lineName"]!![i].apply{
-                text = goOrBack.settingsLineName(i)
-                setTextColor(parseColor(goOrBack.settingsLineColor(i)))
+                text = myPreference.settingsLineName(goOrBack, i)
+                setTextColor( myPreference.settingsLineColorInt(goOrBack, i))
             }
             textView["rideTime"]!![i].apply {
-                text = goOrBack.settingsRideTime(i).addMinutes
-                setTextColor(parseColor(goOrBack.settingsLineColor(i)))
+                val rideTimeText = myPreference.settingsRideTime(goOrBack, i)
+                text = rideTimeText.addMinutes
+                setTextColor(rideTimeText.settingsTextColor)
             }
         }
 
         for (i: Int in 0..changeLine + 1) {
-            textView["transportation"]!![i].text = goOrBack.settingsTransportation(i)
-            textView["transitTime"]!![i].text = goOrBack.settingsTransitTime(i).addMinutes
+            textView["transportation"]!![i].apply{
+                val transportationText = myPreference.settingsTransportation(goOrBack, i)
+                text = transportationText
+                setTextColor(transportationText.settingsTextColor)
+            }
+            textView["transitTime"]!![i].apply{
+                val transitTimeText = myPreference.settingsTransitTime(goOrBack, i)
+                text = transitTimeText.addMinutes
+                setTextColor(transitTimeText.settingsTextColor)
+            }
         }
 
         //出発地名の設定
         buttonView["depart"]!![0].setOnClickListener {
-            settings.setDepartPointDialog(textView["depart"]!![0])
+            mySettings.setDepartPointDialog(goOrBack, textView["depart"]!![0], isSettings)
         }
         //到着地名の設定
         buttonView["arrive"]!![0].setOnClickListener {
-            settings.setArrivePointDialog(textView["arrive"]!![0])
+            mySettings.setArrivePointDialog(goOrBack, textView["arrive"]!![0], isSettings)
         }
 
         for (i: Int in 0..changeLine) {
             //乗車駅名の設定
             buttonView["depart"]!![i + 1].setOnClickListener {
-                settings.setDepartStationDialog(textView["depart"]!![i + 1], i)
+                mySettings.setDepartStationDialog(goOrBack, textView["depart"]!![i], i, isSettings)
             }
             //降車駅名の設定
             buttonView["arrive"]!![i + 1].setOnClickListener {
-                settings.setArriveStationDialog(textView["arrive"]!![i + 1], i)
+                mySettings.setArriveStationDialog(goOrBack, textView["arrive"]!![i], i, isSettings)
             }
             //路線名の設定
             buttonView["lineName"]!![i].setOnClickListener {
-                settings.setPrefLineNameDialog(textView["lineName"]!![i], textView["rideTime"]!![i], i)
+                mySettings.setLineNameDialog(goOrBack, textView["lineName"]!![i], null, i)
             }
             //乗車時間の設定
             buttonView["rideTime"]!![i].setOnClickListener {
-                settings.setPrefRideTimeDialog(textView["rideTime"]!![i], i, intentArray[i])
+                mySettings.setRideTimeDialog(goOrBack, textView["rideTime"]!![i], i, intentArray[i])
             }
         }
 
         for (i: Int in 0..changeLine + 1) {
             //移動手段の設定
             buttonView["transportation"]!![i].setOnClickListener {
-                settings.setTransportationDialog(textView["transportation"]!![i], i)
+                mySettings.setTransportationDialog(goOrBack, textView["transportation"]!![i], i, isSettings)
             }
             //乗換時間の設定
             buttonView["transitTime"]!![i].setOnClickListener {
-                settings.setPrefTransitTimeDialog(textView["transitTime"]!![i], i)
+                mySettings.setTransitTimeDialog(goOrBack, textView["transitTime"]!![i], i)
             }
         }
         return binding.root
@@ -128,12 +154,13 @@ class SettingsVariousFragment: Fragment() {
 
     companion object {
         private fun changeTimetableActivity(context: Context, goOrBack: String): Array<Intent> {
-            //乗換回数
-            val changeLine: Int = goOrBack.changeLine
-            //路線番号
-            val lineNumber: Array<Int> = Array(changeLine + 1){it}
 
-            //時刻表アクティビティにデータを送るためのキー
+            val myPreference = MyPreference(context)
+            val changeLine: Int = myPreference.changeLine(goOrBack)
+            val lineNumber: Array<Int> = Array(changeLine + 1){it}
+            val calendar: Calendar = Calendar.getInstance()
+            val currentDay: Int = calendar.get(Calendar.DAY_OF_WEEK) - 1
+
             val intentGoOrBack = "goorback"
             val intentLineNumber = "linenumber"
             val intentCurrentDay = "currentday"
@@ -143,7 +170,7 @@ class SettingsVariousFragment: Fragment() {
                 intentArray += Intent(context, TimetableActivity::class.java).apply {
                     putExtra(intentGoOrBack, goOrBack)
                     putExtra(intentLineNumber, lineNumber[i])
-                    putExtra(intentCurrentDay, 1)
+                    putExtra(intentCurrentDay, currentDay)
                 }
             }
             return intentArray

@@ -418,7 +418,7 @@
                         android:layout_marginStart="15dp"
                         android:layout_weight="1"
                         android:gravity="start|center_vertical"
-                        android:text="@string/line"
+                        android:text="@string/line1"
                         android:textColor="@color/colorBlack"
                         android:textSize="18sp" />
 
@@ -456,7 +456,7 @@
                         android:layout_marginStart="15dp"
                         android:layout_weight="1"
                         android:gravity="start|center_vertical"
-                        android:text="@string/line"
+                        android:text="@string/line2"
                         android:textColor="@color/colorBlack"
                         android:textSize="18sp" />
 
@@ -494,7 +494,7 @@
                         android:layout_marginStart="15dp"
                         android:layout_weight="1"
                         android:gravity="start|center_vertical"
-                        android:text="@string/line"
+                        android:text="@string/line3"
                         android:textColor="@color/colorBlack"
                         android:textSize="18sp" />
 
@@ -564,7 +564,7 @@
                         android:layout_marginStart="15dp"
                         android:layout_weight="1"
                         android:gravity="start|center_vertical"
-                        android:text="@string/line"
+                        android:text="@string/line1"
                         android:textColor="@color/colorBlack"
                         android:textSize="18sp" />
 
@@ -602,7 +602,7 @@
                         android:layout_marginStart="15dp"
                         android:layout_weight="1"
                         android:gravity="start|center_vertical"
-                        android:text="@string/line"
+                        android:text="@string/line2"
                         android:textColor="@color/colorBlack"
                         android:textSize="18sp" />
 
@@ -640,7 +640,7 @@
                         android:layout_marginStart="15dp"
                         android:layout_weight="1"
                         android:gravity="start|center_vertical"
-                        android:text="@string/line"
+                        android:text="@string/line3"
                         android:textColor="@color/colorBlack"
                         android:textSize="18sp" />
 
@@ -817,7 +817,7 @@
                     tools:ignore="NestedWeights">
 
                     <TextView
-                        android:id="@+id/transportationButtonEnd"
+                        android:id="@+id/transportationButtonE"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="15dp"
@@ -828,7 +828,7 @@
                         android:textSize="18sp" />
 
                     <TextView
-                        android:id="@+id/transportationTextEnd"
+                        android:id="@+id/transportationTextE"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="right|center_vertical"
@@ -1001,7 +1001,7 @@
                     tools:ignore="NestedWeights">
 
                     <TextView
-                        android:id="@+id/transitTimeButtonEnd"
+                        android:id="@+id/transitTimeButtonE"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="15dp"
@@ -1012,7 +1012,7 @@
                         android:textSize="18sp" />
 
                     <TextView
-                        android:id="@+id/transitTimeTextEnd"
+                        android:id="@+id/transitTimeTextE"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="right|center_vertical"

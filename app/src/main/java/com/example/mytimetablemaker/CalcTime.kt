@@ -1,15 +1,17 @@
 package com.example.mytimetablemaker
 
+import android.content.Context
 import android.graphics.Color.LTGRAY
-import android.graphics.Color.RED
-import android.graphics.Color.YELLOW
 
 class CalcTime(
+        context: Context,
         private val goOrBack: String,
         private val changeLine: Int,
         private val currentTime: Int,
         private val currentDay: Int
     ) {
+
+    private val myPreference = MyPreference(context)
 
     //ルート内の各路線の乗車可能時刻[0]・発車時刻[1]・到着時刻[2]を取得する関数
     val getDisplayTimeArray: Array<String> get() {
@@ -28,17 +30,17 @@ class CalcTime(
     }
 
     private fun getTimetable(i: Int): Array<Int> =
-        (4..25).flatMap { hour -> goOrBack.timeTableArrayInt(i, hour, currentDay).asIterable()}.toTypedArray()
+        (4..25).flatMap { hour -> myPreference.timeTableArrayInt(goOrBack, i, hour, currentDay).asIterable()}.toTypedArray()
 
     //内部ストレージに保存された各時刻表データを配列として取得する関数
     private val timetableArray: Array<Array<Int>> =
         (0..changeLine).map{getTimetable(it)}.toTypedArray()
 
     private val transitTimeArray: Array<Int> =
-        (0..changeLine + 1).map{goOrBack.transitTimeInt(it)}.toTypedArray()
+        (0..changeLine + 1).map{myPreference.transitTimeInt(goOrBack, it)}.toTypedArray()
 
     private val rideTimeArray: Array<Int> =
-       (0..changeLine).map{goOrBack.rideTimeInt(it)}.toTypedArray()
+       (0..changeLine).map{myPreference.rideTimeInt(goOrBack, it)}.toTypedArray()
 
     //ルート内の各路線の乗車可能時刻[0]・発車時刻[1]・到着時刻[2]を取得する関数
     private val timeArray: Array<Array<Int>> get() {
@@ -98,8 +100,8 @@ class CalcTime(
         } else {
             when (countdownMM) {
                 in 11..99 -> { R.string.colorAccent.setColor }
-                in 6..10 -> { YELLOW }
-                in 0..5 -> { RED }
+                in 6..10 -> { R.string.yellow.setColor }
+                in 0..5 -> { R.string.red.setColor }
                 else -> { R.string.lightGray.setColor }
             }
         }

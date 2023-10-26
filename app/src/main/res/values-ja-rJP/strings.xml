@@ -128,6 +128,9 @@
     <string name="settingRideTime">乗車時間の設定 [分]：</string>
     <string name="settingTimetable">時刻表の設定：</string>
     <string name="line">路線</string>
+    <string name="line1">路線1</string>
+    <string name="line2">路線2</string>
+    <string name="line3">路線3</string>
     <string name="minutes2Hint">0~99［分］を入力します</string>
     <string name="minutesUnit">[分]</string>
 
@@ -197,6 +200,7 @@
     <string name="account">アカウント</string>
     <string name="email">Eメールアドレス</string>
     <string name="password">パスワード</string>
+    <string name="password_validate">パスワード(8字以上：半角英数字記号!@#$~)</string>
     <string name="confirm_password">確認用パスワード</string>
     <string name="hint_email">Eメールアドレスを入力してください</string>
     <string name="hint_password">パスワードを入力してください</string>
@@ -220,11 +224,14 @@
     <string name="send_auth_mail_unsuccessfully">認証メールの送信失敗</string>
 
     //Input Error
+    <string name="input_error">入力エラー</string>
     <string name="incorrect_email">メールアドレスが正しくありません</string>
     <string name="incorrect_password">パスワードが正しくありません</string>
     <string name="incorrect_email_or_password">メールアドレスまたはパスワードが正しくありません</string>
     <string name="incorrect_email_format">メールアドレスの形式が正しくありません</string>
+    <string name="incorrect_password_format">パスワードの形式が正しくありません</string>
     <string name="confirm_password_not_match">確認用パスワードが一致しません</string>
+    <string name="check_terms_and_policy">利用規約およびプライバシーポリシーにチェックしてください</string>
 
     //Auth Error
     <string name="email_not_registered">このメールアドレスは登録されていません</string>
@@ -246,13 +253,14 @@
     <string name="logged_out">ログアウトしました</string>
 
     //Delete Account
-    <string name="delete_your_account">アカウント削除</string>
+    <string name="delete_account">アカウント削除</string>
     <string name="delete_account_error">アカウント削除エラー</string>
-    <string name="delete_account">アカウントを削除しますか？</string>
+    <string name="delete_your_account">アカウントを削除しますか？</string>
     <string name="delete_account_successfully">アカウント削除の成功</string>
     <string name="delete_account_unsuccessfully">アカウント削除の失敗</string>
 
     //Obtain data from Firestore
+    <string name="get_data_after_login">ログインしてデータ取得</string>
     <string name="get_saved_data">保存データの取得</string>
     <string name="overwritten_current_data">現在のデータが上書きされます。\nよろしいですか？</string>
     <string name="get_data_error">データ取得エラー</string>
@@ -260,6 +268,7 @@
     <string name="get_data_unsuccessfully">データ取得の失敗</string>
 
     //Save data to Firestore
+    <string name="save_data_after_login">ログインしてデータの保存</string>
     <string name="save_current_data">データの保存</string>
     <string name="overwritten_saved_data">保存データが上書きされます。\nよろしいですか？</string>
     <string name="save_data_error">データ保存エラー</string>
