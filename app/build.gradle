@@ -1,35 +1,37 @@
-apply plugin: 'com.android.application'
-apply plugin: 'com.google.gms.google-services'
-apply plugin: 'kotlin-android'
+plugins {
+    id 'com.android.application'
+    id 'com.google.gms.google-services'
+    id 'kotlin-android'
+}
 
 
 android {
-    compileSdk 34
-    buildToolsVersion '33.0.2'
+    compileSdk = 36
 
     defaultConfig {
-        applicationId "com.mytimetablemaker"
-        minSdkVersion 24
-        targetSdkVersion 34
-        versionCode 52
-        versionName "1.6.2"
-        testInstrumentationRunner "androidx.test.runer.AndroidJUnitRunner"
-        multiDexEnabled true
+        applicationId = "com.mytimetablemaker"
+        minSdkVersion = 24
+        targetSdkVersion = 36
+        versionCode = 53
+        versionName = "1.6.3"
+        testInstrumentationRunner = "androidx.test.runer.AndroidJUnitRunner"
+        multiDexEnabled = true
         vectorDrawables.useSupportLibrary = true
-        manifestPlaceholders = [APP_ID: project.property("APP_ID")];
+        manifestPlaceholders = [APP_ID: project.property("APP_ID")]
     }
 
     buildTypes {
         release {
-            minifyEnabled true
-            shrinkResources true
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            minifyEnabled = true
+            shrinkResources = true
+            proguardFiles(getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro')
         }
     }
 
     buildFeatures {
         dataBinding = true
         viewBinding = true
+        buildConfig = true
     }
 
     compileOptions {
@@ -40,8 +42,8 @@ android {
     kotlinOptions {
         jvmTarget = '17'
     }
-    namespace 'com.example.mytimetablemaker'
-    ndkVersion '21.4.7075529'
+    namespace = 'com.example.mytimetablemaker'
+    ndkVersion = "27.0.12077973"
 }
 
 ext {
@@ -50,46 +52,44 @@ ext {
 
 dependencies {
 
-
-
     //ローカルバイナリへの依存関係（Gradleはプロジェクトのlibsディレクトリ内の.jarファイルへの依存関係を宣言）
     implementation fileTree(dir: "libs", include: ["*.jar"])
 
     //Kotlinプロジェクトの生成
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.8.22"
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4'
-    implementation(platform("org.jetbrains.kotlin:kotlin-bom:1.8.22"))
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:2.2.0"
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.2'
+    implementation(platform("org.jetbrains.kotlin:kotlin-bom:2.2.0"))
 
-    implementation 'androidx.activity:activity:1.6.1'
-    implementation 'androidx.activity:activity-ktx:1.6.1'
-    implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation "androidx.fragment:fragment-ktx:1.5.5"
-    implementation 'androidx.core:core-ktx:1.9.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    implementation "androidx.constraintlayout:constraintlayout-compose:1.0.1"
-    implementation "androidx.constraintlayout:constraintlayout-core:1.0.4"
-    implementation "androidx.coordinatorlayout:coordinatorlayout:1.2.0"
-    implementation 'com.google.android.material:material:1.10.0'
+    implementation 'androidx.activity:activity:1.10.1'
+    implementation 'androidx.activity:activity-ktx:1.10.1'
+    implementation 'androidx.appcompat:appcompat:1.7.1'
+    implementation 'androidx.fragment:fragment-ktx:1.8.8'
+    implementation 'androidx.core:core-ktx:1.16.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.2.1'
+    implementation 'androidx.constraintlayout:constraintlayout-compose:1.1.1'
+    implementation 'androidx.constraintlayout:constraintlayout-core:1.1.1'
+    implementation 'androidx.coordinatorlayout:coordinatorlayout:1.3.0'
+    implementation 'com.google.android.material:material:1.12.0'
     implementation 'androidx.preference:preference-ktx:1.2.1'
     implementation 'androidx.multidex:multidex:2.0.1'
 
-    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    androidTestImplementation 'androidx.test.ext:junit:1.2.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
     testImplementation 'junit:junit:4.13.2'
 
     //AdMob広告
-    implementation 'com.google.android.gms:play-services-ads:22.4.0'
+    implementation 'com.google.android.gms:play-services-ads:22.6.0'
     //Firebase連携
-    implementation platform('com.google.firebase:firebase-bom:26.1.0')
+    implementation platform('com.google.firebase:firebase-bom:33.16.0')
     //Firebase ユーザー認証
-    implementation 'com.google.firebase:firebase-auth:22.1.2'
+    implementation 'com.google.firebase:firebase-auth'
     implementation 'com.google.firebase:firebase-auth-ktx'
-    implementation 'com.firebaseui:firebase-ui-auth:7.2.0'
+    implementation 'com.firebaseui:firebase-ui-auth:8.0.2'
     //Firebase Database
-    implementation 'com.google.firebase:firebase-common-ktx:20.4.2'
-    implementation 'com.google.firebase:firebase-database:20.2.2'
-    implementation 'com.google.firebase:firebase-firestore:24.8.1'
-    implementation 'com.google.firebase:firebase-firestore-ktx:24.8.1'
+    implementation 'com.google.firebase:firebase-common-ktx'
+    implementation 'com.google.firebase:firebase-database'
+    implementation 'com.google.firebase:firebase-firestore'
+    implementation 'com.google.firebase:firebase-firestore-ktx'
     //SplashScreen
     implementation "androidx.core:core-splashscreen:1.0.1"
 }
