@@ -50,4 +50,4 @@ val Int.HH: String get() = (this / 100 + (this % 100) / 60).addZeroTime
 //Int型の時刻からmmを取得
 val Int.mm: String get() = (this % 100 % 60).addZeroTime
 //Int型時刻HHMMから時刻に変換
-val Int.stringTime: String get() = if (this < 2800) this.HH + ":" + this.mm else "--:--"
+val Int.stringTime: String get() = if (this < 2700) this.HH + ":" + this.mm else "--:--"

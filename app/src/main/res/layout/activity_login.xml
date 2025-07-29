@@ -38,7 +38,9 @@
             ads:adUnitId="ca-app-pub-1585283309075901/4381654099"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"></com.google.android.gms.ads.AdView>
+            app:layout_constraintStart_toStartOf="parent">
+        </com.google.android.gms.ads.AdView>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ScrollView

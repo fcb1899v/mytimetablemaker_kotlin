@@ -1,7 +1,6 @@
 package com.example.mytimetablemaker
 
 import android.content.Context
-import android.graphics.Color.LTGRAY
 
 class CalcTime(
         context: Context,
@@ -12,22 +11,6 @@ class CalcTime(
     ) {
 
     private val myPreference = MyPreference(context)
-
-    //ルート内の各路線の乗車可能時刻[0]・発車時刻[1]・到着時刻[2]を取得する関数
-    val getDisplayTimeArray: Array<String> get() {
-        var displayTimeArray: Array<String> = arrayOf()
-        //＜フラグメントの表示＞
-        //出発時刻、到着時刻、発車時刻、降車時刻
-        //出発時刻
-        displayTimeArray += timeArray[0][1].minusHHMM(transitTimeArray[1]).stringTime
-        //到着時刻
-        displayTimeArray += timeArray[changeLine][2].plusHHMM(transitTimeArray[0]).stringTime
-        for (i: Int in 0..changeLine) {
-            displayTimeArray += timeArray[i][1].stringTime
-            displayTimeArray += timeArray[i][2].stringTime
-        }
-        return displayTimeArray
-    }
 
     private fun getTimetable(i: Int): Array<Int> =
         (4..25).flatMap { hour -> myPreference.timeTableArrayInt(goOrBack, i, hour, currentDay).asIterable()}.toTypedArray()
@@ -42,68 +25,36 @@ class CalcTime(
     private val rideTimeArray: Array<Int> =
        (0..changeLine).map{myPreference.rideTimeInt(goOrBack, it)}.toTypedArray()
 
-    //ルート内の各路線の乗車可能時刻[0]・発車時刻[1]・到着時刻[2]を取得する関数
+    //0: Possible time, 1: Depart time, 2: Arrive time
     private val timeArray: Array<Array<Int>> get() {
         val timeArray: Array<Array<Int>> = Array(changeLine + 1) { Array(3) { 0 } }
-        //路線1の乗車可能時刻・発車時刻・到着時刻を取得
-        timeArray[0][0] = (currentTime / 100).plusHHMM(transitTimeArray[1])
-        timeArray[0][1] = getNextStartTime(timeArray[0][0], timetableArray[0])
-        timeArray[0][2] = timeArray[0][1].plusHHMM(rideTimeArray[0])
-        //路線1以降の乗車可能時刻・発車時刻・到着時刻を取得
-        if (changeLine > 0) {
-            for (i: Int in 1..changeLine) {
-                timeArray[i][0] = timeArray[i - 1][2].plusHHMM(transitTimeArray[i + 1])
-                timeArray[i][1] = getNextStartTime(timeArray[i][0], timetableArray[i])
-                timeArray[i][2] = timeArray[i][1].plusHHMM(rideTimeArray[i])
-            }
+        for (i: Int in 0..changeLine) {
+            timeArray[i][0] = (when(i) {0 -> currentTime / 100 else -> timeArray[i - 1][2]}).plusHHMM(transitTimeArray[i + 1])
+            timeArray[i][1] = timetableArray[i].firstOrNull{it > timeArray[i][0]} ?: 9999
+            timeArray[i][2] = timeArray[i][1].plusHHMM(rideTimeArray[i])
         }
         return timeArray
     }
+    val getDisplayTimeArray: Array<String> get() =
+        (listOf(departureTime, destinationTime) + timeArray.flatMap{it.slice(1..2)}).map{it.stringTime}.toTypedArray()
 
-    //発車時刻を取得する関数
-    private fun getNextStartTime(possibleTime: Int, eachTimetable: Array<Int>): Int {
-        return try {
-            var nextStartTime: Int
-            var i = 0
-            loop@do {
-                if (i >= eachTimetable.size) {
-                    nextStartTime = eachTimetable[0]
-                    break@loop
-                }
-                nextStartTime = eachTimetable[i]
-                i++
-            } while (possibleTime > nextStartTime)
-            nextStartTime
-        } catch (e: ArrayIndexOutOfBoundsException) {
-            9999
-        }
-    }
-
-    //出発時刻
     private val departureTime: Int = timeArray[0][1].minusHHMM(transitTimeArray[1])
+    private val destinationTime: Int = timeArray[changeLine][2].plusHHMM(transitTimeArray[0])
+    private val countdownTime: Int = (departureTime * 100).minusHHMMSS(currentTime).HHMMSStoMMSS
+    private val countdownMM: String = (countdownTime / 100).addZeroTime
+    private val countdownSS: String = (countdownTime % 100).addZeroTime
+    private val countdownMMInt: Int = departureTime.minusHHMM(currentTime / 100)
 
-    //カウントダウン時間（mm:ss）を取得する関数
-    val getCountdownTime: String get() {
-        //カウントダウン（出発時刻と現在時刻の差）を計算
-        var countdownTime: Int = (departureTime * 100).minusHHMMSS(currentTime).HHMMSStoMMSS
-        countdownTime = if (countdownTime in 0..9999) countdownTime else -1000000
-        val countdownMM: String = (countdownTime / 100).addZeroTime
-        val countdownSS: String = (countdownTime % 100).addZeroTime
-        return if (countdownTime == -1000000) "--:--"  else "$countdownMM:$countdownSS"
-    }
+    //Countdown time (MM:SS)
+    val getCountdownTime: String =
+        when (countdownTime) { in 0..9999 -> "$countdownMM:$countdownSS" else -> "--:--" }
 
-    //カウントダウン表示の警告色を取得する関数
-    val getCountDownColor: Int get() {
-        val countdownMM: Int = departureTime.minusHHMM(currentTime / 100)
-        return if (currentTime % 2 == 1) {
-            LTGRAY
-        } else {
-            when (countdownMM) {
-                in 11..99 -> { R.string.colorAccent.setColor }
-                in 6..10 -> { R.string.yellow.setColor }
-                in 0..5 -> { R.string.red.setColor }
-                else -> { R.string.lightGray.setColor }
-            }
-        }
+    //Countdown color
+    val getCountDownColor: Int = when {
+        currentTime % 2 == 1 -> R.string.lightGray.setColor
+        countdownMMInt in 11..99 -> R.string.colorAccent.setColor
+        countdownMMInt in 6..10 -> R.string.yellow.setColor
+        countdownMMInt in 0..5 -> R.string.red.setColor
+        else -> R.string.lightGray.setColor
     }
 }
