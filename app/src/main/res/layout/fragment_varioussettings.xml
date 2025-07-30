@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Various settings fragment layout - Advanced configuration interface -->
 
 <FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -8,17 +9,20 @@
     android:layout_height="wrap_content"
     tools:context=".SettingsVariousFragment">
 
+    <!-- Scrollable settings container -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:ignore="UselessParent">
 
+        <!-- Main settings layout -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorGray"
+            android:background="@color/gray"
             android:orientation="vertical">
 
+            <!-- Settings content container -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -30,16 +34,18 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
+                <!-- Station settings header -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="1"
-                    android:background="@color/colorGray"
+                    android:background="@color/gray"
                     android:gravity="center"
                     android:orientation="horizontal"
                     tools:ignore="NestedWeights">
 
+                    <!-- Station settings title -->
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="30dp"
@@ -47,24 +53,26 @@
                         android:layout_weight="1"
                         android:gravity="start|center_vertical"
                         android:text="@string/settingStationTitle"
-                        android:textColor="@color/colorWhite"
+                        android:textColor="@color/white"
                         android:textSize="18sp"
                         android:textStyle="bold"
                         tools:ignore="InefficientWeight" />
 
                 </LinearLayout>
 
+                <!-- Departure point setting -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:layout_marginBottom="0.3dp"
                     android:layout_weight="1"
-                    android:background="@color/colorWhite"
+                    android:background="@color/white"
                     android:gravity="center"
                     android:orientation="horizontal"
                     tools:ignore="NestedWeights">
 
+                    <!-- Departure point label -->
                     <TextView
                         android:id="@+id/departPointButton"
                         android:layout_width="wrap_content"
@@ -73,9 +81,10 @@
                         android:layout_weight="1"
                         android:gravity="start|center_vertical"
                         android:text="@string/departurePoint"
-                        android:textColor="@color/colorBlack"
+                        android:textColor="@color/black"
                         android:textSize="18sp" />
 
+                    <!-- Departure point value display -->
                     <TextView
                         android:id="@+id/departPointText"
                         android:layout_width="wrap_content"
@@ -85,23 +94,25 @@
                         android:layout_weight="1"
                         android:gravity="end"
                         android:text="@string/notSet"
-                        android:textColor="@color/colorGray"
+                        android:textColor="@color/gray"
                         android:textSize="18sp"
                         tools:ignore="RtlHardcoded" />
 
                 </LinearLayout>
 
+                <!-- First departure station setting -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:layout_marginBottom="0.3dp"
                     android:layout_weight="1"
-                    android:background="@color/colorWhite"
+                    android:background="@color/white"
                     android:gravity="center"
                     android:orientation="horizontal"
                     tools:ignore="NestedWeights">
 
+                    <!-- First departure station label -->
                     <TextView
                         android:id="@+id/departStationButton1"
                         android:layout_width="wrap_content"
@@ -110,9 +121,10 @@
                         android:layout_weight="1"
                         android:gravity="start|center_vertical"
                         android:text="@string/departStation1"
-                        android:textColor="@color/colorBlack"
+                        android:textColor="@color/black"
                         android:textSize="18sp" />
 
+                    <!-- First departure station value display -->
                     <TextView
                         android:id="@+id/departStationText1"
                         android:layout_width="wrap_content"
@@ -122,23 +134,25 @@
                         android:layout_weight="1"
                         android:gravity="end"
                         android:text="@string/notSet"
-                        android:textColor="@color/colorGray"
+                        android:textColor="@color/gray"
                         android:textSize="18sp"
                         tools:ignore="RtlHardcoded" />
 
                 </LinearLayout>
 
+                <!-- First arrival station setting -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:layout_marginBottom="0.3dp"
                     android:layout_weight="1"
-                    android:background="@color/colorWhite"
+                    android:background="@color/white"
                     android:gravity="center"
                     android:orientation="horizontal"
                     tools:ignore="NestedWeights">
 
+                    <!-- First arrival station label -->
                     <TextView
                         android:id="@+id/arriveStationButton1"
                         android:layout_width="wrap_content"
@@ -147,9 +161,10 @@
                         android:layout_weight="1"
                         android:gravity="start|center_vertical"
                         android:text="@string/arriveStation1"
-                        android:textColor="@color/colorBlack"
+                        android:textColor="@color/black"
                         android:textSize="18sp" />
 
+                    <!-- First arrival station value display -->
                     <TextView
                         android:id="@+id/arriveStationText1"
                         android:layout_width="wrap_content"
@@ -159,12 +174,13 @@
                         android:layout_weight="1"
                         android:gravity="end"
                         android:text="@string/notSet"
-                        android:textColor="@color/colorGray"
+                        android:textColor="@color/gray"
                         android:textSize="18sp"
                         tools:ignore="RtlHardcoded" />
 
                 </LinearLayout>
 
+                <!-- Second station settings container -->
                 <LinearLayout
                     android:id="@+id/station2layout"
                     android:layout_width="match_parent"
@@ -172,17 +188,19 @@
                     android:layout_weight="1"
                     android:orientation="vertical">
 
+                    <!-- Second departure station setting -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:layout_gravity="center"
                         android:layout_marginBottom="0.3dp"
                         android:layout_weight="1"
-                        android:background="@color/colorWhite"
+                        android:background="@color/white"
                         android:gravity="center"
                         android:orientation="horizontal"
                         tools:ignore="NestedWeights">
 
+                        <!-- Second departure station label -->
                         <TextView
                             android:id="@+id/departStationButton2"
                             android:layout_width="wrap_content"
@@ -191,9 +209,10 @@
                             android:layout_weight="1"
                             android:gravity="start|center_vertical"
                             android:text="@string/departStation2"
-                            android:textColor="@color/colorBlack"
+                            android:textColor="@color/black"
                             android:textSize="18sp" />
 
+                        <!-- Second departure station value display -->
                         <TextView
                             android:id="@+id/departStationText2"
                             android:layout_width="wrap_content"
@@ -203,23 +222,25 @@
                             android:layout_weight="1"
                             android:gravity="end"
                             android:text="@string/notSet"
-                            android:textColor="@color/colorGray"
+                            android:textColor="@color/gray"
                             android:textSize="18sp"
                             tools:ignore="RtlHardcoded" />
 
                     </LinearLayout>
 
+                    <!-- Second arrival station setting -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:layout_gravity="center"
                         android:layout_marginBottom="0.3dp"
                         android:layout_weight="1"
-                        android:background="@color/colorWhite"
+                        android:background="@color/white"
                         android:gravity="center"
                         android:orientation="horizontal"
                         tools:ignore="NestedWeights">
 
+                        <!-- Second arrival station label -->
                         <TextView
                             android:id="@+id/arriveStationButton2"
                             android:layout_width="wrap_content"
@@ -228,9 +249,10 @@
                             android:layout_weight="1"
                             android:gravity="start|center_vertical"
                             android:text="@string/arriveStation2"
-                            android:textColor="@color/colorBlack"
+                            android:textColor="@color/black"
                             android:textSize="18sp" />
 
+                        <!-- Second arrival station value display -->
                         <TextView
                             android:id="@+id/arriveStationText2"
                             android:layout_width="wrap_content"
@@ -240,13 +262,14 @@
                             android:layout_weight="1"
                             android:gravity="end"
                             android:text="@string/notSet"
-                            android:textColor="@color/colorGray"
+                            android:textColor="@color/gray"
                             android:textSize="18sp"
                             tools:ignore="RtlHardcoded" />
 
                     </LinearLayout>
                 </LinearLayout>
 
+                <!-- Third station settings container -->
                 <LinearLayout
                     android:id="@+id/station3layout"
                     android:layout_width="match_parent"
@@ -254,17 +277,19 @@
                     android:layout_weight="1"
                     android:orientation="vertical">
 
+                    <!-- Third departure station setting -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:layout_gravity="center"
                         android:layout_marginBottom="0.3dp"
                         android:layout_weight="1"
-                        android:background="@color/colorWhite"
+                        android:background="@color/white"
                         android:gravity="center"
                         android:orientation="horizontal"
                         tools:ignore="NestedWeights">
 
+                        <!-- Third departure station label -->
                         <TextView
                             android:id="@+id/departStationButton3"
                             android:layout_width="wrap_content"
@@ -273,9 +298,10 @@
                             android:layout_weight="1"
                             android:gravity="start|center_vertical"
                             android:text="@string/departStation3"
-                            android:textColor="@color/colorBlack"
+                            android:textColor="@color/black"
                             android:textSize="18sp" />
 
+                        <!-- Third departure station value display -->
                         <TextView
                             android:id="@+id/departStationText3"
                             android:layout_width="wrap_content"
@@ -285,23 +311,25 @@
                             android:layout_weight="1"
                             android:gravity="end"
                             android:text="@string/notSet"
-                            android:textColor="@color/colorGray"
+                            android:textColor="@color/gray"
                             android:textSize="18sp"
                             tools:ignore="RtlHardcoded" />
 
                     </LinearLayout>
 
+                    <!-- Third arrival station setting -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:layout_gravity="center"
                         android:layout_marginBottom="0.3dp"
                         android:layout_weight="1"
-                        android:background="@color/colorWhite"
+                        android:background="@color/white"
                         android:gravity="center"
                         android:orientation="horizontal"
                         tools:ignore="NestedWeights">
 
+                        <!-- Third arrival station label -->
                         <TextView
                             android:id="@+id/arriveStationButton3"
                             android:layout_width="wrap_content"
@@ -310,9 +338,10 @@
                             android:layout_weight="1"
                             android:gravity="start|center_vertical"
                             android:text="@string/arriveStation3"
-                            android:textColor="@color/colorBlack"
+                            android:textColor="@color/black"
                             android:textSize="18sp" />
 
+                        <!-- Third arrival station value display -->
                         <TextView
                             android:id="@+id/arriveStationText3"
                             android:layout_width="wrap_content"
@@ -322,7 +351,7 @@
                             android:layout_weight="1"
                             android:gravity="end"
                             android:text="@string/notSet"
-                            android:textColor="@color/colorGray"
+                            android:textColor="@color/gray"
                             android:textSize="18sp"
                             tools:ignore="RtlHardcoded" />
 
@@ -330,17 +359,19 @@
 
                 </LinearLayout>
 
+                <!-- Destination setting -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:layout_marginBottom="0.3dp"
                     android:layout_weight="1"
-                    android:background="@color/colorWhite"
+                    android:background="@color/white"
                     android:gravity="center"
                     android:orientation="horizontal"
                     tools:ignore="NestedWeights">
 
+                    <!-- Destination label -->
                     <TextView
                         android:id="@+id/destinationButton"
                         android:layout_width="wrap_content"
@@ -349,9 +380,10 @@
                         android:layout_weight="1"
                         android:gravity="start|center_vertical"
                         android:text="@string/destination"
-                        android:textColor="@color/colorBlack"
+                        android:textColor="@color/black"
                         android:textSize="18sp" />
 
+                    <!-- Destination value display -->
                     <TextView
                         android:id="@+id/destinationText"
                         android:layout_width="wrap_content"
@@ -361,7 +393,7 @@
                         android:layout_weight="1"
                         android:gravity="end"
                         android:text="@string/notSet"
-                        android:textColor="@color/colorGray"
+                        android:textColor="@color/gray"
                         android:textSize="18sp"
                         tools:ignore="RtlHardcoded" />
 
@@ -369,22 +401,25 @@
 
             </LinearLayout>
 
+            <!-- Line name settings container -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:orientation="vertical">
 
+                <!-- Line name settings header -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="1"
-                    android:background="@color/colorGray"
+                    android:background="@color/gray"
                     android:gravity="center"
                     android:orientation="horizontal"
                     tools:ignore="NestedWeights">
 
+                    <!-- Line name settings title -->
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="30dp"
@@ -392,13 +427,14 @@
                         android:layout_weight="1"
                         android:gravity="start|center_vertical"
                         android:text="@string/settingLineNameTitle"
-                        android:textColor="@color/colorWhite"
+                        android:textColor="@color/white"
                         android:textSize="18sp"
                         android:textStyle="bold"
                         tools:ignore="InefficientWeight" />
 
                 </LinearLayout>
 
+                <!-- First line name setting -->
                 <LinearLayout
                     android:id="@+id/lineNameLayout1"
                     android:layout_width="match_parent"
@@ -406,11 +442,12 @@
                     android:layout_gravity="center"
                     android:layout_marginBottom="0.3dp"
                     android:layout_weight="1"
-                    android:background="@color/colorWhite"
+                    android:background="@color/white"
                     android:gravity="center"
                     android:orientation="horizontal"
                     tools:ignore="NestedWeights">
 
+                    <!-- First line name label -->
                     <TextView
                         android:id="@+id/lineNameButton1"
                         android:layout_width="wrap_content"
@@ -419,9 +456,10 @@
                         android:layout_weight="1"
                         android:gravity="start|center_vertical"
                         android:text="@string/line1"
-                        android:textColor="@color/colorBlack"
+                        android:textColor="@color/black"
                         android:textSize="18sp" />
 
+                    <!-- First line name value display -->
                     <TextView
                         android:id="@+id/lineNameText1"
                         android:layout_width="wrap_content"
@@ -431,12 +469,13 @@
                         android:layout_weight="1"
                         android:gravity="end"
                         android:text="@string/notSet"
-                        android:textColor="@color/colorGray"
+                        android:textColor="@color/gray"
                         android:textSize="18sp"
                         tools:ignore="RtlHardcoded" />
 
                 </LinearLayout>
 
+                <!-- Second line name setting -->
                 <LinearLayout
                     android:id="@+id/lineNameLayout2"
                     android:layout_width="match_parent"
@@ -444,11 +483,12 @@
                     android:layout_gravity="center"
                     android:layout_marginBottom="0.3dp"
                     android:layout_weight="1"
-                    android:background="@color/colorWhite"
+                    android:background="@color/white"
                     android:gravity="center"
                     android:orientation="horizontal"
                     tools:ignore="NestedWeights">
 
+                    <!-- Second line name label -->
                     <TextView
                         android:id="@+id/lineNameButton2"
                         android:layout_width="wrap_content"
@@ -457,9 +497,10 @@
                         android:layout_weight="1"
                         android:gravity="start|center_vertical"
                         android:text="@string/line2"
-                        android:textColor="@color/colorBlack"
+                        android:textColor="@color/black"
                         android:textSize="18sp" />
 
+                    <!-- Second line name value display -->
                     <TextView
                         android:id="@+id/lineNameText2"
                         android:layout_width="wrap_content"
@@ -469,12 +510,13 @@
                         android:layout_weight="1"
                         android:gravity="end"
                         android:text="@string/notSet"
-                        android:textColor="@color/colorGray"
+                        android:textColor="@color/gray"
                         android:textSize="18sp"
                         tools:ignore="RtlHardcoded" />
 
                 </LinearLayout>
 
+                <!-- Third line name setting -->
                 <LinearLayout
                     android:id="@+id/lineNameLayout3"
                     android:layout_width="match_parent"
@@ -482,11 +524,12 @@
                     android:layout_gravity="center"
                     android:layout_marginBottom="0.3dp"
                     android:layout_weight="1"
-                    android:background="@color/colorWhite"
+                    android:background="@color/white"
                     android:gravity="center"
                     android:orientation="horizontal"
                     tools:ignore="NestedWeights">
 
+                    <!-- Third line name label -->
                     <TextView
                         android:id="@+id/lineNameButton3"
                         android:layout_width="wrap_content"
@@ -495,9 +538,10 @@
                         android:layout_weight="1"
                         android:gravity="start|center_vertical"
                         android:text="@string/line3"
-                        android:textColor="@color/colorBlack"
+                        android:textColor="@color/black"
                         android:textSize="18sp" />
 
+                    <!-- Third line name value display -->
                     <TextView
                         android:id="@+id/lineNameText3"
                         android:layout_width="wrap_content"
@@ -507,7 +551,7 @@
                         android:layout_weight="1"
                         android:gravity="end"
                         android:text="@string/notSet"
-                        android:textColor="@color/colorGray"
+                        android:textColor="@color/gray"
                         android:textSize="18sp"
                         tools:ignore="RtlHardcoded" />
 
@@ -515,22 +559,25 @@
 
             </LinearLayout>
 
+            <!-- Ride time settings container -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:orientation="vertical">
 
+                <!-- Ride time settings header -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="1"
-                    android:background="@color/colorGray"
+                    android:background="@color/gray"
                     android:gravity="center"
                     android:orientation="horizontal"
                     tools:ignore="NestedWeights">
 
+                    <!-- Ride time settings title -->
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="30dp"
@@ -538,13 +585,14 @@
                         android:layout_weight="1"
                         android:gravity="start|center_vertical"
                         android:text="@string/settingRideTimeTitle"
-                        android:textColor="@color/colorWhite"
+                        android:textColor="@color/white"
                         android:textSize="18sp"
                         android:textStyle="bold"
                         tools:ignore="InefficientWeight" />
 
                 </LinearLayout>
 
+                <!-- First ride time setting -->
                 <LinearLayout
                     android:id="@+id/rideTimeLayout1"
                     android:layout_width="match_parent"
@@ -552,11 +600,12 @@
                     android:layout_gravity="center"
                     android:layout_marginBottom="0.3dp"
                     android:layout_weight="1"
-                    android:background="@color/colorWhite"
+                    android:background="@color/white"
                     android:gravity="center"
                     android:orientation="horizontal"
                     tools:ignore="NestedWeights">
 
+                    <!-- First ride time label -->
                     <TextView
                         android:id="@+id/rideTimeButton1"
                         android:layout_width="wrap_content"
@@ -565,9 +614,10 @@
                         android:layout_weight="1"
                         android:gravity="start|center_vertical"
                         android:text="@string/line1"
-                        android:textColor="@color/colorBlack"
+                        android:textColor="@color/black"
                         android:textSize="18sp" />
 
+                    <!-- First ride time value display -->
                     <TextView
                         android:id="@+id/rideTimeText1"
                         android:layout_width="wrap_content"
@@ -577,12 +627,13 @@
                         android:layout_weight="1"
                         android:gravity="end"
                         android:text="@string/notSet"
-                        android:textColor="@color/colorGray"
+                        android:textColor="@color/gray"
                         android:textSize="18sp"
                         tools:ignore="RtlHardcoded" />
 
                 </LinearLayout>
 
+                <!-- Second ride time setting -->
                 <LinearLayout
                     android:id="@+id/rideTimeLayout2"
                     android:layout_width="match_parent"
@@ -590,11 +641,12 @@
                     android:layout_gravity="center"
                     android:layout_marginBottom="0.3dp"
                     android:layout_weight="1"
-                    android:background="@color/colorWhite"
+                    android:background="@color/white"
                     android:gravity="center"
                     android:orientation="horizontal"
                     tools:ignore="NestedWeights">
 
+                    <!-- Second ride time label -->
                     <TextView
                         android:id="@+id/rideTimeButton2"
                         android:layout_width="wrap_content"
@@ -603,9 +655,10 @@
                         android:layout_weight="1"
                         android:gravity="start|center_vertical"
                         android:text="@string/line2"
-                        android:textColor="@color/colorBlack"
+                        android:textColor="@color/black"
                         android:textSize="18sp" />
 
+                    <!-- Second ride time value display -->
                     <TextView
                         android:id="@+id/rideTimeText2"
                         android:layout_width="wrap_content"
@@ -615,12 +668,13 @@
                         android:layout_weight="1"
                         android:gravity="end"
                         android:text="@string/notSet"
-                        android:textColor="@color/colorGray"
+                        android:textColor="@color/gray"
                         android:textSize="18sp"
                         tools:ignore="RtlHardcoded" />
 
                 </LinearLayout>
 
+                <!-- Third ride time setting -->
                 <LinearLayout
                     android:id="@+id/rideTimeLayout3"
                     android:layout_width="match_parent"
@@ -628,11 +682,12 @@
                     android:layout_gravity="center"
                     android:layout_marginBottom="0.3dp"
                     android:layout_weight="1"
-                    android:background="@color/colorWhite"
+                    android:background="@color/white"
                     android:gravity="center"
                     android:orientation="horizontal"
                     tools:ignore="NestedWeights">
 
+                    <!-- Third ride time label -->
                     <TextView
                         android:id="@+id/rideTimeButton3"
                         android:layout_width="wrap_content"
@@ -641,9 +696,10 @@
                         android:layout_weight="1"
                         android:gravity="start|center_vertical"
                         android:text="@string/line3"
-                        android:textColor="@color/colorBlack"
+                        android:textColor="@color/black"
                         android:textSize="18sp" />
 
+                    <!-- Third ride time value display -->
                     <TextView
                         android:id="@+id/rideTimeText3"
                         android:layout_width="wrap_content"
@@ -653,7 +709,7 @@
                         android:layout_weight="1"
                         android:gravity="end"
                         android:text="@string/notSet"
-                        android:textColor="@color/colorGray"
+                        android:textColor="@color/gray"
                         android:textSize="18sp"
                         tools:ignore="RtlHardcoded" />
 
@@ -661,22 +717,25 @@
 
             </LinearLayout>
 
+            <!-- Transportation settings container -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:orientation="vertical">
 
+                <!-- Transportation settings header -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="1"
-                    android:background="@color/colorGray"
+                    android:background="@color/gray"
                     android:gravity="center"
                     android:orientation="horizontal"
                     tools:ignore="NestedWeights">
 
+                    <!-- Transportation settings title -->
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="30dp"
@@ -684,13 +743,14 @@
                         android:layout_weight="1"
                         android:gravity="start|center_vertical"
                         android:text="@string/settingTransportationTitle"
-                        android:textColor="@color/colorWhite"
+                        android:textColor="@color/white"
                         android:textSize="18sp"
                         android:textStyle="bold"
                         tools:ignore="InefficientWeight" />
 
                 </LinearLayout>
 
+                <!-- First transportation setting -->
                 <LinearLayout
                     android:id="@+id/transportationLayout1"
                     android:layout_width="match_parent"
@@ -698,11 +758,12 @@
                     android:layout_gravity="center"
                     android:layout_marginBottom="0.3dp"
                     android:layout_weight="1"
-                    android:background="@color/colorWhite"
+                    android:background="@color/white"
                     android:gravity="center"
                     android:orientation="horizontal"
                     tools:ignore="NestedWeights">
 
+                    <!-- First transportation label -->
                     <TextView
                         android:id="@+id/transportationButton1"
                         android:layout_width="wrap_content"
@@ -711,9 +772,10 @@
                         android:layout_weight="1"
                         android:gravity="start|center_vertical"
                         android:text="@string/fromDeparturePoint"
-                        android:textColor="@color/colorBlack"
+                        android:textColor="@color/black"
                         android:textSize="18sp" />
 
+                    <!-- First transportation value display -->
                     <TextView
                         android:id="@+id/transportationText1"
                         android:layout_width="wrap_content"
@@ -723,12 +785,13 @@
                         android:layout_weight="1"
                         android:gravity="end"
                         android:text="@string/notSet"
-                        android:textColor="@color/colorGray"
+                        android:textColor="@color/gray"
                         android:textSize="18sp"
                         tools:ignore="RtlHardcoded" />
 
                 </LinearLayout>
 
+                <!-- Second transportation setting -->
                 <LinearLayout
                     android:id="@+id/transportationLayout2"
                     android:layout_width="match_parent"
@@ -736,11 +799,12 @@
                     android:layout_gravity="center"
                     android:layout_marginBottom="0.3dp"
                     android:layout_weight="1"
-                    android:background="@color/colorWhite"
+                    android:background="@color/white"
                     android:gravity="center"
                     android:orientation="horizontal"
                     tools:ignore="NestedWeights">
 
+                    <!-- Second transportation label -->
                     <TextView
                         android:id="@+id/transportationButton2"
                         android:layout_width="wrap_content"
@@ -749,9 +813,10 @@
                         android:layout_weight="1"
                         android:gravity="start|center_vertical"
                         android:text="@string/fromArriveStation1"
-                        android:textColor="@color/colorBlack"
+                        android:textColor="@color/black"
                         android:textSize="18sp" />
 
+                    <!-- Second transportation value display -->
                     <TextView
                         android:id="@+id/transportationText2"
                         android:layout_width="wrap_content"
@@ -761,12 +826,13 @@
                         android:layout_weight="1"
                         android:gravity="end"
                         android:text="@string/notSet"
-                        android:textColor="@color/colorGray"
+                        android:textColor="@color/gray"
                         android:textSize="18sp"
                         tools:ignore="RtlHardcoded" />
 
                 </LinearLayout>
 
+                <!-- Third transportation setting -->
                 <LinearLayout
                     android:id="@+id/transportationLayout3"
                     android:layout_width="match_parent"
@@ -774,11 +840,12 @@
                     android:layout_gravity="center"
                     android:layout_marginBottom="0.3dp"
                     android:layout_weight="1"
-                    android:background="@color/colorWhite"
+                    android:background="@color/white"
                     android:gravity="center"
                     android:orientation="horizontal"
                     tools:ignore="NestedWeights">
 
+                    <!-- Third transportation label -->
                     <TextView
                         android:id="@+id/transportationButton3"
                         android:layout_width="wrap_content"
@@ -787,9 +854,10 @@
                         android:layout_weight="1"
                         android:gravity="start|center_vertical"
                         android:text="@string/fromArriveStation2"
-                        android:textColor="@color/colorBlack"
+                        android:textColor="@color/black"
                         android:textSize="18sp" />
 
+                    <!-- Third transportation value display -->
                     <TextView
                         android:id="@+id/transportationText3"
                         android:layout_width="wrap_content"
@@ -799,23 +867,25 @@
                         android:layout_weight="1"
                         android:gravity="end"
                         android:text="@string/notSet"
-                        android:textColor="@color/colorGray"
+                        android:textColor="@color/gray"
                         android:textSize="18sp"
                         tools:ignore="RtlHardcoded" />
 
                 </LinearLayout>
 
+                <!-- Destination transportation setting -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:layout_marginBottom="0.3dp"
                     android:layout_weight="1"
-                    android:background="@color/colorWhite"
+                    android:background="@color/white"
                     android:gravity="center"
                     android:orientation="horizontal"
                     tools:ignore="NestedWeights">
 
+                    <!-- Destination transportation label -->
                     <TextView
                         android:id="@+id/transportationButtonE"
                         android:layout_width="wrap_content"
@@ -824,9 +894,10 @@
                         android:layout_weight="1"
                         android:gravity="start|center_vertical"
                         android:text="@string/toDestination"
-                        android:textColor="@color/colorBlack"
+                        android:textColor="@color/black"
                         android:textSize="18sp" />
 
+                    <!-- Destination transportation value display -->
                     <TextView
                         android:id="@+id/transportationTextE"
                         android:layout_width="wrap_content"
@@ -836,7 +907,7 @@
                         android:layout_weight="1"
                         android:gravity="end"
                         android:text="@string/notSet"
-                        android:textColor="@color/colorGray"
+                        android:textColor="@color/gray"
                         android:textSize="18sp"
                         tools:ignore="RtlHardcoded" />
 
@@ -844,22 +915,25 @@
 
             </LinearLayout>
 
+            <!-- Transit time settings container -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:orientation="vertical">
 
+                <!-- Transit time settings header -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="1"
-                    android:background="@color/colorGray"
+                    android:background="@color/gray"
                     android:gravity="center"
                     android:orientation="horizontal"
                     tools:ignore="NestedWeights">
 
+                    <!-- Transit time settings title -->
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="30dp"
@@ -867,13 +941,14 @@
                         android:layout_weight="1"
                         android:gravity="start|center_vertical"
                         android:text="@string/settingTransitTimeTitle"
-                        android:textColor="@color/colorWhite"
+                        android:textColor="@color/white"
                         android:textSize="18sp"
                         android:textStyle="bold"
                         tools:ignore="InefficientWeight" />
 
                 </LinearLayout>
 
+                <!-- First transit time setting -->
                 <LinearLayout
                     android:id="@+id/transitTimeLayout1"
                     android:layout_width="match_parent"
@@ -881,11 +956,12 @@
                     android:layout_gravity="center"
                     android:layout_marginBottom="0.3dp"
                     android:layout_weight="1"
-                    android:background="@color/colorWhite"
+                    android:background="@color/white"
                     android:gravity="center"
                     android:orientation="horizontal"
                     tools:ignore="NestedWeights">
 
+                    <!-- First transit time label -->
                     <TextView
                         android:id="@+id/transitTimeButton1"
                         android:layout_width="wrap_content"
@@ -894,9 +970,10 @@
                         android:layout_weight="1"
                         android:gravity="start|center_vertical"
                         android:text="@string/fromDeparturePoint"
-                        android:textColor="@color/colorBlack"
+                        android:textColor="@color/black"
                         android:textSize="18sp" />
 
+                    <!-- First transit time value display -->
                     <TextView
                         android:id="@+id/transitTimeText1"
                         android:layout_width="wrap_content"
@@ -906,12 +983,13 @@
                         android:layout_weight="1"
                         android:gravity="end"
                         android:text="@string/notSet"
-                        android:textColor="@color/colorGray"
+                        android:textColor="@color/gray"
                         android:textSize="18sp"
                         tools:ignore="RtlHardcoded" />
 
                 </LinearLayout>
 
+                <!-- Second transit time setting -->
                 <LinearLayout
                     android:id="@+id/transitTimeLayout2"
                     android:layout_width="match_parent"
@@ -919,11 +997,12 @@
                     android:layout_gravity="center"
                     android:layout_marginBottom="0.3dp"
                     android:layout_weight="1"
-                    android:background="@color/colorWhite"
+                    android:background="@color/white"
                     android:gravity="center"
                     android:orientation="horizontal"
                     tools:ignore="NestedWeights">
 
+                    <!-- Second transit time label -->
                     <TextView
                         android:id="@+id/transitTimeButton2"
                         android:layout_width="wrap_content"
@@ -932,9 +1011,10 @@
                         android:layout_weight="1"
                         android:gravity="start|center_vertical"
                         android:text="@string/fromArriveStation1"
-                        android:textColor="@color/colorBlack"
+                        android:textColor="@color/black"
                         android:textSize="18sp" />
 
+                    <!-- Second transit time value display -->
                     <TextView
                         android:id="@+id/transitTimeText2"
                         android:layout_width="wrap_content"
@@ -944,12 +1024,13 @@
                         android:layout_weight="1"
                         android:gravity="end"
                         android:text="@string/notSet"
-                        android:textColor="@color/colorGray"
+                        android:textColor="@color/gray"
                         android:textSize="18sp"
                         tools:ignore="RtlHardcoded,TooManyViews" />
 
                 </LinearLayout>
 
+                <!-- Third transit time setting -->
                 <LinearLayout
                     android:id="@+id/transitTimeLayout3"
                     android:layout_width="match_parent"
@@ -957,11 +1038,12 @@
                     android:layout_gravity="center"
                     android:layout_marginBottom="0.3dp"
                     android:layout_weight="1"
-                    android:background="@color/colorWhite"
+                    android:background="@color/white"
                     android:gravity="center"
                     android:orientation="horizontal"
                     tools:ignore="NestedWeights">
 
+                    <!-- Third transit time label -->
                     <TextView
                         android:id="@+id/transitTimeButton3"
                         android:layout_width="wrap_content"
@@ -970,10 +1052,11 @@
                         android:layout_weight="1"
                         android:gravity="start|center_vertical"
                         android:text="@string/fromArriveStation2"
-                        android:textColor="@color/colorBlack"
+                        android:textColor="@color/black"
                         android:textSize="18sp"
                         tools:ignore="TooManyViews" />
 
+                    <!-- Third transit time value display -->
                     <TextView
                         android:id="@+id/transitTimeText3"
                         android:layout_width="wrap_content"
@@ -983,23 +1066,25 @@
                         android:layout_weight="1"
                         android:gravity="end"
                         android:text="@string/notSet"
-                        android:textColor="@color/colorGray"
+                        android:textColor="@color/gray"
                         android:textSize="18sp"
                         tools:ignore="RtlHardcoded" />
 
                 </LinearLayout>
 
+                <!-- Destination transit time setting -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:layout_marginBottom="0.3dp"
                     android:layout_weight="1"
-                    android:background="@color/colorWhite"
+                    android:background="@color/white"
                     android:gravity="center"
                     android:orientation="horizontal"
                     tools:ignore="NestedWeights">
 
+                    <!-- Destination transit time label -->
                     <TextView
                         android:id="@+id/transitTimeButtonE"
                         android:layout_width="wrap_content"
@@ -1008,9 +1093,10 @@
                         android:layout_weight="1"
                         android:gravity="start|center_vertical"
                         android:text="@string/toDestination"
-                        android:textColor="@color/colorBlack"
+                        android:textColor="@color/black"
                         android:textSize="18sp" />
 
+                    <!-- Destination transit time value display -->
                     <TextView
                         android:id="@+id/transitTimeTextE"
                         android:layout_width="wrap_content"
@@ -1020,7 +1106,7 @@
                         android:layout_weight="1"
                         android:gravity="end"
                         android:text="@string/notSet"
-                        android:textColor="@color/colorGray"
+                        android:textColor="@color/gray"
                         android:textSize="18sp"
                         tools:ignore="RtlHardcoded" />
 

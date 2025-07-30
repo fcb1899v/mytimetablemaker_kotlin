@@ -6,7 +6,7 @@ import com.example.mytimetablemaker.Application.Companion.context
 import com.google.android.gms.tasks.Task
 import com.google.firebase.firestore.DocumentSnapshot
 
-//Resourcesデータをどこでも参照できるようにするクラス
+// Class to make Resources data accessible from anywhere
 class Application: android.app.Application() {
     companion object {
         @SuppressLint("StaticFieldLeak")
@@ -17,6 +17,8 @@ class Application: android.app.Application() {
         context = this
     }
 }
+
+// Resource access extensions
 val Int.strings: String get() = context.getString(this)
 val Int.arrayStrings: Array<String> get() = context.resources.getStringArray(this)
 val Int.setColor: Int get() = parseColor(strings)
@@ -24,14 +26,14 @@ val String.setStringColor: Int get() = parseColor(this)
 fun String?.nullToString(defaultValue: String): String = this ?: defaultValue
 val Boolean?.nullToBoolean: Boolean get() = this ?: false
 
-//This is goOrBack
+// Go or back string utilities
 fun String.goOrBackString(backString: String, goString: String): String = when (this) { "back1", "back2" -> backString else -> goString }
 fun String.changeWord(changeWord: String, i: Int):String = when (i) { 0 -> this else -> changeWord }
 val String.getLastChar: Char get() = this[this.length - 1]
 val String.exchange1and2: String get() = if (getLastChar == '2') "1" else "2"
 val String.otherGoOrBack: String get() = "${this.substring(0, this.length - 1)}$exchange1and2"
 
-//Shared Preference Key: This is goOrBack
+// Shared Preference Key: This is goOrBack
 val String.route2Key: String get() = "${this}switch"
 val String.changeLineKey: String get() = "${this}changeline"
 val String.departPointKey: String get() = goOrBackString("destination", "departurepoint")
@@ -45,19 +47,19 @@ fun String.transportationKey(i: Int): String = "${this}transportation${if (i == 
 fun String.transitTimeKey(i: Int): String = "${this}transittime${if (i == 0) "e" else i}"
 fun String.timetableKey(linenumber: Int, hour: Int, day: Int): String = "${this}timetable${linenumber + 1}hour${hour.addZeroTime}${day.weekDayOrEnd}"
 
-//Shared Preference Default: This is goOrBack
+// Shared Preference Default: This is goOrBack
 const val changeLineDefault = "0"
 val String.departPointDefault: String get() = goOrBackString(R.string.office.strings, R.string.home.strings)
 val String.arrivePointDefault: String get() = goOrBackString(R.string.home.strings, R.string.office.strings)
 fun departStationDefault(i: Int): String = "${R.string.depSta.strings}${i}"
 fun arriveStationDefault(i: Int): String = "${R.string.arrSta.strings}${i}"
 fun lineNameDefault(i: Int): String = "${R.string.line.strings}${i}"
-val lineColorDefault = R.string.colorAccent.strings
+val lineColorDefault = R.color.accent.strings
 val transportationDefault = R.string.walking.strings
 const val rideTimeDefault = "0"
 const val transitTimeDefault = "0"
 
-//Alert Title
+// Alert Title generators
 fun departStationTitle(i: Int) = "${R.string.settingStationName.strings}${R.string.departStation.strings}$i"
 fun arriveStationTitle(i: Int) = "${R.string.settingStationName.strings}${R.string.arriveStation.strings}$i"
 fun lineNameTitle(i: Int) = "${R.string.settingLineName.strings}${R.string.line.strings}$i"
@@ -69,18 +71,18 @@ fun String.transitTimeTitle(i: Int): String = "${R.string.settingTransitTime.str
 val String.rideTimeTitle: String get() = "${R.string.settingRideTime.strings}$this"
 fun String.timeTableTitle(arriveStation: String) = "($this ${R.string.colon.strings} $arriveStation${R.string.houmen.strings})"
 
-//Not set
+// Not set utilities
 val String.none: Boolean get() = when (this) { "", "0" -> true else -> false }
 val String.settingsTextColor: Int get() = when (this) {
-    R.string.notSet.strings, R.string.office.strings, R.string.home.strings -> R.string.lightGray.setColor
-    else -> R.string.black.setColor
+    R.string.notSet.strings, R.string.office.strings, R.string.home.strings -> R.color.gray
+    else -> R.color.black
 }
 val String.addMinutes: String get() = when (this) {
     "", R.string.notSet.strings -> this
     else -> "$this ${R.string.minutesUnit.strings}"
 }
 
-//Login
+// Login utilities
 const val loginKey = "loggedin"
 val goOrBackArray: Array<String> = arrayOf("back1", "go1", "back2", "go2")
 val goOrBack2Array: Array<String> = arrayOf("back2", "go2")
@@ -91,19 +93,19 @@ fun accountTextArray(isLogin: Boolean): Array<String> = arrayOf(
     R.string.delete_account.strings
 )
 
-//Firestore Path
+// Firestore Path constants
 const val usersColPath = "users"
 const val goOrBackDocPath = "goorback"
 const val timetableColPath = "timetable"
 fun timetableDocPath(linenumber: Int, day: Int) = "timetable${linenumber + 1}${day.weekDayOrEnd}"
 
-//Task Result
+// Task Result utilities
 fun Task<DocumentSnapshot>.taskResult(key: String, defaultValue: String) =
     this.result?.get(key).toString().nullToString(defaultValue)
 fun Task<DocumentSnapshot>.taskResultBoolean(key: String) =
     java.lang.Boolean.parseBoolean(this.result?.get(key).toString()).nullToBoolean
 
-//Task Result Key
+// Task Result Key constants
 const val switchKey = "switch"
 const val changeLineKey = "changeline"
 const val departPointKey = "departpoint"
@@ -117,15 +119,15 @@ fun transportationKey(i: Int) = "transportation${if (i ==0) "e" else i}"
 fun transitTimeKey(i: Int) = "transittime${if (i ==0) "e" else i}"
 fun timetableKey(hour: Int) = "hour${hour.addZeroTime}"
 
-//This is currentDay
+// Current day utilities
 val Int.weekDayOrEnd: String get() = when(this) { 0, 6 -> "weekend" else -> "weekday" }
 val Int.weekdayString: String get() = when (this) { 0, 6 -> R.string.weekend.strings else -> R.string.weekday.strings }
 val Int.weekendString: String get() = when (this) { 0, 6 -> R.string.weekday.strings else -> R.string.weekend.strings }
-val Int.weekendButtonColor: Int get() = when (this) { 0, 6 -> R.string.primaryDark.setColor else -> R.string.red.setColor }
-val Int.weekdayTableColor: Int get() = when (this) { 0, 6 -> R.string.red.setColor else -> R.string.white.setColor }
+val Int.weekendButtonColor: Int get() = when (this) { 0, 6 -> R.color.primary else -> R.color.red }
+val Int.weekdayTableColor: Int get() = when (this) { 0, 6 -> R.color.red else -> R.color.white }
 val Int.otherDay: Int get() = when (this) { 0, 6 -> 1 else -> 0 }
 
-//
+// Convert time string to array of integers for specific hour
 fun String.timeArrayInt(hour: Int): Array<Int> = if (this != "") { this
     .split(" ")
     .asSequence()
@@ -141,7 +143,7 @@ fun String.timeArrayInt(hour: Int): Array<Int> = if (this != "") { this
     arrayOf()
 }
 
-//
+// Convert time string to formatted string
 val String.timeString: String get() = if (this != "") { this
     .split(" ")
     .distinct()
@@ -155,7 +157,7 @@ val String.timeString: String get() = if (this != "") { this
     ""
 }
 
-//Add time for timetable
+// Add time for timetable
 fun String.addTime(time: String): String = "$this $time"
     .removePrefix(" ")
     .split(" ")
@@ -167,13 +169,13 @@ fun String.addTime(time: String): String = "$this $time"
     .sorted()
     .joinToString(" ") { it.toString() }
 
-//delete time for timetable
+// Delete time for timetable
 fun String.deleteTime(time: String): String = this
     .split(" ")
     .filter { it != time }
     .joinToString(" ") { it }
 
-//time sort for timetable
+// Time sort for timetable
 val String.timeSorting: String get() = this
     .replace("+","")
     .replace("-","")

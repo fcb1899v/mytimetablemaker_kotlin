@@ -13,16 +13,18 @@ import java.util.Calendar
 import java.util.Date
 import java.util.Locale
 
+// Date and time utility class
 class MyDate {
 
-    //
+    // Get localized date string from Date object
     private fun getLocalizeDateString(date: Date, skeleton: String): String {
         val local: Locale = Locale.getDefault()
         val format: String = getBestDateTimePattern(local, skeleton)
         val dateFormat = SimpleDateFormat(format, local)
         return dateFormat.format(date)
     }
-    //　日時をローカライズ表示のDateで取得する関数
+    
+    // Get localized Date object from string
     fun getLocalizeDate(date: String, skeleton: String): Date? {
         val local: Locale = Locale.getDefault()
         val format: String = getBestDateTimePattern(local, skeleton)
@@ -30,14 +32,14 @@ class MyDate {
         return dateFormat.parse(date)
     }
 
+    // Update current date and time display
     fun getCurrentDate(dateButton: Button, timeButton: Button) {
         dateButton.text = getLocalizeDateString(Date(), "EEEMMMdyyyy")
         timeButton.text = getLocalizeDateString(Date(), "HH:mm:ss")
     }
 
-
-    //＜日付の設定＞
-    //(a)標準的なDatePickerDialogを表示する関数
+    //＜Date Settings＞
+    // Show standard DatePickerDialog
     fun setDatePickerDialog(textview: TextView, context: Context, isTimeStart: Boolean) {
         if (!isTimeStart) {
             val inputDate: Calendar = Calendar.getInstance()
@@ -55,8 +57,8 @@ class MyDate {
         }
     }
 
-    //＜日時の設定＞
-    //(b)標準的なTimePickerDialogを表示する関数
+    //＜Time Settings＞
+    // Show standard TimePickerDialog
     fun setTimePickerDialog(textview: TextView, context: Context, isTimeStart: Boolean) {
         if (!isTimeStart) {
             val inputTime: Calendar = Calendar.getInstance()

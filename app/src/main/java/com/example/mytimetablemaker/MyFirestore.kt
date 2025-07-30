@@ -17,6 +17,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.WriteBatch
 import com.google.firebase.ktx.Firebase
 
+// Class for managing Firestore database operations
 class MyFirestore(
     private val context: Context
 ) {
@@ -24,7 +25,7 @@ class MyFirestore(
     private val myPreference = MyPreference(context)
     private var isSuccessFirestore = false
 
-    //Get Firestore data
+    // Get Firestore data
     fun getFirestore(progressBar: ProgressBar) {
         AlertDialog.Builder(context).apply {
             setTitle(R.string.get_saved_data.strings)
@@ -32,6 +33,7 @@ class MyFirestore(
             setPositiveButton(R.string.ok) { _, _ ->
                 progressBar.visibility = View.VISIBLE
                 isSuccessFirestore = true
+                // Iterate through all routes and data
                 (0..3).forEach { i: Int ->
                     if (isSuccessFirestore) getLineInfoFirestore(goOrBackArray[i])
                     (0..2).forEach { linenumber: Int ->
@@ -57,7 +59,7 @@ class MyFirestore(
         }
     }
 
-    //Get Line information data from Firestore
+    // Get Line information data from Firestore
     private fun getLineInfoFirestore(goOrBack: String) {
         val userID: String = Firebase.auth.currentUser!!.uid
         val userDB: DocumentReference =  FirebaseFirestore.getInstance().collection(usersColPath).document(userID)
@@ -73,7 +75,7 @@ class MyFirestore(
         }
     }
 
-    //Get timetable data from Firestore
+    // Get timetable data from Firestore
     private fun getTimetableFireStore(goOrBack: String, linenumber: Int, day: Int, hour: Int) {
         val userID: String = Firebase.auth.currentUser!!.uid
         val userDB: DocumentReference =  FirebaseFirestore.getInstance().collection(usersColPath).document(userID)
@@ -90,7 +92,7 @@ class MyFirestore(
             }
     }
 
-    //Save Firestore data
+    // Save Firestore data
     fun setFirestore(progressBar: ProgressBar) {
         AlertDialog.Builder(context).apply {
             setTitle(R.string.save_current_data.strings)
@@ -100,6 +102,7 @@ class MyFirestore(
                 val batch: WriteBatch = FirebaseFirestore.getInstance().batch()
                 val userID: String = Firebase.auth.currentUser!!.uid
                 val userDB: DocumentReference =  FirebaseFirestore.getInstance().collection(usersColPath).document(userID)
+                // Iterate through all routes and save data
                 (0..3).forEach { i: Int ->
                     val ref: DocumentReference = userDB.collection(goOrBackDocPath).document(goOrBackArray[i])
                     batch.set(ref, setLineInfo(goOrBackArray[i]))
@@ -126,25 +129,28 @@ class MyFirestore(
         }
     }
 
+    // Save line information from Firestore to SharedPreferences
     private fun saveLineInfoToPref(goOrBack: String, task: Task<DocumentSnapshot>) {
         myPreference.prefSaveBoolean(goOrBack.route2Key, task.taskResultBoolean(switchKey))
         myPreference.prefSaveText(goOrBack.changeLineKey, task.taskResult(changeLineKey, changeLineDefault))
         myPreference.prefSaveText(goOrBack.departPointKey, task.taskResult(departPointKey, goOrBack.departPointDefault))
         myPreference.prefSaveText(goOrBack.arrivePointKey, task.taskResult(arrivePointKey, goOrBack.arrivePointDefault))
+        // Save station and line information for each transfer
         (1..3).forEach { i: Int ->
             myPreference.prefSaveText(goOrBack.departStationKey(i), task.taskResult(departStationKey(i), departStationDefault(i)))
             myPreference.prefSaveText(goOrBack.arriveStationKey(i), task.taskResult(arriveStationKey(i), arriveStationDefault(i)))
             myPreference.prefSaveText(goOrBack.lineNameKey(i), task.taskResult(lineNameKey(i), lineNameDefault(i)))
-            myPreference.prefSaveText(goOrBack.lineColorKey(i), task.taskResult(lineColorKey(i), lineColorDefault))
+            myPreference.prefSaveText(goOrBack.lineColorKey(i), task.taskResult(lineColorKey(i), lineColorDefault.toString()))
             myPreference.prefSaveText(goOrBack.rideTimeKey(i), task.taskResult(rideTimeKey(i), rideTimeDefault))
             myPreference.prefSaveText(goOrBack.transportationKey(i), task.taskResult(transportationKey(i), transportationDefault))
             myPreference.prefSaveText(goOrBack.transitTimeKey(i), task.taskResult(transitTimeKey(i), transitTimeDefault))
         }
+        // Save transportation and transit time for initial segment
         myPreference.prefSaveText(goOrBack.transportationKey(0), task.taskResult(transportationKey(0), transportationDefault))
         myPreference.prefSaveText(goOrBack.transitTimeKey(0), task.taskResult(transitTimeKey(0), transitTimeDefault))
     }
 
-
+    // Create LineInfo data class from SharedPreferences data
     private fun setLineInfo(goOrBack: String): LineInfo {
         val switch: Boolean = myPreference.getRoute2Switch(goOrBack)
         val changeLine: String = myPreference.changeLine(goOrBack).toString()
@@ -168,6 +174,7 @@ class MyFirestore(
         )
     }
 
+    // Create TimetableHour data class from SharedPreferences data
     private fun setTimetableHour(goOrBack: String, lineNumber: Int, day: Int): TimetableHour {
         val timetableArray: Array<String> = myPreference.getTimetableStringArray(goOrBack, lineNumber, day)
         return TimetableHour(
@@ -180,7 +187,7 @@ class MyFirestore(
         )
     }
 
-    //
+    // Data class for storing line information in Firestore
     data class LineInfo(
         val switch: Boolean = false,
         val changeline: String = "",
@@ -211,7 +218,7 @@ class MyFirestore(
         val transittime3:String = ""
     )
 
-    //
+    // Data class for storing timetable hour data in Firestore
     data class TimetableHour(
         val hour04: String = "",
         val hour05: String = "",
@@ -237,7 +244,7 @@ class MyFirestore(
         val hour25: String = ""
     )
 
-    //Toastの表示
+    // Display Toast
     private fun makeFirestoreToast(message: String) {
         println(message)
         Log.d(ContentValues.TAG, message)
@@ -246,7 +253,7 @@ class MyFirestore(
         ts.show()
     }
 
-    //Alertの表示
+    // Display Alert
     private fun makeFirestoreAlert(title: String, message: String) {
         AlertDialog.Builder(context).apply {
             setTitle(title)

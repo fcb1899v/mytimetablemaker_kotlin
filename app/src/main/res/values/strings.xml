@@ -1,15 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Application string resources -->
 
-    //Color
-    <string name="colorAccent">#03DAC5</string>
-    <string name="primaryDark">#3700B3</string>
-    <string name="lightGray">#808080</string>
-    <string name="black">#000000</string>
-    <string name="red">#FF0000</string>
-    <string name="yellow">#FFFF00</string>
-    <string name="white">#FFFFFF</string>
-
+    <!-- Line color selection options -->
     <string-array name="lineColorList">
         <item>DEFAULT</item>
         <item>RED</item>
@@ -29,6 +22,8 @@
         <item>SILVER</item>
         <item>BLACK</item>
     </string-array>
+    
+    <!-- Line color hex values -->
     <string-array name="lineColorValue">
         <item>#03DAC5</item>
         <item>#FF0000</item>
@@ -49,7 +44,7 @@
         <item>#000000</item>
     </string-array>
 
-    //Action
+    <!-- Action button texts -->
     <string name="register">Register</string>
     <string name="cancel">Cancel</string>
     <string name="add">Add</string>
@@ -58,7 +53,7 @@
     <string name="yes">Yes</string>
     <string name="no">No</string>
 
-    //Main Activity
+    <!-- Main Activity strings -->
     <string name="appName">My Transit Makers</string>
     <string name="switchBack">Back</string>
     <string name="switchGo">Go</string>
@@ -68,7 +63,7 @@
     <string name="office">Office</string>
     <string name="home">Home</string>
 
-    //Settings
+    <!-- Settings strings -->
     <string name="settingsTitle">Settings</string>
     <string name="variousSettings">Various Settings</string>
     <string name="settingsChangeLineTitle">Setting number of transfers</string>
@@ -88,6 +83,8 @@
     <string name="zero">Zero</string>
     <string name="once">Once</string>
     <string name="twice">Twice</string>
+    
+    <!-- Transfer count options -->
     <string-array name="changeLineList">
         <item>Zero</item>
         <item>Once</item>
@@ -99,7 +96,7 @@
         <item>2</item>
     </string-array>
 
-    //Setting station name
+    <!-- Setting station name -->
     <string name="settingStationTitle">Setting your station name</string>
     <string name="settingStationName">Setting your station name :\n</string>
     <string name="settingDepartPointTitle">Setting your departure point</string>
@@ -118,7 +115,7 @@
     <string name="arriveStation3">Arrive station 3</string>
     <string name="character10Hint">Maximum 20 Characters</string>
 
-    //Setting line information
+    <!-- Setting line information -->
     <string name="settingLineNameTitle">Setting your line name</string>
     <string name="settingLineName">Setting your line name :\n</string>
     <string name="settingLineColorTitle">Setting your line color</string>
@@ -133,7 +130,7 @@
     <string name="minutes2Hint">Enter 0~99 ［min］</string>
     <string name="minutesUnit">[min]</string>
 
-    //Setting transportation
+    <!-- Setting transportation -->
     <string name="settingTransportationTitle">Setting your transportation</string>
     <string name="settingTransportation">Setting your transportation :</string>
     <string name="settingTransitTimeTitle">Setting your transit time</string>
@@ -157,8 +154,7 @@
         <item>Car</item>
     </string-array>
 
-
-    //Timetable Activity
+    <!-- Timetable Activity -->
     <string name="timetableTitle">Setting Timetable</string>
     <string name="weekday">Weekday</string>
     <string name="weekend">Weekend</string>
@@ -196,7 +192,7 @@
     <string name="pictureButton">Select your timetable picture</string>
     <string name="settingTimetableHint">Enter 0～59 [min] separated by a space</string>
 
-    //FirebaseAuth
+    <!-- FirebaseAuth -->
     <string name="account">Account</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
@@ -206,14 +202,14 @@
     <string name="hint_password">Enter your password</string>
     <string name="hint_confirm_password">Enter your confirm password</string>
 
-    //Login
+    <!-- Login -->
     <string name="login">Login</string>
     <string name="login_successfully">Login successfully</string>
     <string name="login_error">Login error</string>
     <string name="not_verified_account">Not verified account</string>
     <string name="auth_mail_check">Check your email</string>
 
-    //Sign Up
+    <!-- Sign Up -->
     <string name="create_account">Create Account</string>
     <string name="signup">Sign Up</string>
     <string name="signup_successfully">Sign up successfully</string>
@@ -223,7 +219,7 @@
     <string name="send_auth_mail_successfully">Verification email Sent successfully</string>
     <string name="send_auth_mail_unsuccessfully">Verification email could not be sent</string>
 
-    //Input Error
+    <!-- Input Error -->
     <string name="input_error">Input error</string>
     <string name="incorrect_email">Incorrect email</string>
     <string name="incorrect_password">Incorrect password</string>
@@ -233,13 +229,13 @@
     <string name="confirm_password_not_match">"Confirm password don't match"</string>
     <string name="check_terms_and_policy">Check the terms and privacy policy</string>
 
-    //Auth Error
+    <!-- Auth Error -->
     <string name="email_not_registered">This email is not registered</string>
     <string name="account_disabled">This account is disabled</string>
     <string name="email_already_registered">This email has already been registered</string>
     <string name="password_over_6_characters">Password must be at least 6 characters</string>
 
-    //Password Reset
+    <!-- Password Reset -->
     <string name="forget_password"><u>Forget password?</u></string>
     <string name="password_reset">Password Reset</string>
     <string name="password_reset_error">Password reset error</string>
@@ -247,19 +243,19 @@
     <string name="send_reset_mail_successfully">Password reset email Sent successfully</string>
     <string name="send_reset_mail_unsuccessfully">Password reset email could not be sent</string>
 
-    //Logout
+    <!-- Logout -->
     <string name="logout">Logout</string>
     <string name="logged_out">Logged out</string>
     <string name="logout_account">Logout your account?</string>
 
-    //Delete Account
+    <!-- Delete Account -->
     <string name="delete_account">Delete Account</string>
     <string name="delete_account_error">Delete account error</string>
     <string name="delete_your_account">Deleted your account?</string>
     <string name="delete_account_successfully">Account deleted successfully</string>
     <string name="delete_account_unsuccessfully">Account could not be deleted</string>
 
-    //Get data from Firestore
+    <!-- Get data from Firestore -->
     <string name="get_data_after_login">Get saved data after login</string>
     <string name="get_saved_data">Get saved data</string>
     <string name="overwritten_current_data">Overwritten current data?</string>
@@ -267,7 +263,7 @@
     <string name="get_data_successfully">Data got successfully</string>
     <string name="get_data_unsuccessfully">Data could not be got</string>
 
-    //Save data to Firestore
+    <!-- Save data to Firestore -->
     <string name="save_data_after_login">Save current data after login</string>
     <string name="save_current_data">Save current data</string>
     <string name="overwritten_saved_data">Overwritten saved data？</string>
@@ -275,7 +271,7 @@
     <string name="save_data_successfully">Data saved successfully</string>
     <string name="save_data_unsuccessfully">Data could not be saved</string>
 
-    //Delete data in Firestore
+    <!-- Delete data in Firestore -->
     <string name="delete_data_error">Data deleted error</string>
     <string name="delete_data_successfully">Data deleted successfully</string>
     <string name="delete_data_unsuccessfully">Data could not be deleted</string>

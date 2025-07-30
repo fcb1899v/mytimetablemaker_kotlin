@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Settings fragment layout - App configuration interface -->
 
 <FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -8,52 +9,59 @@
     android:layout_height="wrap_content"
     tools:context=".SettingsFragment">
 
+    <!-- Scrollable settings container -->
     <ScrollView
         android:id="@+id/scrollview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:ignore="UselessParent">
 
+        <!-- Main settings layout -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorGray"
+            android:background="@color/gray"
             android:orientation="vertical">
 
+            <!-- Settings content container -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
+                <!-- Route 2 display settings header -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:background="@color/colorGray"
+                    android:background="@color/gray"
                     android:gravity="center"
                     android:orientation="horizontal">
 
+                    <!-- Route 2 display title -->
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="30dp"
                         android:layout_marginStart="15dp"
                         android:gravity="start|center_vertical"
                         android:text="@string/displayRoute2Title"
-                        android:textColor="@color/colorWhite"
+                        android:textColor="@color/white"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
                 </LinearLayout>
 
+                <!-- Back route 2 switch setting -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:layout_marginBottom="0.3dp"
-                    android:background="@color/colorWhite"
+                    android:background="@color/white"
                     android:gravity="center"
                     android:orientation="horizontal">
 
+                    <!-- Back route 2 setting label -->
                     <TextView
                         android:layout_width="366dp"
                         android:layout_height="wrap_content"
@@ -61,9 +69,10 @@
                         android:layout_weight="1"
                         android:gravity="start|center_vertical"
                         android:text="@string/back2Route"
-                        android:textColor="@color/colorBlack"
+                        android:textColor="@color/black"
                         android:textSize="18sp" />
 
+                    <!-- Back route 2 toggle switch -->
                     <Switch
                         android:id="@+id/back2switch"
                         android:layout_width="48dp"
@@ -74,15 +83,17 @@
 
                 </LinearLayout>
 
+                <!-- Go route 2 switch setting -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:layout_marginBottom="0.3dp"
-                    android:background="@color/colorWhite"
+                    android:background="@color/white"
                     android:gravity="center"
                     android:orientation="horizontal">
 
+                    <!-- Go route 2 setting label -->
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -90,9 +101,10 @@
                         android:layout_weight="1"
                         android:gravity="start|center_vertical"
                         android:text="@string/go2Route"
-                        android:textColor="@color/colorBlack"
+                        android:textColor="@color/black"
                         android:textSize="18sp" />
 
+                    <!-- Go route 2 toggle switch -->
                     <Switch
                         android:id="@+id/go2switch"
                         android:layout_width="48dp"
@@ -104,6 +116,7 @@
                 </LinearLayout>
             </LinearLayout>
 
+            <!-- Change line settings section -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -114,37 +127,41 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
+                <!-- Change line settings header -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:background="@color/colorGray"
+                    android:background="@color/gray"
                     android:gravity="center"
                     android:orientation="horizontal">
 
+                    <!-- Change line settings title -->
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="30dp"
                         android:layout_marginStart="15dp"
                         android:gravity="start|center_vertical"
                         android:text="@string/settingsChangeLineTitle"
-                        android:textColor="@color/colorWhite"
+                        android:textColor="@color/white"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
                 </LinearLayout>
 
+                <!-- Back 1 change line setting -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:layout_marginBottom="0.3dp"
                     android:layout_weight="1"
-                    android:background="@color/colorWhite"
+                    android:background="@color/white"
                     android:gravity="center"
                     android:orientation="horizontal"
                     tools:ignore="InefficientWeight">
 
+                    <!-- Back 1 change line label -->
                     <TextView
                         android:id="@+id/back1ChangeLineButton"
                         android:layout_width="match_parent"
@@ -153,10 +170,11 @@
                         android:layout_weight=".5"
                         android:gravity="start|center_vertical"
                         android:text="@string/back1Route"
-                        android:textColor="@color/colorBlack"
+                        android:textColor="@color/black"
                         android:textSize="18sp"
                         tools:ignore="NestedWeights" />
 
+                    <!-- Back 1 change line value display -->
                     <TextView
                         android:id="@+id/back1ChangeLineText"
                         android:layout_width="match_parent"
@@ -166,21 +184,23 @@
                         android:layout_weight="1"
                         android:gravity="end"
                         android:text="@string/notSet"
-                        android:textColor="@color/colorGray"
+                        android:textColor="@color/gray"
                         android:textSize="18sp" />
 
                 </LinearLayout>
 
+                <!-- Back 2 change line setting -->
                 <LinearLayout
                     android:id="@+id/back2ChangeLineLayout"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:layout_marginBottom="0.3dp"
-                    android:background="@color/colorWhite"
+                    android:background="@color/white"
                     android:gravity="center"
                     android:orientation="horizontal">
 
+                    <!-- Back 2 change line label -->
                     <TextView
                         android:id="@+id/back2ChangeLineButton"
                         android:layout_width="match_parent"
@@ -189,9 +209,10 @@
                         android:layout_weight=".5"
                         android:gravity="start|center_vertical"
                         android:text="@string/back2Route"
-                        android:textColor="@color/colorBlack"
+                        android:textColor="@color/black"
                         android:textSize="18sp" />
 
+                    <!-- Back 2 change line value display -->
                     <TextView
                         android:id="@+id/back2ChangeLineText"
                         android:layout_width="match_parent"
@@ -201,20 +222,22 @@
                         android:layout_weight="1"
                         android:gravity="end"
                         android:text="@string/notSet"
-                        android:textColor="@color/colorGray"
+                        android:textColor="@color/gray"
                         android:textSize="18sp" />
 
                 </LinearLayout>
 
+                <!-- Go 2 change line setting -->
                 <LinearLayout
                     android:id="@+id/go2ChangeLineLayout"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginBottom="0.3dp"
-                    android:background="@color/colorWhite"
+                    android:background="@color/white"
                     android:gravity="center"
                     android:orientation="horizontal">
 
+                    <!-- Go 2 change line label -->
                     <TextView
                         android:id="@+id/go2ChangeLineButton"
                         android:layout_width="match_parent"
@@ -223,9 +246,10 @@
                         android:layout_weight=".5"
                         android:gravity="start|center_vertical"
                         android:text="@string/go2Route"
-                        android:textColor="@color/colorBlack"
+                        android:textColor="@color/black"
                         android:textSize="18sp" />
 
+                    <!-- Go 2 change line value display -->
                     <TextView
                         android:id="@+id/go2ChangeLineText"
                         android:layout_width="match_parent"
@@ -235,20 +259,22 @@
                         android:layout_weight="1"
                         android:gravity="end"
                         android:text="@string/notSet"
-                        android:textColor="@color/colorGray"
+                        android:textColor="@color/gray"
                         android:textSize="18sp" />
 
                 </LinearLayout>
 
+                <!-- Go 1 change line setting -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:layout_marginBottom="0.3dp"
-                    android:background="@color/colorWhite"
+                    android:background="@color/white"
                     android:gravity="center"
                     android:orientation="horizontal">
 
+                    <!-- Go 1 change line label -->
                     <TextView
                         android:id="@+id/go1ChangeLineButton"
                         android:layout_width="match_parent"
@@ -257,9 +283,10 @@
                         android:layout_weight=".5"
                         android:gravity="start|center_vertical"
                         android:text="@string/go1Route"
-                        android:textColor="@color/colorBlack"
+                        android:textColor="@color/black"
                         android:textSize="18sp" />
 
+                    <!-- Go 1 change line value display -->
                     <TextView
                         android:id="@+id/go1ChangeLineText"
                         android:layout_width="match_parent"
@@ -269,13 +296,14 @@
                         android:layout_weight="1"
                         android:gravity="end"
                         android:text="@string/notSet"
-                        android:textColor="@color/colorGray"
+                        android:textColor="@color/gray"
                         android:textSize="18sp" />
 
                 </LinearLayout>
 
             </LinearLayout>
 
+            <!-- Various settings section -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -286,35 +314,39 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
+                <!-- Various settings header -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:background="@color/colorGray"
+                    android:background="@color/gray"
                     android:gravity="center"
                     android:orientation="horizontal">
 
+                    <!-- Various settings title -->
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="30dp"
                         android:layout_marginStart="15dp"
                         android:gravity="start|center_vertical"
                         android:text="@string/variousSettings"
-                        android:textColor="@color/colorWhite"
+                        android:textColor="@color/white"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
                 </LinearLayout>
 
+                <!-- Back 1 settings button -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:layout_marginBottom="0.3dp"
-                    android:background="@color/colorWhite"
+                    android:background="@color/white"
                     android:gravity="center"
                     android:orientation="horizontal">
 
+                    <!-- Back 1 settings label -->
                     <TextView
                         android:id="@+id/back1SettingButton"
                         android:layout_width="match_parent"
@@ -322,20 +354,22 @@
                         android:layout_marginStart="15dp"
                         android:gravity="start|center_vertical"
                         android:text="@string/back1Route"
-                        android:textColor="@color/colorBlack"
+                        android:textColor="@color/black"
                         android:textSize="18sp" />
 
                 </LinearLayout>
 
+                <!-- Go 1 settings button -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:layout_marginBottom="0.3dp"
-                    android:background="@color/colorWhite"
+                    android:background="@color/white"
                     android:gravity="center"
                     android:orientation="horizontal">
 
+                    <!-- Go 1 settings label -->
                     <TextView
                         android:id="@+id/go1SettingButton"
                         android:layout_width="match_parent"
@@ -343,21 +377,23 @@
                         android:layout_marginStart="15dp"
                         android:gravity="start|center_vertical"
                         android:text="@string/go1Route"
-                        android:textColor="@color/colorBlack"
+                        android:textColor="@color/black"
                         android:textSize="18sp" />
 
                 </LinearLayout>
 
+                <!-- Back 2 settings button -->
                 <LinearLayout
                     android:id="@+id/back2SettingLayout"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:layout_marginBottom="0.3dp"
-                    android:background="@color/colorWhite"
+                    android:background="@color/white"
                     android:gravity="center"
                     android:orientation="horizontal">
 
+                    <!-- Back 2 settings label -->
                     <TextView
                         android:id="@+id/back2SettingButton"
                         android:layout_width="match_parent"
@@ -365,21 +401,23 @@
                         android:layout_marginStart="15dp"
                         android:gravity="start|center_vertical"
                         android:text="@string/back2Route"
-                        android:textColor="@color/colorBlack"
+                        android:textColor="@color/black"
                         android:textSize="18sp" />
 
                 </LinearLayout>
 
+                <!-- Go 2 settings button -->
                 <LinearLayout
                     android:id="@+id/go2SettingLayout"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:layout_marginBottom="0.3dp"
-                    android:background="@color/colorWhite"
+                    android:background="@color/white"
                     android:gravity="center"
                     android:orientation="horizontal">
 
+                    <!-- Go 2 settings label -->
                     <TextView
                         android:id="@+id/go2SettingButton"
                         android:layout_width="match_parent"
@@ -387,13 +425,14 @@
                         android:layout_marginStart="15dp"
                         android:gravity="start|center_vertical"
                         android:text="@string/go2Route"
-                        android:textColor="@color/colorBlack"
+                        android:textColor="@color/black"
                         android:textSize="18sp" />
 
                 </LinearLayout>
 
             </LinearLayout>
 
+            <!-- Account settings section -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -404,35 +443,39 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
+                <!-- Account settings header -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:background="@color/colorGray"
+                    android:background="@color/gray"
                     android:gravity="center"
                     android:orientation="horizontal">
 
+                    <!-- Account settings title -->
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="30dp"
                         android:layout_marginStart="15dp"
                         android:gravity="start|center_vertical"
                         android:text="@string/account"
-                        android:textColor="@color/colorWhite"
+                        android:textColor="@color/white"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
                 </LinearLayout>
 
+                <!-- Save data button -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:layout_marginBottom="0.3dp"
-                    android:background="@color/colorWhite"
+                    android:background="@color/white"
                     android:gravity="center"
                     android:orientation="horizontal">
 
+                    <!-- Save data label -->
                     <TextView
                         android:id="@+id/saveServerButton"
                         android:layout_width="match_parent"
@@ -440,20 +483,22 @@
                         android:layout_marginStart="15dp"
                         android:gravity="start|center_vertical"
                         android:text="@string/save_current_data"
-                        android:textColor="@color/colorBlack"
+                        android:textColor="@color/black"
                         android:textSize="18sp" />
 
                 </LinearLayout>
 
+                <!-- Get data button -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:layout_marginBottom="0.3dp"
-                    android:background="@color/colorWhite"
+                    android:background="@color/white"
                     android:gravity="center"
                     android:orientation="horizontal">
 
+                    <!-- Get data label -->
                     <TextView
                         android:id="@+id/getServerDataButton"
                         android:layout_width="match_parent"
@@ -461,21 +506,23 @@
                         android:layout_marginStart="15dp"
                         android:gravity="start|center_vertical"
                         android:text="@string/get_saved_data"
-                        android:textColor="@color/colorBlack"
+                        android:textColor="@color/black"
                         android:textSize="18sp" />
 
                 </LinearLayout>
 
+                <!-- Sign out button -->
                 <LinearLayout
                     android:id="@+id/signOutLayOut"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:layout_marginBottom="0.3dp"
-                    android:background="@color/colorWhite"
+                    android:background="@color/white"
                     android:gravity="center"
                     android:orientation="horizontal">
 
+                    <!-- Sign out label -->
                     <TextView
                         android:id="@+id/signOutButton"
                         android:layout_width="match_parent"
@@ -483,22 +530,23 @@
                         android:layout_marginStart="15dp"
                         android:gravity="start|center_vertical"
                         android:text="@string/logout"
-                        android:textColor="@color/colorBlack"
+                        android:textColor="@color/black"
                         android:textSize="18sp" />
 
                 </LinearLayout>
 
-
+                <!-- Delete account button -->
                 <LinearLayout
                     android:id="@+id/deleteAccountLayOut"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:layout_marginBottom="0.3dp"
-                    android:background="@color/colorWhite"
+                    android:background="@color/white"
                     android:gravity="center"
                     android:orientation="horizontal">
 
+                    <!-- Delete account label -->
                     <TextView
                         android:id="@+id/deleteAccountButton"
                         android:layout_width="match_parent"
@@ -506,49 +554,54 @@
                         android:layout_marginStart="15dp"
                         android:gravity="start|center_vertical"
                         android:text="@string/delete_your_account"
-                        android:textColor="@color/colorBlack"
+                        android:textColor="@color/black"
                         android:textSize="18sp" />
 
                 </LinearLayout>
 
             </LinearLayout>
 
+            <!-- About section -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
+                <!-- About settings header -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:background="@color/colorGray"
+                    android:background="@color/gray"
                     android:gravity="center"
                     android:orientation="horizontal">
 
+                    <!-- About settings title -->
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="30dp"
                         android:layout_marginStart="15dp"
                         android:gravity="start|center_vertical"
                         android:text="@string/about"
-                        android:textColor="@color/colorWhite"
+                        android:textColor="@color/white"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
                 </LinearLayout>
 
+                <!-- Version information -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:layout_marginBottom="0.3dp"
                     android:layout_weight="1"
-                    android:background="@color/colorWhite"
+                    android:background="@color/white"
                     android:gravity="center"
                     android:orientation="horizontal"
                     tools:ignore="InefficientWeight">
 
+                    <!-- Version label -->
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -556,10 +609,11 @@
                         android:layout_weight=".5"
                         android:gravity="start|center_vertical"
                         android:text="@string/version"
-                        android:textColor="@color/colorBlack"
+                        android:textColor="@color/black"
                         android:textSize="18sp"
                         tools:ignore="NestedWeights" />
 
+                    <!-- Version number display -->
                     <TextView
                         android:id="@+id/versionNumber"
                         android:layout_width="match_parent"
@@ -568,21 +622,23 @@
                         android:layout_marginEnd="15dp"
                         android:layout_weight="1"
                         android:gravity="end"
-                        android:textColor="@color/colorGray"
+                        android:textColor="@color/gray"
                         android:textSize="18sp" />
 
                 </LinearLayout>
 
+                <!-- Privacy policy button -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:layout_marginBottom="0.3dp"
                     android:layout_weight="1"
-                    android:background="@color/colorWhite"
+                    android:background="@color/white"
                     android:gravity="center"
                     android:orientation="horizontal">
 
+                    <!-- Privacy policy label -->
                     <TextView
                         android:id="@+id/privacyPolicy"
                         android:layout_width="match_parent"
@@ -590,7 +646,7 @@
                         android:layout_marginStart="15dp"
                         android:gravity="start|center_vertical"
                         android:text="@string/privacyPolicy"
-                        android:textColor="@color/colorBlack"
+                        android:textColor="@color/black"
                         android:textSize="18sp" />
 
                 </LinearLayout>
@@ -599,10 +655,12 @@
         </LinearLayout>
     </ScrollView>
 
+    <!-- Progress indicator overlay -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <!-- Loading progress bar -->
         <ProgressBar
             android:id="@+id/progressBar"
             android:layout_width="60dp"
@@ -611,7 +669,7 @@
             android:visibility="invisible"
             android:indeterminate="true"
             android:indeterminateTintMode="src_in"
-            android:indeterminateTint="@color/colorAccent"
+            android:indeterminateTint="@color/accent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

@@ -1,13 +1,20 @@
+// Application-level build configuration
 plugins {
+    // Android application plugin
     id 'com.android.application'
+    // Google Services plugin for Firebase integration
     id 'com.google.gms.google-services'
+    // Kotlin Android plugin
     id 'kotlin-android'
+    // Kotlin Compose plugin
+    id 'org.jetbrains.kotlin.plugin.compose' version '2.2.0'
 }
 
-
+// Android configuration block
 android {
     compileSdk = 36
 
+    // Default configuration for all build variants
     defaultConfig {
         applicationId = "com.mytimetablemaker"
         minSdkVersion = 24
@@ -20,6 +27,7 @@ android {
         manifestPlaceholders = [APP_ID: project.property("APP_ID")]
     }
 
+    // Build type configurations
     buildTypes {
         release {
             minifyEnabled = true
@@ -28,43 +36,63 @@ android {
         }
     }
 
+    // Build features configuration
     buildFeatures {
         dataBinding = true
         viewBinding = true
         buildConfig = true
+        compose = true
     }
 
+    // Java compilation options
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
 
+    // Kotlin compilation options
     kotlinOptions {
         jvmTarget = '17'
     }
+
+    // Compose compiler options
+    composeOptions {
+        kotlinCompilerExtensionVersion = "2.2.0"
+    }
+    
+    // Kotlin 2.0 Compose Compiler Plugin
+    kotlin {
+        jvmToolchain(17)
+    }
+
     namespace = 'com.example.mytimetablemaker'
     ndkVersion = "27.0.12077973"
 }
 
+// External properties for AdMob configuration
 ext {
     myAdMobAppId = findProperty("UNIT_ID") ?: "APP_ID"
 }
 
+// Dependencies configuration
 dependencies {
 
-    //ローカルバイナリへの依存関係（Gradleはプロジェクトのlibsディレクトリ内の.jarファイルへの依存関係を宣言）
+    // Local binary dependencies (Gradle declares dependencies on .jar files in the project's libs directory)
     implementation fileTree(dir: "libs", include: ["*.jar"])
 
-    //Kotlinプロジェクトの生成
+    // Kotlin project generation
     implementation "org.jetbrains.kotlin:kotlin-stdlib:2.2.0"
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.2'
     implementation(platform("org.jetbrains.kotlin:kotlin-bom:2.2.0"))
 
+    // AndroidX core dependencies
     implementation 'androidx.activity:activity:1.10.1'
     implementation 'androidx.activity:activity-ktx:1.10.1'
+    implementation 'androidx.activity:activity-compose:1.10.1'
     implementation 'androidx.appcompat:appcompat:1.7.1'
     implementation 'androidx.fragment:fragment-ktx:1.8.8'
     implementation 'androidx.core:core-ktx:1.16.0'
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.8.2'
     implementation 'androidx.constraintlayout:constraintlayout:2.2.1'
     implementation 'androidx.constraintlayout:constraintlayout-compose:1.1.1'
     implementation 'androidx.constraintlayout:constraintlayout-core:1.1.1'
@@ -73,23 +101,37 @@ dependencies {
     implementation 'androidx.preference:preference-ktx:1.2.1'
     implementation 'androidx.multidex:multidex:2.0.1'
 
+    // Jetpack Compose dependencies
+    implementation platform('androidx.compose:compose-bom:2024.10.01')
+    implementation 'androidx.compose.ui:ui'
+    implementation 'androidx.compose.ui:ui-graphics'
+    implementation 'androidx.compose.ui:ui-tooling-preview'
+    implementation 'androidx.compose.material3:material3'
+    implementation 'androidx.compose.material:material'
+    implementation 'androidx.lifecycle:lifecycle-runtime-compose:2.8.2'
+    implementation 'androidx.navigation:navigation-compose:2.8.2'
+    implementation 'androidx.hilt:hilt-navigation-compose:1.2.0'
+    debugImplementation 'androidx.compose.ui:ui-tooling'
+    debugImplementation 'androidx.compose.ui:ui-test-manifest'
+
+    // Test dependencies
     androidTestImplementation 'androidx.test.ext:junit:1.2.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
     testImplementation 'junit:junit:4.13.2'
 
-    //AdMob広告
+    // AdMob advertisement
     implementation 'com.google.android.gms:play-services-ads:22.6.0'
-    //Firebase連携
+    // Firebase integration
     implementation platform('com.google.firebase:firebase-bom:33.16.0')
-    //Firebase ユーザー認証
+    // Firebase user authentication
     implementation 'com.google.firebase:firebase-auth'
     implementation 'com.google.firebase:firebase-auth-ktx'
     implementation 'com.firebaseui:firebase-ui-auth:8.0.2'
-    //Firebase Database
+    // Firebase Database
     implementation 'com.google.firebase:firebase-common-ktx'
     implementation 'com.google.firebase:firebase-database'
     implementation 'com.google.firebase:firebase-firestore'
     implementation 'com.google.firebase:firebase-firestore-ktx'
-    //SplashScreen
+    // SplashScreen
     implementation "androidx.core:core-splashscreen:1.0.1"
 }

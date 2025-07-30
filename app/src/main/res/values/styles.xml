@@ -1,44 +1,20 @@
 <resources>
-    <!-- Base application theme. -->
+    <!-- Application style definitions -->
 
-    <style name="AppTheme"
-        parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="android:statusBarColor">@color/colorPrimary</item>
-    </style>
-
-    <style name="SettingsTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:statusBarColor">@color/colorPrimary</item>
-        <item name="android:fitsSystemWindows">true</item>
-    </style>
-
-    <style name="AppTheme.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-    </style>
-
-    <style name="AppTheme.AppBarOverlay"
-        parent="ThemeOverlay.AppCompat.Dark.ActionBar">
-    </style>
-
-    <style name="AppTheme.PopupOverlay"
-        parent="ThemeOverlay.AppCompat.Light">
-    </style>
-
+    <!-- EditText color control style -->
     <style name="EditTextColorControl">
-        <item name="colorControlNormal">@color/colorWhite</item>
-        <item name="colorControlActivated">@color/colorAccent</item>
+        <item name="colorControlNormal">@color/white</item>
+        <item name="colorControlActivated">@color/accent</item>
     </style>
 
-    <style name="MyCheckBox" parent="Theme.AppCompat.Light">
-        <!-- 枠線の色 -->
-        <item name="colorControlNormal">@color/colorWhite</item>
-        <!-- チェック中の色 -->
-        <item name="colorControlHighlight">@color/colorWhite</item>
-        <!-- チェック後の色 -->
-        <item name="colorControlActivated">@color/colorPrimary</item>
+    <!-- Custom checkbox style -->
+    <style name="CustomCheckBox" parent="Theme.AppCompat.Light">
+        <!-- Border color -->
+        <item name="colorControlNormal">@color/white</item>
+        <!-- Highlight color when pressed -->
+        <item name="colorControlHighlight">@color/white</item>
+        <!-- Checked state color -->
+        <item name="colorControlActivated">@color/primary</item>
     </style>
 
 </resources>

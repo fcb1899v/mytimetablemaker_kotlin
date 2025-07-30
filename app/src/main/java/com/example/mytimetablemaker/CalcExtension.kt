@@ -1,53 +1,53 @@
 package com.example.mytimetablemaker
 
-//＜時刻の変換＞
-//Int型時刻HHMMをMMに変換
+//＜Time Conversion＞
+// Convert Int time HHMM to MM
 val Int.HHMMtoMM: Int get() = this / 100 * 60 + this % 100
-//Int型時刻MMをHHMMに変換
+// Convert Int time MM to HHMM
 val Int.MMtoHHMM: Int get() = this / 60 * 100 + this % 60
-//Int型時刻MMSSをSSに変換
+// Convert Int time MMSS to SS
 //val Int.MMSStoSS: Int get() = this / 100 * 60 + this % 100
-//Int型時刻SSをMMSSに変換
+// Convert Int time SS to MMSS
 //val Int.SStoMMSS: Int get() = this / 60 * 100 + this % 60
-//Int型時刻HHMMSSをSSに変換
+// Convert Int time HHMMSS to SS
 val Int.HHMMSStoSS: Int get() = this / 10000 * 3600 + (this % 10000) / 100 * 60 + this % 100
-//Int型時刻SSをHHMMSSに変換
+// Convert Int time SS to HHMMSS
 val Int.SStoHHMMSS:Int get() = this / 3600 * 10000 + (this % 3600) / 60 * 100 + this % 60
-//Int型時刻HHMMSSをMMSSに変換
+// Convert Int time HHMMSS to MMSS
 val Int.HHMMSStoMMSS: Int get() = (this / 10000 * 60 + (this % 10000) / 100) * 100 + this % 100
-//Int型時刻MMSSをHHMMSSに変換
+// Convert Int time MMSS to HHMMSS
 //val Int.MMSStoHHMMSS: Int get() = (this / 100 / 60) * 10000 + (this / 100 % 60) * 100 + this % 100
 
-//＜時刻の足し算＞
-//Int型時刻HHMMの足し算
+//＜Time Addition＞
+// Add Int time HHMM
 fun Int.plusHHMM(time: Int): Int = (this.HHMMtoMM + time.HHMMtoMM).MMtoHHMM
-//Int型時刻HHMMSSの足し算
+// Add Int time HHMMSS
 //fun Int.plusHHMMSS(time: Int): Int = (this.HHMMSStoSS + time.HHMMSStoSS).SStoHHMMSS
-//Int型時刻MMSSの足し算
+// Add Int time MMSS
 //fun Int.plusMMSS(time: Int): Int = (this.MMSStoSS + time.MMSStoSS).SStoMMSS
 
-//＜時刻の引き算＞
-//Int型時刻HHMMの引き算
+//＜Time Subtraction＞
+// Subtract Int time HHMM
 fun Int.minusHHMM(time: Int): Int = if (this.HHMMtoMM < time.HHMMtoMM) {
     ((this + 2400).HHMMtoMM - time.HHMMtoMM).MMtoHHMM
 } else {
     (this.HHMMtoMM - time.HHMMtoMM).MMtoHHMM
 }
-//Int型時刻HHMMSSの引き算
+// Subtract Int time HHMMSS
 fun Int.minusHHMMSS(time: Int): Int = if (this.HHMMSStoSS < time.HHMMSStoSS) {
     ((this + 240000).HHMMSStoSS - time.HHMMtoMM).SStoHHMMSS
 } else {
     (this.HHMMSStoSS - time.HHMMSStoSS).SStoHHMMSS
 }
-//Int型時刻HHMMの引き算
+// Subtract Int time HHMM
 //fun Int.minusMMSS(time: Int): Int = (this.MMSStoSS - time.MMSStoSS).SStoMMSS
 
-//＜時刻の表示＞
-//1桁のときに0を追加
+//＜Time Display＞
+// Add zero for single digit
 val Int.addZeroTime: String get() = if (this in 0..9) {"0$this"} else {"$this"}
-//Int型の時刻からHHを取得
+// Get HH from Int time
 val Int.HH: String get() = (this / 100 + (this % 100) / 60).addZeroTime
-//Int型の時刻からmmを取得
+// Get mm from Int time
 val Int.mm: String get() = (this % 100 % 60).addZeroTime
-//Int型時刻HHMMから時刻に変換
+// Convert Int time HHMM to time string
 val Int.stringTime: String get() = if (this < 2700) this.HH + ":" + this.mm else "--:--"

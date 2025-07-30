@@ -6,12 +6,14 @@ import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
 
+// Class for managing route fragment display and interactions
 class MyRouteFragment(
     val context: Context,
     val currentDay: Int,
     private val currentTime: Int,
 ) {
 
+    // Main function to initialize route display
     fun mainFun(
         goOrBack: String,
         textView: Map<String, Array<TextView>>,
@@ -27,7 +29,7 @@ class MyRouteFragment(
         val time: Array<String> = calcTime.getDisplayTimeArray
         val intentArray: Array<Intent> = changeTimetableActivity(context, goOrBack, currentDay)
 
-        //Depart point
+        // Set departure point
         val departPoint = textView["depart"]?.get(0)!!
         departPoint.apply {
             text = myPreference.departPoint(goOrBack)
@@ -35,7 +37,7 @@ class MyRouteFragment(
                 mySettings.setDepartPointDialog(goOrBack, departPoint, isSettings)
             }
         }
-        //Arrive point
+        // Set arrival point
         val arrivePoint = textView["arrive"]?.get(0)!!
         arrivePoint.apply {
             text = myPreference.arrivePoint(goOrBack)
@@ -44,8 +46,9 @@ class MyRouteFragment(
             }
         }
 
+        // Configure each line segment
         for (i: Int in 0..changeLine) {
-            //Depart station
+            // Set departure station
             val departStation = textView["depart"]?.get(i + 1)!!
             departStation.apply {
                 text = myPreference.departStation(goOrBack, i)
@@ -53,7 +56,7 @@ class MyRouteFragment(
                     mySettings.setDepartStationDialog(goOrBack, departStation, i, isSettings)
                 }
             }
-            //Arrive station
+            // Set arrival station
             val arriveStation = textView["arrive"]?.get(i + 1)!!
             arriveStation.apply {
                 text = myPreference.arriveStation(goOrBack, i)
@@ -61,7 +64,7 @@ class MyRouteFragment(
                     mySettings.setArriveStationDialog(goOrBack, arriveStation, i, isSettings)
                 }
             }
-            //Line name & Line line
+            // Set line name and line color
             val lineName: TextView = textView["line"]?.get(i)!!
             val lineLine: View = view["line"]?.get(i)!!
             lineName.apply {
@@ -73,15 +76,16 @@ class MyRouteFragment(
             }
             lineLine.apply {
                 setBackgroundColor(myPreference.lineColor(goOrBack, i).setStringColor)
-                //乗車時間
+                // Set ride time
                 setOnClickListener {
                     mySettings.setRideTimeDialog(goOrBack, null, i, intentArray[i])
                 }
             }
         }
 
+        // Configure transportation and transit times
         for (i: Int in 0..changeLine + 1) {
-            //Transportation
+            // Set transportation type
             val transportation: TextView = textView["transport"]?.get(i)!!
             transportation.apply {
                 text = myPreference.transportation(goOrBack, i)
@@ -89,22 +93,22 @@ class MyRouteFragment(
                     mySettings.setTransportationDialog(goOrBack, transportation, i, isSettings)
                 }
             }
-            //Transit time
+            // Set transit time
             val transitTime: View = view["transit"]?.get(i)!!
             transitTime.setOnClickListener {
                 mySettings.setTransitTimeDialog(goOrBack, null, i)
             }
-            //each depart time, each arrive time
+            // Set departure and arrival times
             val departTime: TextView = textView["departTime"]?.get(i)!!
             val arriveTime: TextView = textView["arriveTime"]?.get(i)!!
             departTime.text = time[2 * i]
             arriveTime.text = time[2 * i + 1]
         }
-        //Route 2 visibility
+        // Route 2 visibility
         layoutView[0].visibility = if (changeLine > 0) {View.VISIBLE} else {View.GONE}
         layoutView[1].visibility = if (changeLine > 1) {View.VISIBLE} else {View.GONE}
 
-        //Count down time
+        // Count down time
         textView["countdown"]?.get(0)!!.apply {
             text = calcTime.getCountdownTime
             setTextColor(calcTime.getCountDownColor)
@@ -118,7 +122,7 @@ class MyRouteFragment(
             val changeLine: Int = myPreference.changeLine(goOrBack)
             val linenumber: Array<Int> = Array(changeLine + 1){it}
 
-            //時刻表アクティビティにデータを送るためのキー
+            // Time table activity data key
             val intentGoOrBack = "goorback"
             val intentLineNumber = "linenumber"
             val intentCurrentDay = "currentday"

@@ -4,46 +4,82 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.view.View.GONE
-import android.view.View.VISIBLE
+import android.view.View
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.lifecycle.lifecycleScope
 import com.example.mytimetablemaker.databinding.ActivityMainBinding
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
 
+// Main activity for the application
 class MainActivity: AppCompatActivity() {
 
-    //ViewBinding
+    // ViewBinding for accessing views
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        
+        // Control splash screen manually
+        val splashScreen = installSplashScreen()
+        var isReady = false
+        
+        // Control splash screen exit
+        splashScreen.setKeepOnScreenCondition { !isReady }
+        
+        // Initialize ViewBinding
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //Define class
+        // Execute initialization process asynchronously
+        lifecycleScope.launch {
+            initializeApp()
+            setupUI()
+            isReady = true
+        }
+    }
+    
+    // Initialize AdMob and other heavy operations
+    private suspend fun initializeApp() {
+        withContext(Dispatchers.Main) {
+            // Initialize AdMob advertisement
+            val admobClass = AdMob()
+            admobClass.setAdMob(binding.admobView, this@MainActivity)
+        }
+    }
+    
+    // Setup UI components and event listeners
+    private fun setupUI() {
+        // Initialize preference and utility classes
         val myPreference = MyPreference(this)
         val myDate = MyDate()
-        val admobClass = AdMob()
         val calendar: Calendar = Calendar.getInstance()
         val handler = Handler(Looper.getMainLooper())
 
-        //Define parameter
+        // Define parameters for time and date handling
         var isTimeStart = true
         var currentDay = 0
         var currentHHMMSS = 0
         var goOrBack12 = arrayOf("back1", "back2")
         var runnable = Runnable {}
 
+        // Update fragment views with current date and time
         fun getFragmentView() {
+            // Update current date and time display
             myDate.getCurrentDate(binding.currentDate, binding.currentTime)
             val displayDate = myDate.getLocalizeDate(binding.currentDate.text.toString(), "EEEMMMdyyyy")!!
             val displayTime = myDate.getLocalizeDate(binding.currentTime.text.toString(), "HH:mm:ss")!!
             calendar.time = displayDate
             currentDay = calendar.get(Calendar.DAY_OF_WEEK) - 1
             currentHHMMSS = SimpleDateFormat("HHmmss", Locale.US).format(displayTime).toInt()
+            
+            // Update route fragments with new time and day
             supportFragmentManager.beginTransaction()
                 .replace(R.id.RouteFragment1, RouteFragment1.newInstance(currentDay, currentHHMMSS, goOrBack12[0]))
                 .commitAllowingStateLoss()
@@ -52,11 +88,12 @@ class MainActivity: AppCompatActivity() {
                 .commitAllowingStateLoss()
         }
 
+        // Change between going out and returning home modes
         fun changeGoOrBack(goOrBack1: String, goOrBack2: String) {
             goOrBack12 = arrayOf(goOrBack1, goOrBack2)
             val back2display = myPreference.getRoute2Switch(goOrBack2)
-            binding.RouteFragment2.visibility = if (back2display) { VISIBLE } else { GONE }
-            binding.centerLine.visibility = if (back2display) { VISIBLE } else { GONE }
+            binding.RouteFragment2.visibility = if (back2display) { View.VISIBLE } else { View.GONE }
+            binding.centerLine.visibility = if (back2display) { View.VISIBLE } else { View.GONE }
             supportFragmentManager.beginTransaction()
                 .replace(R.id.RouteFragment1, RouteFragment1.newInstance(currentDay, currentHHMMSS, goOrBack1))
                 .commitAllowingStateLoss()
@@ -65,42 +102,43 @@ class MainActivity: AppCompatActivity() {
                 .commitAllowingStateLoss()
         }
 
-        //To settings button
+        // Navigate to settings activity
         binding.settingsButton.setOnClickListener {
             startActivity(Intent(this, SettingsActivity::class.java))
         }
 
-        //＜日付および時刻に関する設定＞
+        // Date and time related settings
 
-        //時刻の停止ボタンの設定（時刻が止まってない場合）
+        // Time stop button setting (when time is not stopped)
         binding.timeStartButton.setOnClickListener {
             isTimeStart = setAccentColor(binding.timeStartButton, binding.timeStopButton, true)
         }
-        //時刻の開始ボタンの設定（時刻が止まっている場合）
+        // Time start button setting (when time is stopped)
         binding.timeStopButton.setOnClickListener {
             isTimeStart = setAccentColor(binding.timeStartButton, binding.timeStopButton, false)
         }
 
-        //日付の選択および表示（時刻が止まっている場合）
+        // Date selection and display (when time is stopped)
         binding.currentDate.setOnClickListener {
             myDate.setDatePickerDialog(binding.currentDate, this, isTimeStart)
         }
-        //時刻の選択および表示（時刻が止まっている場合）
+        // Time selection and display (when time is stopped)
         binding.currentTime.setOnClickListener {
             myDate.setTimePickerDialog(binding.currentTime, this, isTimeStart)
         }
 
-        //外出画面から帰宅画面に遷移するときの表示変更
+        // Display change when transitioning from going out screen to returning home screen
         binding.backButton.setOnClickListener {
             setAccentColor(binding.backButton, binding.goButton, true)
             changeGoOrBack("back1", "back2")
         }
-        //帰宅画面から外出画面に遷移するときの表示変更
+        // Display change when transitioning from returning home screen to going out screen
         binding.goButton.setOnClickListener {
             setAccentColor(binding.backButton, binding.goButton, false)
             changeGoOrBack("go1", "go2")
         }
 
+        // Periodic update of fragment views
         runnable = Runnable {
             if (isTimeStart) {
                 getFragmentView()
@@ -108,11 +146,9 @@ class MainActivity: AppCompatActivity() {
             handler.postDelayed(runnable, 1000)
         }
         handler.post(runnable)
-
-        //Admob広告
-        admobClass.setAdMob(binding.admobView, this)
     }
 
+    // Set accent color for buttons (on/off state)
     private fun setAccentColor(onButton: Button, offButton: Button, isOn: Boolean): Boolean {
         onButton.setBackgroundResource(if (isOn) R.drawable.on_button else R.drawable.off_button)
         offButton.setBackgroundResource(if (isOn) R.drawable.off_button else R.drawable.on_button)

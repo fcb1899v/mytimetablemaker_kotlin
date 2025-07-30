@@ -1,15 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    //色
-    <string name="colorAccent">#03DAC5</string>
-    <string name="primaryDark">#3700B3</string>
-    <string name="lightGray">#808080</string>
-    <string name="black">#000000</string>
-    <string name="red">#FF0000</string>
-    <string name="yellow">#FFFF00</string>
-    <string name="white">#FFFFFF</string>
-
     <string-array name="lineColorList">
         <item>デフォルト</item>
         <item>赤色</item>
@@ -50,7 +41,7 @@
         <item>#000000</item>
     </string-array>
 
-    //アクション
+    <!-- Action button texts -->
     <string name="register">登録</string>
     <string name="cancel">キャンセル</string>
     <string name="add">追加</string>
@@ -59,7 +50,7 @@
     <string name="yes">はい</string>
     <string name="no">いいえ</string>
 
-    //MainActivity
+    <!-- Main Activity strings -->
     <string name="appName">マイ乗換ルートメーカー</string>
     <string name="switchBack">帰宅</string>
     <string name="switchGo">外出</string>
@@ -69,7 +60,7 @@
     <string name="office">オフィス</string>
     <string name="home">自宅</string>
 
-    //Settings
+    <!-- Settings strings -->
     <string name="settingsTitle">設定</string>
     <string name="variousSettings">各種設定</string>
     <string name="settingsChangeLineTitle">乗換回数の設定</string>
@@ -100,7 +91,7 @@
         <item>2</item>
     </string-array>
 
-    //駅名設定
+    <!-- Station name settings -->
     <string name="settingStationTitle">駅名の設定</string>
     <string name="settingStationName">駅名の設定：</string>
     <string name="settingDepartPointTitle">出発地名の設定</string>
@@ -119,7 +110,7 @@
     <string name="arriveStation3">降車駅3</string>
     <string name="character10Hint">全角10文字以内で入力します</string>
 
-    //路線情報の設定
+    <!-- Line information settings -->
     <string name="settingLineNameTitle">路線名の設定</string>
     <string name="settingLineName">路線名の設定：</string>
     <string name="settingLineColorButton">路線カラーの設定</string>
@@ -134,7 +125,7 @@
     <string name="minutes2Hint">0~99［分］を入力します</string>
     <string name="minutesUnit">[分]</string>
 
-    //移動手段の設定
+    <!-- Transportation settings -->
     <string name="settingTransportationTitle">移動手段の設定</string>
     <string name="settingTransportation">移動手段の設定 :</string>
     <string name="settingTransitTimeTitle">乗換時間の設定</string>
@@ -158,7 +149,7 @@
         <item>車</item>
     </string-array>
 
-    //Timetable
+    <!-- Timetable -->
     <string name="timetableTitle">時刻表設定</string>
     <string name="weekday">平日</string>
     <string name="weekend">土日</string>
@@ -196,7 +187,7 @@
     <string name="pictureButton">時刻表写真の選択表示</string>
     <string name="settingTimetableHint">0～59[分]を入力：半角スペース区切り</string>
 
-    //FirebaseAuth
+    <!-- FirebaseAuth -->
     <string name="account">アカウント</string>
     <string name="email">Eメールアドレス</string>
     <string name="password">パスワード</string>
@@ -206,14 +197,14 @@
     <string name="hint_password">パスワードを入力してください</string>
     <string name="hint_confirm_password">確認用パスワードを入力してください</string>
 
-    //Login
+    <!-- Login -->
     <string name="login">ログイン</string>
     <string name="login_successfully">ログインしました</string>
     <string name="login_error">ログインエラー</string>
     <string name="not_verified_account">認証が完了していません</string>
     <string name="auth_mail_check">メールを確認してください</string>
 
-    //Sign Up
+    <!-- Sign Up -->
     <string name="create_account">アカウント登録</string>
     <string name="signup">アカウント登録</string>
     <string name="signup_successfully">アカウント登録完了</string>
@@ -223,7 +214,7 @@
     <string name="send_auth_mail_successfully">認証メールの送信成功</string>
     <string name="send_auth_mail_unsuccessfully">認証メールの送信失敗</string>
 
-    //Input Error
+    <!-- Input Error -->
     <string name="input_error">入力エラー</string>
     <string name="incorrect_email">メールアドレスが正しくありません</string>
     <string name="incorrect_password">パスワードが正しくありません</string>
@@ -233,13 +224,13 @@
     <string name="confirm_password_not_match">確認用パスワードが一致しません</string>
     <string name="check_terms_and_policy">利用規約およびプライバシーポリシーにチェックしてください</string>
 
-    //Auth Error
+    <!-- Auth Error -->
     <string name="email_not_registered">このメールアドレスは登録されていません</string>
     <string name="account_disabled">このアカウントは無効になっています</string>
     <string name="email_already_registered">このメールアドレスは登録されています</string>
     <string name="password_over_6_characters">パスワードは6文字以上にしてください</string>
 
-    //Password Reset
+    <!-- Password Reset -->
     <string name="forget_password"><u>パスワードを忘れた場合</u></string>
     <string name="password_reset">パスワードリセット</string>
     <string name="password_reset_error">パスワードリセットエラー</string>
@@ -247,19 +238,19 @@
     <string name="send_reset_mail_successfully">パスワード再設定メールの送信成功</string>
     <string name="send_reset_mail_unsuccessfully">パスワード再設定メールの送信失敗</string>
 
-    //Logout
+    <!-- Logout -->
     <string name="logout">ログアウト</string>
     <string name="logout_account">ログアウトしますか？</string>
     <string name="logged_out">ログアウトしました</string>
 
-    //Delete Account
+    <!-- Delete Account -->
     <string name="delete_account">アカウント削除</string>
     <string name="delete_account_error">アカウント削除エラー</string>
     <string name="delete_your_account">アカウントを削除しますか？</string>
     <string name="delete_account_successfully">アカウント削除の成功</string>
     <string name="delete_account_unsuccessfully">アカウント削除の失敗</string>
 
-    //Obtain data from Firestore
+    <!-- Obtain data from Firestore -->
     <string name="get_data_after_login">ログインしてデータ取得</string>
     <string name="get_saved_data">保存データの取得</string>
     <string name="overwritten_current_data">現在のデータが上書きされます。\nよろしいですか？</string>
@@ -267,7 +258,7 @@
     <string name="get_data_successfully">データ取得の成功</string>
     <string name="get_data_unsuccessfully">データ取得の失敗</string>
 
-    //Save data to Firestore
+    <!-- Save data to Firestore -->
     <string name="save_data_after_login">ログインしてデータの保存</string>
     <string name="save_current_data">データの保存</string>
     <string name="overwritten_saved_data">保存データが上書きされます。\nよろしいですか？</string>
@@ -275,7 +266,7 @@
     <string name="save_data_successfully">データ保存の成功</string>
     <string name="save_data_unsuccessfully">データ保存の失敗</string>
 
-    //Delete data in Firestore
+    <!-- Delete data in Firestore -->
     <string name="delete_data_error">データ削除エラー</string>
     <string name="delete_data_successfully">データ削除の成功</string>
     <string name="delete_data_unsuccessfully">データ削除の失敗</string>

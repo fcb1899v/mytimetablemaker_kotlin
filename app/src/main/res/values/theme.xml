@@ -1,21 +1,34 @@
 <resources>
-    <!-- Base application theme. -->
-    <style name="SplashTheme" parent="Theme.SplashScreen.IconBackground">
-        <item name="windowSplashScreenBackground">@color/colorAccent</item>
-        <item name="windowSplashScreenIconBackgroundColor">@color/colorAccent</item>
+    <!-- Application theme definitions -->
+
+    <!-- Splash screen theme with accent color background -->
+    <style name="SplashTheme" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/accent</item>
+        <item name="windowSplashScreenIconBackgroundColor">@color/accent</item>
         <item name="windowSplashScreenAnimatedIcon">@drawable/ic_launcher</item>
         <item name="windowSplashScreenAnimationDuration">1000</item>
         <item name="postSplashScreenTheme">@style/MainTheme</item>
-        <item name="android:statusBarColor">@color/fui_transparent</item>
+        <item name="android:statusBarColor">@color/transparent</item>
     </style>
 
-    <style name="MainTheme" parent="@style/Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-<!--        <item name="windowActionBar">false</item>-->
-<!--        <item name="android:windowFullscreen">true</item>-->
-<!--        <item name="android:windowContentOverlay">@null</item>-->
+    <!-- Main application theme with accent color status bar -->
+    <style name="MainTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary</item>
+        <item name="colorAccent">@color/accent</item>
+        <item name="android:statusBarColor">@color/accent</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:navigationBarColor">@color/accent</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+    </style>
+
+    <!-- Settings theme with dark action bar -->
+    <style name="SettingsTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary</item>
+        <item name="colorAccent">@color/accent</item>
+        <item name="android:statusBarColor">@color/primary</item>
+        <item name="android:fitsSystemWindows">true</item>
     </style>
 
 </resources>

@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Route fragment 1 layout - First route display section -->
 
 <androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -8,6 +9,7 @@
     android:layout_height="wrap_content"
     tools:context=".RouteFragment1">
 
+    <!-- Main route container -->
     <LinearLayout
         android:id="@+id/linearlayout11"
         android:layout_width="match_parent"
@@ -20,6 +22,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <!-- Countdown timer display -->
         <TextView
             android:id="@+id/countdown11"
             android:layout_width="match_parent"
@@ -30,9 +33,10 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="@string/nextTime"
-            android:textColor="@color/colorGray"
+            android:textColor="@color/gray"
             android:textSize="40sp" />
 
+        <!-- Route information container -->
         <LinearLayout
             android:id="@+id/routeLayout11"
             android:layout_width="match_parent"
@@ -42,6 +46,7 @@
             android:gravity="center"
             android:orientation="vertical">
 
+            <!-- Station and time information row -->
             <LinearLayout
                 android:id="@+id/timeLayout110"
                 android:layout_width="match_parent"
@@ -50,6 +55,7 @@
                 android:gravity="center"
                 android:orientation="horizontal">
 
+                <!-- Station name display -->
                 <TextView
                     android:id="@+id/stationName110"
                     android:layout_width="match_parent"
@@ -58,9 +64,10 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="@string/office"
-                    android:textColor="@color/colorPrimaryDark"
+                    android:textColor="@color/primary"
                     android:textSize="14sp" />
 
+                <!-- Departure time display -->
                 <TextView
                     android:id="@+id/startTime110"
                     android:layout_width="match_parent"
@@ -69,11 +76,12 @@
                     android:layout_weight="0.8"
                     android:gravity="center"
                     android:text="@string/nextTime"
-                    android:textColor="@color/colorPrimaryDark"
+                    android:textColor="@color/primary"
                     android:textSize="28sp" />
 
             </LinearLayout>
 
+            <!-- Route line display -->
             <LinearLayout
                 android:id="@+id/lineLayout110"
                 android:layout_width="match_parent"
@@ -81,6 +89,7 @@
                 android:layout_gravity="center"
                 android:gravity="center">
 
+                <!-- Route line container -->
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/lineLineLayout110"
                     android:layout_width="match_parent"
@@ -90,13 +99,14 @@
                     android:gravity="center"
                     tools:ignore="NestedWeights">
 
+                    <!-- Route line indicator -->
                     <ImageView
                         android:id="@+id/lineLine110"
                         android:layout_width="25dp"
                         android:layout_height="35dp"
                         android:layout_gravity="center"
                         android:layout_weight="1"
-                        android:background="@color/colorGray"
+                        android:background="@color/gray"
                         android:gravity="center"
                         android:paddingStart="2dp"
                         android:paddingEnd="2dp"
@@ -108,6 +118,7 @@
                         tools:ignore="ContentDescription" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
+                <!-- Route line name display -->
                 <TextView
                     android:id="@+id/lineName110"
                     android:layout_width="match_parent"
@@ -116,10 +127,11 @@
                     android:layout_weight="0.8"
                     android:gravity="center"
                     android:text="@string/walking"
-                    android:textColor="@color/colorGray" />
+                    android:textColor="@color/gray" />
 
             </LinearLayout>
 
+            <!-- Second station and time information row -->
             <LinearLayout
                 android:id="@+id/timeLayout111"
                 android:layout_width="match_parent"
@@ -128,6 +140,7 @@
                 android:gravity="center"
                 android:orientation="horizontal">
 
+                <!-- Departure station name -->
                 <TextView
                     android:id="@+id/stationName111"
                     android:layout_width="match_parent"
@@ -136,9 +149,10 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="@string/depSta"
-                    android:textColor="@color/colorPrimaryDark"
+                    android:textColor="@color/primary"
                     android:textSize="14sp" />
 
+                <!-- Departure time display -->
                 <TextView
                     android:id="@+id/startTime111"
                     android:layout_width="match_parent"
@@ -147,11 +161,12 @@
                     android:layout_weight="0.8"
                     android:gravity="center"
                     android:text="@string/nextTime"
-                    android:textColor="@color/colorPrimaryDark"
+                    android:textColor="@color/primary"
                     android:textSize="28sp" />
 
             </LinearLayout>
 
+            <!-- Second route line display -->
             <LinearLayout
                 android:id="@+id/lineLayout111"
                 android:layout_width="match_parent"
@@ -160,6 +175,7 @@
                 android:gravity="center"
                 android:orientation="horizontal">
 
+                <!-- Second route line container -->
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/lineLineLayout111"
                     android:layout_width="match_parent"
@@ -168,13 +184,14 @@
                     android:layout_weight="1"
                     android:gravity="center">
 
+                    <!-- Second route line indicator -->
                     <ImageView
                         android:id="@+id/lineLine111"
                         android:layout_width="25dp"
                         android:layout_height="35dp"
                         android:layout_gravity="center"
                         android:layout_weight="1"
-                        android:background="@color/colorAccent"
+                        android:background="@color/accent"
                         android:gravity="center"
                         android:paddingStart="2dp"
                         android:paddingEnd="2dp"
@@ -187,6 +204,7 @@
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
+                <!-- Second route line name display -->
                 <TextView
                     android:id="@+id/lineName111"
                     android:layout_width="match_parent"
@@ -195,10 +213,11 @@
                     android:layout_weight="0.8"
                     android:gravity="center"
                     android:text="@string/line"
-                    android:textColor="@color/colorAccent" />
+                    android:textColor="@color/accent" />
 
             </LinearLayout>
 
+            <!-- Third station and time information row -->
             <LinearLayout
                 android:id="@+id/timeLayout112"
                 android:layout_width="match_parent"
@@ -207,6 +226,7 @@
                 android:gravity="center"
                 android:orientation="horizontal">
 
+                <!-- Arrival station name -->
                 <TextView
                     android:id="@+id/stationName112"
                     android:layout_width="match_parent"
@@ -215,10 +235,11 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="@string/arrSta"
-                    android:textColor="@color/colorPrimaryDark"
+                    android:textColor="@color/primary"
                     android:textSize="14sp"
                     tools:ignore="NestedWeights" />
 
+                <!-- Arrival time display -->
                 <TextView
                     android:id="@+id/startTime112"
                     android:layout_width="match_parent"
@@ -227,13 +248,14 @@
                     android:layout_weight="0.8"
                     android:gravity="center"
                     android:text="@string/nextTime"
-                    android:textColor="@color/colorPrimaryDark"
+                    android:textColor="@color/primary"
                     android:textSize="28sp" />
 
             </LinearLayout>
 
         </LinearLayout>
 
+        <!-- Second route section container -->
         <LinearLayout
             android:id="@+id/linearlayout112"
             android:layout_width="match_parent"
@@ -243,6 +265,7 @@
             android:gravity="center"
             android:orientation="vertical">
 
+            <!-- Second route line display -->
             <LinearLayout
                 android:id="@+id/lineLayout112"
                 android:layout_width="match_parent"
@@ -251,6 +274,7 @@
                 android:gravity="center"
                 android:orientation="horizontal">
 
+                <!-- Second route line container -->
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/lineLineLayout112"
                     android:layout_width="match_parent"
@@ -260,13 +284,14 @@
                     android:gravity="center"
                     tools:ignore="NestedWeights">
 
+                    <!-- Second route line indicator -->
                     <ImageView
                         android:id="@+id/lineLine112"
                         android:layout_width="25dp"
                         android:layout_height="35dp"
                         android:layout_gravity="center"
                         android:layout_weight="1"
-                        android:background="@color/colorGray"
+                        android:background="@color/gray"
                         android:gravity="center"
                         android:paddingStart="2dp"
                         android:paddingEnd="2dp"
@@ -279,6 +304,7 @@
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
+                <!-- Second route line name display -->
                 <TextView
                     android:id="@+id/lineName112"
                     android:layout_width="match_parent"
@@ -287,10 +313,11 @@
                     android:layout_weight="0.8"
                     android:gravity="center"
                     android:text="@string/walking"
-                    android:textColor="@color/colorGray" />
+                    android:textColor="@color/gray" />
 
             </LinearLayout>
 
+            <!-- Third station and time information row -->
             <LinearLayout
                 android:id="@+id/timeLayout113"
                 android:layout_width="match_parent"
@@ -299,6 +326,7 @@
                 android:gravity="center"
                 android:orientation="horizontal">
 
+                <!-- Third station name display -->
                 <TextView
                     android:id="@+id/stationName113"
                     android:layout_width="match_parent"
@@ -307,10 +335,11 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="@string/depSta"
-                    android:textColor="@color/colorPrimaryDark"
+                    android:textColor="@color/primary"
                     android:textSize="14sp"
                     tools:ignore="NestedWeights" />
 
+                <!-- Third station time display -->
                 <TextView
                     android:id="@+id/startTime113"
                     android:layout_width="match_parent"
@@ -319,11 +348,12 @@
                     android:layout_weight="0.8"
                     android:gravity="center"
                     android:text="@string/nextTime"
-                    android:textColor="@color/colorPrimaryDark"
+                    android:textColor="@color/primary"
                     android:textSize="28sp" />
 
             </LinearLayout>
 
+            <!-- Third route line display -->
             <LinearLayout
                 android:id="@+id/lineLayout113"
                 android:layout_width="match_parent"
@@ -332,6 +362,7 @@
                 android:gravity="center"
                 android:orientation="horizontal">
 
+                <!-- Third route line container -->
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -339,13 +370,14 @@
                     android:layout_weight="1"
                     android:gravity="center">
 
+                    <!-- Third route line indicator -->
                     <ImageView
                         android:id="@+id/lineLine113"
                         android:layout_width="25dp"
                         android:layout_height="35dp"
                         android:layout_gravity="center"
                         android:layout_weight="1"
-                        android:background="@color/colorAccent"
+                        android:background="@color/accent"
                         android:gravity="center"
                         android:paddingStart="2dp"
                         android:paddingEnd="2dp"
@@ -358,6 +390,7 @@
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
+                <!-- Third route line name display -->
                 <TextView
                     android:id="@+id/lineName113"
                     android:layout_width="match_parent"
@@ -366,10 +399,11 @@
                     android:layout_weight="0.8"
                     android:gravity="center"
                     android:text="@string/line"
-                    android:textColor="@color/colorAccent" />
+                    android:textColor="@color/accent" />
 
             </LinearLayout>
 
+            <!-- Fourth station and time information row -->
             <LinearLayout
                 android:id="@+id/timeLayout114"
                 android:layout_width="match_parent"
@@ -378,6 +412,7 @@
                 android:gravity="center"
                 android:orientation="horizontal">
 
+                <!-- Fourth station name display -->
                 <TextView
                     android:id="@+id/stationName114"
                     android:layout_width="match_parent"
@@ -386,10 +421,11 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="@string/arrSta"
-                    android:textColor="@color/colorPrimaryDark"
+                    android:textColor="@color/primary"
                     android:textSize="14sp"
                     tools:ignore="NestedWeights" />
 
+                <!-- Fourth station time display -->
                 <TextView
                     android:id="@+id/startTime114"
                     android:layout_width="match_parent"
@@ -398,13 +434,14 @@
                     android:layout_weight="0.8"
                     android:gravity="center"
                     android:text="@string/nextTime"
-                    android:textColor="@color/colorPrimaryDark"
+                    android:textColor="@color/primary"
                     android:textSize="28sp" />
 
             </LinearLayout>
 
         </LinearLayout>
 
+        <!-- Third route section container -->
         <LinearLayout
             android:id="@+id/linearlayout113"
             android:layout_width="match_parent"
@@ -414,6 +451,7 @@
             android:gravity="center"
             android:orientation="vertical">
 
+            <!-- Fourth route line display -->
             <LinearLayout
                 android:id="@+id/lineLayout114"
                 android:layout_width="match_parent"
@@ -422,6 +460,7 @@
                 android:gravity="center"
                 android:orientation="horizontal">
 
+                <!-- Fourth route line container -->
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -429,13 +468,14 @@
                     android:layout_weight="1"
                     android:gravity="center">
 
+                    <!-- Fourth route line indicator -->
                     <ImageView
                         android:id="@+id/lineLine114"
                         android:layout_width="25dp"
                         android:layout_height="35dp"
                         android:layout_gravity="center"
                         android:layout_weight="1"
-                        android:background="@color/colorGray"
+                        android:background="@color/gray"
                         android:gravity="center"
                         android:paddingStart="2dp"
                         android:paddingEnd="2dp"
@@ -448,6 +488,7 @@
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
+                <!-- Fourth route line name display -->
                 <TextView
                     android:id="@+id/lineName114"
                     android:layout_width="match_parent"
@@ -456,10 +497,11 @@
                     android:layout_weight="0.8"
                     android:gravity="center"
                     android:text="@string/walking"
-                    android:textColor="@color/colorGray" />
+                    android:textColor="@color/gray" />
 
             </LinearLayout>
 
+            <!-- Fifth station and time information row -->
             <LinearLayout
                 android:id="@+id/timeLayout115"
                 android:layout_width="match_parent"
@@ -468,6 +510,7 @@
                 android:gravity="center"
                 android:orientation="horizontal">
 
+                <!-- Fifth station name display -->
                 <TextView
                     android:id="@+id/stationName115"
                     android:layout_width="match_parent"
@@ -476,10 +519,11 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="@string/depSta"
-                    android:textColor="@color/colorPrimaryDark"
+                    android:textColor="@color/primary"
                     android:textSize="14sp"
                     tools:ignore="NestedWeights" />
 
+                <!-- Fifth station time display -->
                 <TextView
                     android:id="@+id/startTime115"
                     android:layout_width="match_parent"
@@ -488,11 +532,12 @@
                     android:layout_weight="0.8"
                     android:gravity="center"
                     android:text="@string/nextTime"
-                    android:textColor="@color/colorPrimaryDark"
+                    android:textColor="@color/primary"
                     android:textSize="28sp" />
 
             </LinearLayout>
 
+            <!-- Fifth route line display -->
             <LinearLayout
                 android:id="@+id/lineLayout115"
                 android:layout_width="match_parent"
@@ -501,6 +546,7 @@
                 android:gravity="center"
                 android:orientation="horizontal">
 
+                <!-- Fifth route line container -->
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -508,13 +554,14 @@
                     android:layout_weight="1"
                     android:gravity="center">
 
+                    <!-- Fifth route line indicator -->
                     <ImageView
                         android:id="@+id/lineLine115"
                         android:layout_width="25dp"
                         android:layout_height="35dp"
                         android:layout_gravity="center"
                         android:layout_weight="1"
-                        android:background="@color/colorAccent"
+                        android:background="@color/accent"
                         android:gravity="center"
                         android:paddingStart="2dp"
                         android:paddingEnd="2dp"
@@ -527,6 +574,7 @@
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
+                <!-- Fifth route line name display -->
                 <TextView
                     android:id="@+id/lineName115"
                     android:layout_width="match_parent"
@@ -535,10 +583,11 @@
                     android:layout_weight="0.8"
                     android:gravity="center"
                     android:text="@string/line"
-                    android:textColor="@color/colorAccent" />
+                    android:textColor="@color/accent" />
 
             </LinearLayout>
 
+            <!-- Sixth station and time information row -->
             <LinearLayout
                 android:id="@+id/timeLayout116"
                 android:layout_width="match_parent"
@@ -547,6 +596,7 @@
                 android:gravity="center"
                 android:orientation="horizontal">
 
+                <!-- Sixth station name display -->
                 <TextView
                     android:id="@+id/stationName116"
                     android:layout_width="match_parent"
@@ -555,10 +605,11 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="@string/arrSta"
-                    android:textColor="@color/colorPrimaryDark"
+                    android:textColor="@color/primary"
                     android:textSize="14sp"
                     tools:ignore="NestedWeights" />
 
+                <!-- Sixth station time display -->
                 <TextView
                     android:id="@+id/startTime116"
                     android:layout_width="match_parent"
@@ -567,13 +618,14 @@
                     android:layout_weight="0.8"
                     android:gravity="center"
                     android:text="@string/nextTime"
-                    android:textColor="@color/colorPrimaryDark"
+                    android:textColor="@color/primary"
                     android:textSize="28sp" />
 
             </LinearLayout>
 
         </LinearLayout>
 
+        <!-- Final route section container -->
         <LinearLayout
             android:id="@+id/linearlayout11e"
             android:layout_width="match_parent"
@@ -581,6 +633,7 @@
             android:layout_weight="1"
             android:orientation="vertical">
 
+            <!-- Final route line display -->
             <LinearLayout
                 android:id="@+id/lineLayout11e"
                 android:layout_width="match_parent"
@@ -589,6 +642,7 @@
                 android:gravity="center"
                 android:orientation="horizontal">
 
+                <!-- Final route line container -->
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -597,13 +651,14 @@
                     android:gravity="center"
                     tools:ignore="NestedWeights">
 
+                    <!-- Final route line indicator -->
                     <ImageView
                         android:id="@+id/lineLine11e"
                         android:layout_width="25dp"
                         android:layout_height="35dp"
                         android:layout_gravity="center"
                         android:layout_weight="1"
-                        android:background="@color/colorGray"
+                        android:background="@color/gray"
                         android:gravity="center"
                         android:paddingStart="2dp"
                         android:paddingEnd="2dp"
@@ -616,6 +671,7 @@
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
+                <!-- Final route line name display -->
                 <TextView
                     android:id="@+id/lineName11e"
                     android:layout_width="match_parent"
@@ -624,10 +680,11 @@
                     android:layout_weight="0.8"
                     android:gravity="center"
                     android:text="@string/walking"
-                    android:textColor="@color/colorGray" />
+                    android:textColor="@color/gray" />
 
             </LinearLayout>
 
+            <!-- Final station and time information row -->
             <LinearLayout
                 android:id="@+id/timeLayout11e"
                 android:layout_width="match_parent"
@@ -636,6 +693,7 @@
                 android:gravity="center"
                 android:orientation="horizontal">
 
+                <!-- Final station name display -->
                 <TextView
                     android:id="@+id/stationName11e"
                     android:layout_width="match_parent"
@@ -644,10 +702,11 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="@string/home"
-                    android:textColor="@color/colorPrimaryDark"
+                    android:textColor="@color/primary"
                     android:textSize="14sp"
                     tools:ignore="NestedWeights" />
 
+                <!-- Final station time display -->
                 <TextView
                     android:id="@+id/startTime11e"
                     android:layout_width="match_parent"
@@ -656,7 +715,7 @@
                     android:layout_weight="0.8"
                     android:gravity="center"
                     android:text="@string/nextTime"
-                    android:textColor="@color/colorPrimaryDark"
+                    android:textColor="@color/primary"
                     android:textSize="28sp" />
 
             </LinearLayout>

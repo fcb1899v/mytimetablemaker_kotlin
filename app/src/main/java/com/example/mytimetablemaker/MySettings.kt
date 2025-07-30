@@ -11,12 +11,13 @@ import android.view.View
 import android.widget.EditText
 import android.widget.TextView
 
+// Class for managing settings dialogs and UI interactions
 class MySettings (
     private val context: Context
 ){
     private val myPreference = MyPreference(context)
 
-    //EditTextの書式設定（10文字に制限、中央配置、改行不可、黒色、サイズ20）
+    // Configure EditText format (20 character limit, center alignment, no line breaks, black color, size 20)
     private fun setEditText20(edittext: EditText) {
         edittext.apply{
             filters = arrayOf(InputFilter.LengthFilter(20))
@@ -28,7 +29,7 @@ class MySettings (
         }
     }
 
-    //EditTextの書式設定（2桁の数字、中央配置、改行不可、黒色、サイズ24、指定したhintを表示）
+    // Configure EditText format (2-digit number, center alignment, no line breaks, black color, size 24, custom hint)
     private fun setEditNumber2(edittext: EditText) {
         edittext.apply {
             inputType = InputType.TYPE_CLASS_NUMBER
@@ -40,7 +41,7 @@ class MySettings (
         }
     }
 
-    //Normal edit text dialog
+    // Normal edit text dialog
     private fun setEditTextAlertDialog(textview: TextView, title: String, key: String, isSettings: Boolean) {
         AlertDialog.Builder(context).apply{
             val edittext = EditText(context)
@@ -61,7 +62,7 @@ class MySettings (
         }
     }
 
-    //Setting change line alert dialog
+    // Setting change line alert dialog
     fun setChangeLineDialog(goOrBack: String, textview: TextView) {
         var selected = 0
         AlertDialog.Builder(context).apply {
@@ -78,23 +79,23 @@ class MySettings (
         }
     }
 
-    //Setting depart point alert dialog
+    // Setting depart point alert dialog
     fun setDepartPointDialog(goOrBack: String, textview: TextView, isSettings: Boolean) =
         setEditTextAlertDialog(textview, R.string.settingDepartPointTitle.strings, goOrBack.departPointKey, isSettings)
 
-    //Setting arrive point alert dialog
+    // Setting arrive point alert dialog
     fun setArrivePointDialog(goOrBack: String, textview: TextView, isSettings: Boolean) =
         setEditTextAlertDialog(textview, R.string.settingDestinationTitle.strings, goOrBack.arrivePointKey, isSettings)
 
-    //Setting depart station alert dialog
+    // Setting depart station alert dialog
     fun setDepartStationDialog(goOrBack: String, textview: TextView, i: Int, isSettings: Boolean) =
         setEditTextAlertDialog(textview, departStationTitle(i + 1), goOrBack.departStationKey(i + 1), isSettings)
 
-    //Setting arrive station alert dialog
+    // Setting arrive station alert dialog
     fun setArriveStationDialog(goOrBack: String, textview: TextView, i: Int, isSettings: Boolean) =
         setEditTextAlertDialog(textview, arriveStationTitle(i + 1), goOrBack.arriveStationKey(i + 1), isSettings)
 
-    //Setting line name alert dialog -> NeutralButton: Setting line color
+    // Setting line name alert dialog -> NeutralButton: Setting line color
     fun setLineNameDialog(goOrBack: String, textview: TextView, view: View?, i: Int) {
         val edittext = EditText(context)
         setEditText20(edittext)
@@ -119,7 +120,7 @@ class MySettings (
         }
     }
 
-    //Setting line color alert dialog
+    // Setting line color alert dialog
     private fun setChoiceColorAlertDialog(textview: TextView, view: View?, key: String) {
         AlertDialog.Builder(context).apply {
             var selected = R.array.lineColorValue.arrayStrings[0]
@@ -137,7 +138,7 @@ class MySettings (
         }
     }
 
-    //Setting ride time alert dialog -> NeutralButton: Setting timetable
+    // Setting ride time alert dialog -> NeutralButton: Setting timetable
     fun setRideTimeDialog(goOrBack: String, textview: TextView?, i: Int, intent: Intent) {
         val edittext = EditText(context)
         setEditNumber2(edittext)
@@ -169,7 +170,7 @@ class MySettings (
         }
     }
 
-    //Setting transportation alert dialog
+    // Setting transportation alert dialog
     fun setTransportationDialog(goOrBack: String, textview: TextView, i: Int, isSettings: Boolean) {
         AlertDialog.Builder(context).apply {
             var selected = R.string.walking.strings
@@ -181,7 +182,7 @@ class MySettings (
                 myPreference.prefSaveText(goOrBack.transportationKey(i), selected)
                 textview.apply{
                     text = selected
-                    if (isSettings) setTextColor(R.string.black.setColor)
+                    if (isSettings) setTextColor(R.color.black)
                 }
             }
             setNegativeButton(R.string.cancel, null)
@@ -189,7 +190,7 @@ class MySettings (
         }
     }
 
-    //Setting transit time alert dialog
+    // Setting transit time alert dialog
     fun setTransitTimeDialog(goOrBack: String, textview: TextView?, i: Int) {
         val edittext = EditText(context)
         setEditNumber2(edittext)

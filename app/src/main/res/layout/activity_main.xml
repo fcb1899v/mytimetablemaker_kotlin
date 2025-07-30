@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Main activity layout - Main screen of the application -->
 
 <androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -11,22 +12,25 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity" >
 
+    <!-- Main content layout -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         app:layout_constraintTop_toTopOf="parent">
 
+        <!-- Header section with date/time and navigation buttons -->
         <LinearLayout
             android:id="@+id/headerLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
+            android:background="@color/primary"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
+            <!-- Date and time display layout -->
             <LinearLayout
                 android:id="@+id/currentDateLayout"
                 android:layout_width="match_parent"
@@ -38,6 +42,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
+                <!-- Current date button -->
                 <Button
                     android:id="@+id/currentDate"
                     style="?android:attr/borderlessButtonStyle"
@@ -45,12 +50,13 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="1"
-                    android:background="@color/colorPrimary"
+                    android:background="@color/primary"
                     android:gravity="center"
                     android:text=""
-                    android:textColor="@color/colorWhite"
+                    android:textColor="@color/white"
                     android:textSize="20sp" />
 
+                <!-- Current time button -->
                 <Button
                     android:id="@+id/currentTime"
                     style="?android:attr/borderlessButtonStyle"
@@ -58,15 +64,16 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="1"
-                    android:background="@color/colorPrimary"
+                    android:background="@color/primary"
                     android:gravity="center"
                     android:orientation="horizontal"
                     android:text=""
-                    android:textColor="@color/colorWhite"
+                    android:textColor="@color/white"
                     android:textSize="24sp" />
 
             </LinearLayout>
 
+            <!-- Navigation buttons layout -->
             <LinearLayout
                 android:id="@+id/buttonsLayout"
                 android:layout_width="match_parent"
@@ -74,13 +81,14 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="5dp"
-                android:background="@color/colorPrimary"
+                android:background="@color/primary"
                 android:orientation="horizontal"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/currentDateLayout">
 
+                <!-- Back button (return home) -->
                 <Button
                     android:id="@+id/backButton"
                     android:layout_width="match_parent"
@@ -89,10 +97,11 @@
                     android:layout_weight="1"
                     android:background="@drawable/on_button"
                     android:text="@string/switchBack"
-                    android:textColor="@color/colorWhite"
+                    android:textColor="@color/white"
                     android:textSize="15sp"
                     android:textStyle="bold" />
 
+                <!-- Go button (outgoing) -->
                 <Button
                     android:id="@+id/goButton"
                     android:layout_width="match_parent"
@@ -101,10 +110,11 @@
                     android:layout_weight="1"
                     android:background="@drawable/off_button"
                     android:text="@string/switchGo"
-                    android:textColor="@color/colorWhite"
+                    android:textColor="@color/white"
                     android:textSize="15sp"
                     android:textStyle="bold" />
 
+                <!-- Time start button -->
                 <Button
                     android:id="@+id/timeStartButton"
                     android:layout_width="match_parent"
@@ -113,10 +123,11 @@
                     android:layout_weight="1"
                     android:background="@drawable/on_button"
                     android:text="@string/timeStart"
-                    android:textColor="@color/colorWhite"
+                    android:textColor="@color/white"
                     android:textSize="15sp"
                     android:textStyle="bold" />
 
+                <!-- Time stop button -->
                 <Button
                     android:id="@+id/timeStopButton"
                     android:layout_width="match_parent"
@@ -125,10 +136,11 @@
                     android:layout_weight="1"
                     android:background="@drawable/off_button"
                     android:text="@string/timeStop"
-                    android:textColor="@color/colorWhite"
+                    android:textColor="@color/white"
                     android:textSize="15sp"
                     android:textStyle="bold" />
 
+                <!-- Settings button -->
                 <ImageView
                     android:id="@+id/settingsButton"
                     android:layout_width="25dp"
@@ -142,15 +154,17 @@
 
         </LinearLayout>
 
+        <!-- Route fragments container layout -->
         <LinearLayout
             android:id="@+id/fragmentLayout"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:foregroundTint="@color/colorWhite"
+            android:foregroundTint="@color/white"
             android:orientation="horizontal"
             tools:ignore="DisableBaselineAlignment,ScrollViewSize">
 
+            <!-- Left route fragment container -->
             <androidx.coordinatorlayout.widget.CoordinatorLayout
                 android:id="@+id/RouteFragment1"
                 android:layout_width="0dp"
@@ -158,12 +172,14 @@
                 android:layout_weight="1"
                 tools:ignore="NestedWeights" />
 
+            <!-- Center divider line -->
             <View
                 android:id="@+id/centerLine"
                 android:layout_width="2dp"
                 android:layout_height="match_parent"
-                android:background="@color/colorPrimary" />
+                android:background="@color/primary" />
 
+            <!-- Right route fragment container -->
             <androidx.coordinatorlayout.widget.CoordinatorLayout
                 android:id="@+id/RouteFragment2"
                 android:layout_width="0dp"
@@ -172,16 +188,18 @@
 
         </LinearLayout>
 
+        <!-- Bottom divider line -->
         <View
             android:id="@+id/bottomLine"
             android:layout_width="match_parent"
             android:layout_height="2dp"
-            android:background="@color/colorPrimary"
+            android:background="@color/primary"
             app:layout_constraintBottom_toTopOf="@+id/admobView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/fragmentScrollView" />
 
+        <!-- AdMob advertisement banner -->
         <com.google.android.gms.ads.AdView
             android:id="@+id/admobView"
             android:layout_width="wrap_content"

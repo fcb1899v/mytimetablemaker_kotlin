@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Timetable activity layout - Schedule display screen -->
 
 <FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -7,39 +8,44 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_weight="1"
-    android:background="@color/colorPrimary"
+    android:background="@color/primary"
     tools:context=".TimetableActivity">
 
+    <!-- Scrollable timetable container -->
     <ScrollView
         android:id="@+id/timetableScrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
         android:layout_weight="1"
-        android:background="@color/colorWhite"
+        android:background="@color/white"
         android:gravity="center"
         tools:ignore="ObsoleteLayoutParam,ScrollViewCount,UselessParent">
 
+        <!-- Main timetable layout -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <!-- Header section -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/colorWhite"
+                android:background="@color/white"
                 android:orientation="vertical">
 
+                <!-- Station information and day selector -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
                     android:layout_weight="1"
-                    android:background="@color/colorPrimary"
+                    android:background="@color/primary"
                     android:orientation="horizontal"
                     tools:ignore="InefficientWeight">
 
+                    <!-- Station information container -->
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -47,6 +53,7 @@
                         android:orientation="vertical"
                         tools:ignore="NestedWeights">
 
+                        <!-- Departure station name -->
                         <TextView
                             android:id="@+id/fromStation"
                             android:layout_width="wrap_content"
@@ -54,10 +61,11 @@
                             android:layout_marginStart="15dp"
                             android:layout_weight="1"
                             android:gravity="top"
-                            android:textColor="@color/colorWhite"
+                            android:textColor="@color/white"
                             android:textSize="20sp"
                             tools:ignore="NestedWeights,UnusedAttribute" />
 
+                        <!-- Arrival station name -->
                         <TextView
                             android:id="@+id/toStation"
                             android:layout_width="wrap_content"
@@ -66,12 +74,13 @@
                             android:layout_marginBottom="10dp"
                             android:layout_weight="1"
                             android:gravity="top"
-                            android:textColor="@color/colorWhite"
+                            android:textColor="@color/white"
                             android:textSize="16sp"
                             ads:autoSizeMinTextSize="10sp"
                             tools:ignore="NestedWeights,UnusedAttribute" />
                     </LinearLayout>
 
+                    <!-- Day selection button -->
                     <Button
                         android:id="@+id/dayButton"
                         android:layout_width="0dp"
@@ -84,7 +93,7 @@
                         android:fontFamily="sans-serif"
                         android:orientation="horizontal"
                         android:text="@string/weekend"
-                        android:textColor="@color/ColorRed"
+                        android:textColor="@color/red"
                         android:textSize="15sp"
                         android:textStyle="bold" />
 
@@ -92,17 +101,20 @@
 
             </LinearLayout>
 
+            <!-- Timetable content -->
             <TableLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_marginTop="1dp"
                 android:layout_weight="1"
-                android:background="@color/colorWhite">
+                android:background="@color/white">
 
+                <!-- Day header row -->
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
+                    <!-- Day label -->
                     <TextView
                         android:id="@+id/tableDay"
                         android:layout_width="0dp"
@@ -110,34 +122,37 @@
                         android:layout_marginStart="1dp"
                         android:layout_marginEnd="1dp"
                         android:layout_weight="1"
-                        android:background="@color/colorPrimary"
+                        android:background="@color/primary"
                         android:gravity="center"
                         android:paddingStart="5dp"
                         android:paddingEnd="5dp"
                         android:text="@string/weekday"
-                        android:textColor="@color/colorWhite"
+                        android:textColor="@color/white"
                         android:textSize="20sp" />
 
                 </TableRow>
 
+                <!-- 4 AM time row -->
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
+                    <!-- 4 AM hour label -->
                     <TextView
                         android:id="@+id/tableHour04"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="1dp"
                         android:layout_marginTop="1dp"
-                        android:background="@color/colorPrimary"
+                        android:background="@color/primary"
                         android:gravity="center"
                         android:paddingStart="5dp"
                         android:paddingEnd="5dp"
                         android:text="@string/hour04"
-                        android:textColor="@color/colorAccent"
+                        android:textColor="@color/accent"
                         android:textSize="20sp" />
 
+                    <!-- 4 AM minutes display -->
                     <TextView
                         android:id="@+id/tableMinutes04"
                         android:layout_width="0dp"
@@ -146,32 +161,35 @@
                         android:layout_marginTop="1dp"
                         android:layout_marginEnd="1dp"
                         android:layout_weight="1"
-                        android:background="@color/colorPrimary"
+                        android:background="@color/primary"
                         android:paddingStart="5dp"
                         android:paddingEnd="5dp"
-                        android:textColor="@color/colorWhite"
+                        android:textColor="@color/white"
                         android:textSize="20sp" />
 
                 </TableRow>
 
+                <!-- 5 AM time row -->
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
+                    <!-- 5 AM hour label -->
                     <TextView
                         android:id="@+id/tableHour05"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="1dp"
                         android:layout_marginTop="1dp"
-                        android:background="@color/colorPrimary"
+                        android:background="@color/primary"
                         android:gravity="center"
                         android:paddingStart="5dp"
                         android:paddingEnd="5dp"
                         android:text="@string/hour05"
-                        android:textColor="@color/colorAccent"
+                        android:textColor="@color/accent"
                         android:textSize="20sp" />
 
+                    <!-- 5 AM minutes display -->
                     <TextView
                         android:id="@+id/tableMinutes05"
                         android:layout_width="0dp"
@@ -180,32 +198,35 @@
                         android:layout_marginTop="1dp"
                         android:layout_marginEnd="1dp"
                         android:layout_weight="1"
-                        android:background="@color/colorPrimary"
+                        android:background="@color/primary"
                         android:paddingStart="5dp"
                         android:paddingEnd="5dp"
-                        android:textColor="@color/colorWhite"
+                        android:textColor="@color/white"
                         android:textSize="20sp" />
 
                 </TableRow>
 
+                <!-- 6 AM time row -->
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
+                    <!-- 6 AM hour label -->
                     <TextView
                         android:id="@+id/tableHour06"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="1dp"
                         android:layout_marginTop="1dp"
-                        android:background="@color/colorPrimary"
+                        android:background="@color/primary"
                         android:gravity="center"
                         android:paddingStart="5dp"
                         android:paddingEnd="5dp"
                         android:text="@string/hour06"
-                        android:textColor="@color/colorAccent"
+                        android:textColor="@color/accent"
                         android:textSize="20sp" />
 
+                    <!-- 6 AM minutes display -->
                     <TextView
                         android:id="@+id/tableMinutes06"
                         android:layout_width="0dp"
@@ -214,32 +235,35 @@
                         android:layout_marginTop="1dp"
                         android:layout_marginEnd="1dp"
                         android:layout_weight="1"
-                        android:background="@color/colorPrimary"
+                        android:background="@color/primary"
                         android:paddingStart="5dp"
                         android:paddingEnd="5dp"
-                        android:textColor="@color/colorWhite"
+                        android:textColor="@color/white"
                         android:textSize="20sp" />
 
                 </TableRow>
 
+                <!-- 7 AM time row -->
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
+                    <!-- 7 AM hour label -->
                     <TextView
                         android:id="@+id/tableHour07"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="1dp"
                         android:layout_marginTop="1dp"
-                        android:background="@color/colorPrimary"
+                        android:background="@color/primary"
                         android:gravity="center"
                         android:paddingStart="5dp"
                         android:paddingEnd="5dp"
                         android:text="@string/hour07"
-                        android:textColor="@color/colorAccent"
+                        android:textColor="@color/accent"
                         android:textSize="20sp" />
 
+                    <!-- 7 AM minutes display -->
                     <TextView
                         android:id="@+id/tableMinutes07"
                         android:layout_width="0dp"
@@ -248,32 +272,35 @@
                         android:layout_marginTop="1dp"
                         android:layout_marginEnd="1dp"
                         android:layout_weight="1"
-                        android:background="@color/colorPrimary"
+                        android:background="@color/primary"
                         android:paddingStart="5dp"
                         android:paddingEnd="5dp"
-                        android:textColor="@color/colorWhite"
+                        android:textColor="@color/white"
                         android:textSize="20sp" />
 
                 </TableRow>
 
+                <!-- 8 AM time row -->
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
+                    <!-- 8 AM hour label -->
                     <TextView
                         android:id="@+id/tableHour08"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="1dp"
                         android:layout_marginTop="1dp"
-                        android:background="@color/colorPrimary"
+                        android:background="@color/primary"
                         android:gravity="center"
                         android:paddingStart="5dp"
                         android:paddingEnd="5dp"
                         android:text="@string/hour08"
-                        android:textColor="@color/colorAccent"
+                        android:textColor="@color/accent"
                         android:textSize="20sp" />
 
+                    <!-- 8 AM minutes display -->
                     <TextView
                         android:id="@+id/tableMinutes08"
                         android:layout_width="0dp"
@@ -282,32 +309,35 @@
                         android:layout_marginTop="1dp"
                         android:layout_marginEnd="1dp"
                         android:layout_weight="1"
-                        android:background="@color/colorPrimary"
+                        android:background="@color/primary"
                         android:paddingStart="5dp"
                         android:paddingEnd="5dp"
-                        android:textColor="@color/colorWhite"
+                        android:textColor="@color/white"
                         android:textSize="20sp" />
 
                 </TableRow>
 
+                <!-- 9 AM time row -->
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
+                    <!-- 9 AM hour label -->
                     <TextView
                         android:id="@+id/tableHour09"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="1dp"
                         android:layout_marginTop="1dp"
-                        android:background="@color/colorPrimary"
+                        android:background="@color/primary"
                         android:gravity="center"
                         android:paddingStart="5dp"
                         android:paddingEnd="5dp"
                         android:text="@string/hour09"
-                        android:textColor="@color/colorAccent"
+                        android:textColor="@color/accent"
                         android:textSize="20sp" />
 
+                    <!-- 9 AM minutes display -->
                     <TextView
                         android:id="@+id/tableMinutes09"
                         android:layout_width="0dp"
@@ -316,32 +346,35 @@
                         android:layout_marginTop="1dp"
                         android:layout_marginEnd="1dp"
                         android:layout_weight="1"
-                        android:background="@color/colorPrimary"
+                        android:background="@color/primary"
                         android:paddingStart="5dp"
                         android:paddingEnd="5dp"
-                        android:textColor="@color/colorWhite"
+                        android:textColor="@color/white"
                         android:textSize="20sp" />
 
                 </TableRow>
 
+                <!-- 10 AM time row -->
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
+                    <!-- 10 AM hour label -->
                     <TextView
                         android:id="@+id/tableHour10"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="1dp"
                         android:layout_marginTop="1dp"
-                        android:background="@color/colorPrimary"
+                        android:background="@color/primary"
                         android:gravity="center"
                         android:paddingStart="5dp"
                         android:paddingEnd="5dp"
                         android:text="@string/hour10"
-                        android:textColor="@color/colorAccent"
+                        android:textColor="@color/accent"
                         android:textSize="20sp" />
 
+                    <!-- 10 AM minutes display -->
                     <TextView
                         android:id="@+id/tableMinutes10"
                         android:layout_width="0dp"
@@ -350,32 +383,35 @@
                         android:layout_marginTop="1dp"
                         android:layout_marginEnd="1dp"
                         android:layout_weight="1"
-                        android:background="@color/colorPrimary"
+                        android:background="@color/primary"
                         android:paddingStart="5dp"
                         android:paddingEnd="5dp"
-                        android:textColor="@color/colorWhite"
+                        android:textColor="@color/white"
                         android:textSize="20sp" />
 
                 </TableRow>
 
+                <!-- 11 AM time row -->
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
+                    <!-- 11 AM hour label -->
                     <TextView
                         android:id="@+id/tableHour11"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="1dp"
                         android:layout_marginTop="1dp"
-                        android:background="@color/colorPrimary"
+                        android:background="@color/primary"
                         android:gravity="center"
                         android:paddingStart="5dp"
                         android:paddingEnd="5dp"
                         android:text="@string/hour11"
-                        android:textColor="@color/colorAccent"
+                        android:textColor="@color/accent"
                         android:textSize="20sp" />
 
+                    <!-- 11 AM minutes display -->
                     <TextView
                         android:id="@+id/tableMinutes11"
                         android:layout_width="0dp"
@@ -384,32 +420,35 @@
                         android:layout_marginTop="1dp"
                         android:layout_marginEnd="1dp"
                         android:layout_weight="1"
-                        android:background="@color/colorPrimary"
+                        android:background="@color/primary"
                         android:paddingStart="5dp"
                         android:paddingEnd="5dp"
-                        android:textColor="@color/colorWhite"
+                        android:textColor="@color/white"
                         android:textSize="20sp" />
 
                 </TableRow>
 
+                <!-- 12 PM time row -->
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
+                    <!-- 12 PM hour label -->
                     <TextView
                         android:id="@+id/tableHour12"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="1dp"
                         android:layout_marginTop="1dp"
-                        android:background="@color/colorPrimary"
+                        android:background="@color/primary"
                         android:gravity="center"
                         android:paddingStart="5dp"
                         android:paddingEnd="5dp"
                         android:text="@string/hour12"
-                        android:textColor="@color/colorAccent"
+                        android:textColor="@color/accent"
                         android:textSize="20sp" />
 
+                    <!-- 12 PM minutes display -->
                     <TextView
                         android:id="@+id/tableMinutes12"
                         android:layout_width="0dp"
@@ -418,32 +457,35 @@
                         android:layout_marginTop="1dp"
                         android:layout_marginEnd="1dp"
                         android:layout_weight="1"
-                        android:background="@color/colorPrimary"
+                        android:background="@color/primary"
                         android:paddingStart="5dp"
                         android:paddingEnd="5dp"
-                        android:textColor="@color/colorWhite"
+                        android:textColor="@color/white"
                         android:textSize="20sp" />
 
                 </TableRow>
 
+                <!-- 1 PM time row -->
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
+                    <!-- 1 PM hour label -->
                     <TextView
                         android:id="@+id/tableHour13"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="1dp"
                         android:layout_marginTop="1dp"
-                        android:background="@color/colorPrimary"
+                        android:background="@color/primary"
                         android:gravity="center"
                         android:paddingStart="5dp"
                         android:paddingEnd="5dp"
                         android:text="@string/hour13"
-                        android:textColor="@color/colorAccent"
+                        android:textColor="@color/accent"
                         android:textSize="20sp" />
 
+                    <!-- 1 PM minutes display -->
                     <TextView
                         android:id="@+id/tableMinutes13"
                         android:layout_width="0dp"
@@ -452,32 +494,35 @@
                         android:layout_marginTop="1dp"
                         android:layout_marginEnd="1dp"
                         android:layout_weight="1"
-                        android:background="@color/colorPrimary"
+                        android:background="@color/primary"
                         android:paddingStart="5dp"
                         android:paddingEnd="5dp"
-                        android:textColor="@color/colorWhite"
+                        android:textColor="@color/white"
                         android:textSize="20sp" />
 
                 </TableRow>
 
+                <!-- 2 PM time row -->
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
+                    <!-- 2 PM hour label -->
                     <TextView
                         android:id="@+id/tableHour14"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="1dp"
                         android:layout_marginTop="1dp"
-                        android:background="@color/colorPrimary"
+                        android:background="@color/primary"
                         android:gravity="center"
                         android:paddingStart="5dp"
                         android:paddingEnd="5dp"
                         android:text="@string/hour14"
-                        android:textColor="@color/colorAccent"
+                        android:textColor="@color/accent"
                         android:textSize="20sp" />
 
+                    <!-- 2 PM minutes display -->
                     <TextView
                         android:id="@+id/tableMinutes14"
                         android:layout_width="0dp"
@@ -486,32 +531,35 @@
                         android:layout_marginTop="1dp"
                         android:layout_marginEnd="1dp"
                         android:layout_weight="1"
-                        android:background="@color/colorPrimary"
+                        android:background="@color/primary"
                         android:paddingStart="5dp"
                         android:paddingEnd="5dp"
-                        android:textColor="@color/colorWhite"
+                        android:textColor="@color/white"
                         android:textSize="20sp" />
 
                 </TableRow>
 
+                <!-- 3 PM time row -->
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
+                    <!-- 3 PM hour label -->
                     <TextView
                         android:id="@+id/tableHour15"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="1dp"
                         android:layout_marginTop="1dp"
-                        android:background="@color/colorPrimary"
+                        android:background="@color/primary"
                         android:gravity="center"
                         android:paddingStart="5dp"
                         android:paddingEnd="5dp"
                         android:text="@string/hour15"
-                        android:textColor="@color/colorAccent"
+                        android:textColor="@color/accent"
                         android:textSize="20sp" />
 
+                    <!-- 3 PM minutes display -->
                     <TextView
                         android:id="@+id/tableMinutes15"
                         android:layout_width="0dp"
@@ -520,32 +568,35 @@
                         android:layout_marginTop="1dp"
                         android:layout_marginEnd="1dp"
                         android:layout_weight="1"
-                        android:background="@color/colorPrimary"
+                        android:background="@color/primary"
                         android:paddingStart="5dp"
                         android:paddingEnd="5dp"
-                        android:textColor="@color/colorWhite"
+                        android:textColor="@color/white"
                         android:textSize="20sp" />
 
                 </TableRow>
 
+                <!-- 4 PM time row -->
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
+                    <!-- 4 PM hour label -->
                     <TextView
                         android:id="@+id/tableHour16"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="1dp"
                         android:layout_marginTop="1dp"
-                        android:background="@color/colorPrimary"
+                        android:background="@color/primary"
                         android:gravity="center"
                         android:paddingStart="5dp"
                         android:paddingEnd="5dp"
                         android:text="@string/hour16"
-                        android:textColor="@color/colorAccent"
+                        android:textColor="@color/accent"
                         android:textSize="20sp" />
 
+                    <!-- 4 PM minutes display -->
                     <TextView
                         android:id="@+id/tableMinutes16"
                         android:layout_width="0dp"
@@ -554,32 +605,35 @@
                         android:layout_marginTop="1dp"
                         android:layout_marginEnd="1dp"
                         android:layout_weight="1"
-                        android:background="@color/colorPrimary"
+                        android:background="@color/primary"
                         android:paddingStart="5dp"
                         android:paddingEnd="5dp"
-                        android:textColor="@color/colorWhite"
+                        android:textColor="@color/white"
                         android:textSize="20sp" />
 
                 </TableRow>
 
+                <!-- 5 PM time row -->
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
+                    <!-- 5 PM hour label -->
                     <TextView
                         android:id="@+id/tableHour17"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="1dp"
                         android:layout_marginTop="1dp"
-                        android:background="@color/colorPrimary"
+                        android:background="@color/primary"
                         android:gravity="center"
                         android:paddingStart="5dp"
                         android:paddingEnd="5dp"
                         android:text="@string/hour17"
-                        android:textColor="@color/colorAccent"
+                        android:textColor="@color/accent"
                         android:textSize="20sp" />
 
+                    <!-- 5 PM minutes display -->
                     <TextView
                         android:id="@+id/tableMinutes17"
                         android:layout_width="0dp"
@@ -588,32 +642,35 @@
                         android:layout_marginTop="1dp"
                         android:layout_marginEnd="1dp"
                         android:layout_weight="1"
-                        android:background="@color/colorPrimary"
+                        android:background="@color/primary"
                         android:paddingStart="5dp"
                         android:paddingEnd="5dp"
-                        android:textColor="@color/colorWhite"
+                        android:textColor="@color/white"
                         android:textSize="20sp" />
 
                 </TableRow>
 
+                <!-- 6 PM time row -->
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
+                    <!-- 6 PM hour label -->
                     <TextView
                         android:id="@+id/tableHour18"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="1dp"
                         android:layout_marginTop="1dp"
-                        android:background="@color/colorPrimary"
+                        android:background="@color/primary"
                         android:gravity="center"
                         android:paddingStart="5dp"
                         android:paddingEnd="5dp"
                         android:text="@string/hour18"
-                        android:textColor="@color/colorAccent"
+                        android:textColor="@color/accent"
                         android:textSize="20sp" />
 
+                    <!-- 6 PM minutes display -->
                     <TextView
                         android:id="@+id/tableMinutes18"
                         android:layout_width="0dp"
@@ -622,32 +679,35 @@
                         android:layout_marginTop="1dp"
                         android:layout_marginEnd="1dp"
                         android:layout_weight="1"
-                        android:background="@color/colorPrimary"
+                        android:background="@color/primary"
                         android:paddingStart="5dp"
                         android:paddingEnd="5dp"
-                        android:textColor="@color/colorWhite"
+                        android:textColor="@color/white"
                         android:textSize="20sp" />
 
                 </TableRow>
 
+                <!-- 7 PM time row -->
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
+                    <!-- 7 PM hour label -->
                     <TextView
                         android:id="@+id/tableHour19"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="1dp"
                         android:layout_marginTop="1dp"
-                        android:background="@color/colorPrimary"
+                        android:background="@color/primary"
                         android:gravity="center"
                         android:paddingStart="5dp"
                         android:paddingEnd="5dp"
                         android:text="@string/hour19"
-                        android:textColor="@color/colorAccent"
+                        android:textColor="@color/accent"
                         android:textSize="20sp" />
 
+                    <!-- 7 PM minutes display -->
                     <TextView
                         android:id="@+id/tableMinutes19"
                         android:layout_width="0dp"
@@ -656,32 +716,35 @@
                         android:layout_marginTop="1dp"
                         android:layout_marginEnd="1dp"
                         android:layout_weight="1"
-                        android:background="@color/colorPrimary"
+                        android:background="@color/primary"
                         android:paddingStart="5dp"
                         android:paddingEnd="5dp"
-                        android:textColor="@color/colorWhite"
+                        android:textColor="@color/white"
                         android:textSize="20sp" />
 
                 </TableRow>
 
+                <!-- 8 PM time row -->
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
+                    <!-- 8 PM hour label -->
                     <TextView
                         android:id="@+id/tableHour20"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="1dp"
                         android:layout_marginTop="1dp"
-                        android:background="@color/colorPrimary"
+                        android:background="@color/primary"
                         android:gravity="center"
                         android:paddingStart="5dp"
                         android:paddingEnd="5dp"
                         android:text="@string/hour20"
-                        android:textColor="@color/colorAccent"
+                        android:textColor="@color/accent"
                         android:textSize="20sp" />
 
+                    <!-- 8 PM minutes display -->
                     <TextView
                         android:id="@+id/tableMinutes20"
                         android:layout_width="0dp"
@@ -690,33 +753,36 @@
                         android:layout_marginTop="1dp"
                         android:layout_marginEnd="1dp"
                         android:layout_weight="1"
-                        android:background="@color/colorPrimary"
+                        android:background="@color/primary"
                         android:paddingStart="5dp"
                         android:paddingEnd="5dp"
-                        android:textColor="@color/colorWhite"
+                        android:textColor="@color/white"
                         android:textSize="20sp" />
 
                 </TableRow>
 
+                <!-- 9 PM time row -->
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     tools:ignore="TooManyViews">
 
+                    <!-- 9 PM hour label -->
                     <TextView
                         android:id="@+id/tableHour21"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="1dp"
                         android:layout_marginTop="1dp"
-                        android:background="@color/colorPrimary"
+                        android:background="@color/primary"
                         android:gravity="center"
                         android:paddingStart="5dp"
                         android:paddingEnd="5dp"
                         android:text="@string/hour21"
-                        android:textColor="@color/colorAccent"
+                        android:textColor="@color/accent"
                         android:textSize="20sp" />
 
+                    <!-- 9 PM minutes display -->
                     <TextView
                         android:id="@+id/tableMinutes21"
                         android:layout_width="0dp"
@@ -725,33 +791,36 @@
                         android:layout_marginTop="1dp"
                         android:layout_marginEnd="1dp"
                         android:layout_weight="1"
-                        android:background="@color/colorPrimary"
+                        android:background="@color/primary"
                         android:paddingStart="5dp"
                         android:paddingEnd="5dp"
-                        android:textColor="@color/colorWhite"
+                        android:textColor="@color/white"
                         android:textSize="20sp"
                         tools:ignore="TooManyViews" />
 
                 </TableRow>
 
+                <!-- 10 PM time row -->
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
+                    <!-- 10 PM hour label -->
                     <TextView
                         android:id="@+id/tableHour22"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="1dp"
                         android:layout_marginTop="1dp"
-                        android:background="@color/colorPrimary"
+                        android:background="@color/primary"
                         android:gravity="center"
                         android:paddingStart="5dp"
                         android:paddingEnd="5dp"
                         android:text="@string/hour22"
-                        android:textColor="@color/colorAccent"
+                        android:textColor="@color/accent"
                         android:textSize="20sp" />
 
+                    <!-- 10 PM minutes display -->
                     <TextView
                         android:id="@+id/tableMinutes22"
                         android:layout_width="0dp"
@@ -760,32 +829,35 @@
                         android:layout_marginTop="1dp"
                         android:layout_marginEnd="1dp"
                         android:layout_weight="1"
-                        android:background="@color/colorPrimary"
+                        android:background="@color/primary"
                         android:paddingStart="5dp"
                         android:paddingEnd="5dp"
-                        android:textColor="@color/colorWhite"
+                        android:textColor="@color/white"
                         android:textSize="20sp" />
 
                 </TableRow>
 
+                <!-- 11 PM time row -->
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
+                    <!-- 11 PM hour label -->
                     <TextView
                         android:id="@+id/tableHour23"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="1dp"
                         android:layout_marginTop="1dp"
-                        android:background="@color/colorPrimary"
+                        android:background="@color/primary"
                         android:gravity="center"
                         android:paddingStart="5dp"
                         android:paddingEnd="5dp"
                         android:text="@string/hour23"
-                        android:textColor="@color/colorAccent"
+                        android:textColor="@color/accent"
                         android:textSize="20sp" />
 
+                    <!-- 11 PM minutes display -->
                     <TextView
                         android:id="@+id/tableMinutes23"
                         android:layout_width="0dp"
@@ -794,32 +866,35 @@
                         android:layout_marginTop="1dp"
                         android:layout_marginEnd="1dp"
                         android:layout_weight="1"
-                        android:background="@color/colorPrimary"
+                        android:background="@color/primary"
                         android:paddingStart="5dp"
                         android:paddingEnd="5dp"
-                        android:textColor="@color/colorWhite"
+                        android:textColor="@color/white"
                         android:textSize="20sp" />
 
                 </TableRow>
 
+                <!-- 12 AM time row -->
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
+                    <!-- 12 AM hour label -->
                     <TextView
                         android:id="@+id/tableHour24"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="1dp"
                         android:layout_marginTop="1dp"
-                        android:background="@color/colorPrimary"
+                        android:background="@color/primary"
                         android:gravity="center"
                         android:paddingStart="5dp"
                         android:paddingEnd="5dp"
                         android:text="@string/hour24"
-                        android:textColor="@color/colorAccent"
+                        android:textColor="@color/accent"
                         android:textSize="20sp" />
 
+                    <!-- 12 AM minutes display -->
                     <TextView
                         android:id="@+id/tableMinutes24"
                         android:layout_width="0dp"
@@ -828,32 +903,35 @@
                         android:layout_marginTop="1dp"
                         android:layout_marginEnd="1dp"
                         android:layout_weight="1"
-                        android:background="@color/colorPrimary"
+                        android:background="@color/primary"
                         android:paddingStart="5dp"
                         android:paddingEnd="5dp"
-                        android:textColor="@color/colorWhite"
+                        android:textColor="@color/white"
                         android:textSize="20sp" />
 
                 </TableRow>
 
+                <!-- 1 AM time row -->
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
+                    <!-- 1 AM hour label -->
                     <TextView
                         android:id="@+id/tableHour25"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="1dp"
                         android:layout_marginTop="1dp"
-                        android:background="@color/colorPrimary"
+                        android:background="@color/primary"
                         android:gravity="center"
                         android:paddingStart="5dp"
                         android:paddingEnd="5dp"
                         android:text="@string/hour25"
-                        android:textColor="@color/colorAccent"
+                        android:textColor="@color/accent"
                         android:textSize="20sp" />
 
+                    <!-- 1 AM minutes display -->
                     <TextView
                         android:id="@+id/tableMinutes25"
                         android:layout_width="0dp"
@@ -862,10 +940,10 @@
                         android:layout_marginTop="1dp"
                         android:layout_marginEnd="1dp"
                         android:layout_weight="1"
-                        android:background="@color/colorPrimary"
+                        android:background="@color/primary"
                         android:paddingStart="5dp"
                         android:paddingEnd="5dp"
-                        android:textColor="@color/colorWhite"
+                        android:textColor="@color/white"
                         android:textSize="20sp"
                         tools:ignore="TooManyViews" />
 
@@ -873,41 +951,46 @@
 
             </TableLayout>
 
+            <!-- Bottom section container -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="2dp"
                 android:orientation="vertical">
 
+                <!-- Top spacer -->
                 <TextView
                     android:id="@+id/textView"
                     android:layout_width="match_parent"
                     android:layout_height="20dp"
                     android:layout_weight="1"
-                    android:background="@color/colorPrimary"
-                    android:backgroundTint="@color/colorPrimary"
+                    android:background="@color/primary"
+                    android:backgroundTint="@color/primary"
                     android:text=""
-                    android:textColor="@color/colorWhite"
+                    android:textColor="@color/white"
                     android:textSize="16sp"
                     tools:ignore="TooManyViews" />
 
+                <!-- Picture selection button container -->
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:background="@color/colorPrimary"
+                    android:background="@color/primary"
                     android:orientation="horizontal"
                     tools:ignore="TooManyViews">
 
+                    <!-- Left spacer -->
                     <View
                         android:id="@+id/view5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:background="@color/colorPrimary"
-                        android:backgroundTint="@color/colorPrimary"
+                        android:background="@color/primary"
+                        android:backgroundTint="@color/primary"
                         tools:ignore="NestedWeights" />
 
+                    <!-- Picture selection button -->
                     <Button
                         android:id="@+id/pictureSelectButton"
                         android:layout_width="wrap_content"
@@ -918,45 +1001,50 @@
                         android:paddingStart="20dp"
                         android:paddingEnd="20dp"
                         android:text="@string/pictureButton"
-                        android:textColor="@color/colorWhite"
+                        android:textColor="@color/white"
                         android:textSize="15sp" />
 
+                    <!-- Right spacer -->
                     <View
                         android:id="@+id/view4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:background="@color/colorPrimary"
-                        android:backgroundTint="@color/colorPrimary" />
+                        android:background="@color/primary"
+                        android:backgroundTint="@color/primary" />
                 </LinearLayout>
 
+                <!-- Middle spacer -->
                 <TextView
                     android:id="@+id/textView2"
                     android:layout_width="match_parent"
                     android:layout_height="20dp"
                     android:layout_weight="1"
-                    android:background="@color/colorPrimary"
-                    android:backgroundTint="@color/colorPrimary"
+                    android:background="@color/primary"
+                    android:backgroundTint="@color/primary"
                     android:text=""
-                    android:textColor="@color/colorWhite"
+                    android:textColor="@color/white"
                     android:textSize="16sp"
                     tools:ignore="TooManyViews" />
 
+                <!-- Picture display container -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/colorPrimary"
-                    android:backgroundTint="@color/colorPrimary"
+                    android:background="@color/primary"
+                    android:backgroundTint="@color/primary"
                     android:orientation="horizontal">
 
+                    <!-- Left spacer -->
                     <View
                         android:id="@+id/view"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
                         android:layout_weight="1"
-                        android:background="@color/colorPrimary" />
+                        android:background="@color/primary" />
 
+                    <!-- Picture display image -->
                     <ImageView
                         android:id="@+id/PictureView"
                         android:layout_width="match_parent"
@@ -967,24 +1055,26 @@
                         ads:srcCompat="@drawable/week_button"
                         tools:ignore="ContentDescription" />
 
+                    <!-- Right spacer -->
                     <View
                         android:id="@+id/view2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:background="@color/colorPrimary" />
+                        android:background="@color/primary" />
 
                 </LinearLayout>
 
+                <!-- Bottom spacer -->
                 <TextView
                     android:id="@+id/textView3"
                     android:layout_width="match_parent"
                     android:layout_height="20dp"
                     android:layout_weight="1"
-                    android:background="@color/colorPrimary"
-                    android:backgroundTint="@color/colorPrimary"
+                    android:background="@color/primary"
+                    android:backgroundTint="@color/primary"
                     android:text=""
-                    android:textColor="@color/colorWhite"
+                    android:textColor="@color/white"
                     tools:ignore="TooManyViews" />
 
             </LinearLayout>

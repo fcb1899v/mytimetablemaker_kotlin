@@ -9,6 +9,7 @@ import android.view.Gravity
 import android.widget.EditText
 import android.widget.TextView
 
+// Class for managing timetable editing dialogs
 class Timetable (
     private val context: Context,
     private val goOrBack: String,
@@ -17,6 +18,7 @@ class Timetable (
 
     private val myPreference = MyPreference(context)
 
+    // Configure EditText for 2-digit number input
     private fun setEditNumber2(edittext: EditText) {
         edittext.apply {
             inputType = InputType.TYPE_CLASS_NUMBER
@@ -28,7 +30,7 @@ class Timetable (
         }
     }
 
-    //時刻表に2桁の数字を入力するDialogの表示する関数
+    // Display dialog for entering 2-digit numbers in timetable
     fun makeTimetableDialog (textview: TextView, linenumber: Int, hour: Int, textViewArray: Array<TextView>) {
         AlertDialog.Builder(context).apply {
             val key = goOrBack.timetableKey(linenumber, hour, currentDay)
@@ -55,7 +57,7 @@ class Timetable (
         }
     }
 
-    //★リストを選択するDialogを表示する関数
+    // Display dialog for selecting from list
     private fun setChoiceListItemsDialog(textview: TextView, key: String, linenumber: Int, hour: Int, textViewArray: Array<TextView>) {
         AlertDialog.Builder(context).apply {
             var selectNumber = 0
@@ -75,6 +77,7 @@ class Timetable (
         }
     }
 
+    // Dialog for copying all timetable times
     private fun allCopyTimetableDialog(textViewArray: Array<TextView>, selectNumber: Int, linenumber: Int) {
         AlertDialog.Builder(context).apply {
             setTitle(R.string.copyAllTime.strings)
@@ -91,6 +94,7 @@ class Timetable (
         }
     }
 
+    // Create array of timetable list items
     private fun timetableListArray(hour: Int): Array<String> =
         arrayOf(
             "${hour - 1}${R.string.jidai.strings}",

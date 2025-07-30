@@ -12,10 +12,10 @@ import androidx.fragment.app.Fragment
 import com.example.mytimetablemaker.databinding.FragmentVarioussettingsBinding
 import java.util.Calendar
 
-//各種設定
+// Fragment for various settings management
 class SettingsVariousFragment: Fragment() {
 
-    //ViewBinding
+    // ViewBinding for accessing views
     private lateinit var binding: FragmentVarioussettingsBinding
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -29,6 +29,7 @@ class SettingsVariousFragment: Fragment() {
         val intentArray: Array<Intent> = changeTimetableActivity(requireContext(), goOrBack)
         val isSettings = true
 
+        // Layout mapping for different station configurations
         val layout: Map<String, Array<LinearLayout>> = mapOf(
             "station2" to arrayOf(
                 binding.station2layout, binding.lineNameLayout2, binding.rideTimeLayout2,
@@ -40,12 +41,13 @@ class SettingsVariousFragment: Fragment() {
             ),
         )
 
-        //乗換回数に応じたレイアウトの表示・非表示
+        // Show/hide layouts based on number of transfers
         for (i: Int in 0..4) {
             layout["station2"]!![i].visibility = if (changeLine > 0) {View.VISIBLE} else {View.GONE}
             layout["station3"]!![i].visibility = if (changeLine > 1) {View.VISIBLE} else {View.GONE}
         }
 
+        // TextView mapping for different data types
         val textView: Map<String, Array<TextView>> = mapOf(
             "depart" to arrayOf(binding.departPointText, binding.departStationText1, binding.departStationText2, binding.departStationText3),
             "arrive" to arrayOf(binding.destinationText, binding.arriveStationText1, binding.arriveStationText2, binding.arriveStationText3),
@@ -55,6 +57,7 @@ class SettingsVariousFragment: Fragment() {
             "transitTime" to arrayOf(binding.transitTimeTextE, binding.transitTimeText1, binding.transitTimeText2, binding.transitTimeText3)
         )
 
+        // Button mapping for different data types
         val buttonView: Map<String, Array<TextView>> = mapOf(
             "depart" to arrayOf(binding.departPointButton, binding.departStationButton1, binding.departStationButton2, binding.departStationButton3),
             "arrive" to arrayOf(binding.destinationButton, binding.arriveStationButton1, binding.arriveStationButton2, binding.arriveStationButton3),
@@ -64,7 +67,7 @@ class SettingsVariousFragment: Fragment() {
             "transitTime" to arrayOf(binding.transitTimeButtonE, binding.transitTimeButton1, binding.transitTimeButton2, binding.transitTimeButton3)
         )
 
-        //設定値の表示
+        // Display current settings values
         textView["depart"]!![0].apply{
             val departPointText = myPreference.settingsDepartPoint(goOrBack)
             text = departPointText
@@ -76,6 +79,7 @@ class SettingsVariousFragment: Fragment() {
             setTextColor(arrivePointText.settingsTextColor)
         }
 
+        // Display settings for each transfer station
         for (i: Int in 0..changeLine) {
             textView["depart"]!![i + 1].apply{
                 val departStationText = myPreference.settingsDepartStation(goOrBack, i)
@@ -98,6 +102,7 @@ class SettingsVariousFragment: Fragment() {
             }
         }
 
+        // Display transportation and transit time settings
         for (i: Int in 0..changeLine + 1) {
             textView["transportation"]!![i].apply{
                 val transportationText = myPreference.settingsTransportation(goOrBack, i)
@@ -111,40 +116,42 @@ class SettingsVariousFragment: Fragment() {
             }
         }
 
-        //出発地名の設定
+        // Set departure point name
         buttonView["depart"]!![0].setOnClickListener {
             mySettings.setDepartPointDialog(goOrBack, textView["depart"]!![0], isSettings)
         }
-        //到着地名の設定
+        // Set arrival point name
         buttonView["arrive"]!![0].setOnClickListener {
             mySettings.setArrivePointDialog(goOrBack, textView["arrive"]!![0], isSettings)
         }
 
+        // Set up click listeners for each transfer station
         for (i: Int in 0..changeLine) {
-            //乗車駅名の設定
+            // Set departure station name
             buttonView["depart"]!![i + 1].setOnClickListener {
                 mySettings.setDepartStationDialog(goOrBack, textView["depart"]!![i], i, isSettings)
             }
-            //降車駅名の設定
+            // Set arrival station name
             buttonView["arrive"]!![i + 1].setOnClickListener {
                 mySettings.setArriveStationDialog(goOrBack, textView["arrive"]!![i], i, isSettings)
             }
-            //路線名の設定
+            // Set line name
             buttonView["lineName"]!![i].setOnClickListener {
                 mySettings.setLineNameDialog(goOrBack, textView["lineName"]!![i], null, i)
             }
-            //乗車時間の設定
+            // Set ride time
             buttonView["rideTime"]!![i].setOnClickListener {
                 mySettings.setRideTimeDialog(goOrBack, textView["rideTime"]!![i], i, intentArray[i])
             }
         }
 
+        // Set up click listeners for transportation and transit time
         for (i: Int in 0..changeLine + 1) {
-            //移動手段の設定
+            // Set transportation method
             buttonView["transportation"]!![i].setOnClickListener {
                 mySettings.setTransportationDialog(goOrBack, textView["transportation"]!![i], i, isSettings)
             }
-            //乗換時間の設定
+            // Set transit time
             buttonView["transitTime"]!![i].setOnClickListener {
                 mySettings.setTransitTimeDialog(goOrBack, textView["transitTime"]!![i], i)
             }
@@ -153,6 +160,7 @@ class SettingsVariousFragment: Fragment() {
     }
 
     companion object {
+        // Create intent array for timetable activities
         private fun changeTimetableActivity(context: Context, goOrBack: String): Array<Intent> {
 
             val myPreference = MyPreference(context)
@@ -161,10 +169,12 @@ class SettingsVariousFragment: Fragment() {
             val calendar: Calendar = Calendar.getInstance()
             val currentDay: Int = calendar.get(Calendar.DAY_OF_WEEK) - 1
 
+            // Intent extra keys
             val intentGoOrBack = "goorback"
             val intentLineNumber = "linenumber"
             val intentCurrentDay = "currentday"
 
+            // Create intent array for each line
             var intentArray: Array<Intent> = arrayOf()
             for (i: Int in 0..changeLine) {
                 intentArray += Intent(context, TimetableActivity::class.java).apply {

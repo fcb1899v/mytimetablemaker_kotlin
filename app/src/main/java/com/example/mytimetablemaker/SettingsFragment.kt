@@ -13,23 +13,26 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.example.mytimetablemaker.databinding.FragmentSettingsBinding
 
+// Fragment for managing app settings
 class SettingsFragment : Fragment() {
 
-    //ViewBinding
+    // ViewBinding for accessing views
     private lateinit var binding: FragmentSettingsBinding
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentSettingsBinding.inflate(layoutInflater, container, false)
 
+        // Initialize managers and preferences
         val myLogin = MyLogin(requireContext())
         val myFirestore = MyFirestore(requireContext())
         val myPreference = MyPreference(requireContext())
         val mySettings = MySettings(requireContext())
         val isLogin = myPreference.prefGetBoolean(loginKey, false)
 
-        //スイッチの変更による表示の変更
+        // Switch views for route 2 visibility
         val switchView: Array<Switch> = arrayOf(binding.back2switch, binding.go2switch)
 
+        // Configure switches for route 2 display
         for (i in 0..1) {
             switchView[i].apply {
                 isChecked = myPreference.getRoute2Switch(goOrBack2Array[i])
@@ -43,6 +46,7 @@ class SettingsFragment : Fragment() {
             }
         }
 
+        // Map button views for different settings
         val buttonView: Map<String, Array<TextView>> = mapOf(
             "changeLine" to arrayOf(
                 binding.back1ChangeLineButton, binding.go1ChangeLineButton,
@@ -58,6 +62,7 @@ class SettingsFragment : Fragment() {
             )
         )
 
+        // Map text views for change line display
         val textView: Map<String, Array<TextView>> = mapOf(
             "changeLine" to arrayOf(
                 binding.back1ChangeLineText, binding.go1ChangeLineText,
@@ -65,16 +70,17 @@ class SettingsFragment : Fragment() {
             ),
         )
 
+        // Configure settings for each route
         for (i in 0..3) {
 
-            //Change Line
+            // Change Line settings
             textView["changeLine"]!![i].text = myPreference.changeLineString(goOrBackArray[i])
             buttonView["changeLine"]!![i].setOnClickListener {
                 mySettings.setChangeLineDialog(goOrBackArray[i], textView["changeLine"]!![i])
                 textView["changeLine"]!![i].text = myPreference.changeLineString(goOrBackArray[i])
             }
 
-            //Various Settings
+            // Various Settings
             buttonView["settings"]!![i].setOnClickListener {
                 val bundle = Bundle()
                 bundle.putString("BUNDLE_KEY_GOORBACK", goOrBackArray[i])
@@ -88,7 +94,7 @@ class SettingsFragment : Fragment() {
                 }
             }
 
-            //Account
+            // Account management
             buttonView["firestore"]!![i].text = accountTextArray(isLogin)[i]
             buttonView["firestore"]!![i].setOnClickListener {
                 if (isLogin) {
@@ -106,10 +112,10 @@ class SettingsFragment : Fragment() {
         binding.signOutLayOut.isVisible = isLogin
         binding.deleteAccountLayOut.isVisible = isLogin
 
-        //バージョンの表示
+        // Display version number
         binding.versionNumber.text = BuildConfig.VERSION_NAME
 
-        //利用規約・プライバシーポリシー
+        // Display privacy policy and terms of service
         binding.privacyPolicy.setOnClickListener {
             startActivity(Intent(Intent.ACTION_VIEW).apply {
                 data = Uri.parse(R.string.privacyPolicyUrl.strings)

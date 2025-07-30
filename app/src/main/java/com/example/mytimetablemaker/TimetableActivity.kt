@@ -11,22 +11,24 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.mytimetablemaker.databinding.ActivityTimetableBinding
 import java.io.InputStream
 
+// Activity for displaying and editing timetables
 class TimetableActivity: AppCompatActivity() {
 
-    //フラグメントから渡されるデータの初期化
+    // Initialize data passed from fragment
     private var goOrBack: String = ""
     private var lineNumber: Int = 0
     private var currentDay: Int = 1
 
-    //ViewBinding
+    // ViewBinding for accessing views
     private lateinit var binding: ActivityTimetableBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // Initialize ViewBinding
         binding = ActivityTimetableBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //AppBarの表示設定
+        // Configure AppBar display settings
         supportActionBar?.apply{
             elevation = 0.0F
             setDisplayHomeAsUpEnabled(true)
@@ -34,19 +36,19 @@ class TimetableActivity: AppCompatActivity() {
 
         val myPreference = MyPreference(this)
 
-        //フラグメントから受け渡されたデータ
+        // Intent keys for data passed from fragment
         val intentGoOrBack = "goorback"
         val intentLineNumber = "linenumber"
         val intentCurrentDay = "currentday"
 
-        //フラグメントから渡されたデータ
+        // Extract data passed from fragment
         intent?.apply {
             goOrBack = getStringExtra(intentGoOrBack).toString()
             lineNumber = getIntExtra(intentLineNumber, 1)
             currentDay = getIntExtra(intentCurrentDay, 1)
         }
 
-        //時刻表の時刻表示のTextViewを配列として初期取得
+        // Initialize timetable time display TextViews as array
         val tableMinutes: Array<TextView> = arrayOf(
             binding.tableMinutes04, binding.tableMinutes05, binding.tableMinutes06, binding.tableMinutes07,
             binding.tableMinutes08, binding.tableMinutes09, binding.tableMinutes10, binding.tableMinutes11,
@@ -56,17 +58,17 @@ class TimetableActivity: AppCompatActivity() {
             binding.tableMinutes24, binding.tableMinutes25
         )
 
-        //時刻表のタイトル
+        // Set timetable title
         binding.fromStation.text = myPreference.departStation(goOrBack, lineNumber)
         binding.toStation.text = myPreference.lineName(goOrBack, lineNumber).timeTableTitle(myPreference.arriveStation(goOrBack, lineNumber))
 
-        //平日または土日の表示
+        // Display weekday or weekend
         binding.tableDay.apply {
             text = currentDay.weekdayString
             setTextColor(currentDay.weekdayTableColor)
         }
 
-        //平日と土日祝の表示の切替
+        // Toggle between weekday and weekend display
         binding.dayButton.apply {
             text = currentDay.weekendString
             setTextColor(currentDay.weekendButtonColor)
@@ -80,6 +82,7 @@ class TimetableActivity: AppCompatActivity() {
                     text = currentDay.weekendString
                     setTextColor(currentDay.weekendButtonColor)
                 }
+                // Update timetable display
                 for (i: Int in 0..21) {
                     tableMinutes[i].apply {
                         text = myPreference.getTimetableStringArray(goOrBack, lineNumber, currentDay)[i]
@@ -88,7 +91,7 @@ class TimetableActivity: AppCompatActivity() {
             }
         }
 
-        //時刻表の時刻の表示および設定
+        // Display and configure timetable times
         for (i: Int in 0..21) {
             tableMinutes[i].apply {
                 text = myPreference.getTimetableStringArray(goOrBack, lineNumber, currentDay)[i]
@@ -99,12 +102,13 @@ class TimetableActivity: AppCompatActivity() {
             }
         }
 
-        //写真撮影
+        // Photo capture functionality
         binding.pictureSelectButton.setOnClickListener {
             getImageLauncher.launch("image/*")
         }
     }
 
+    // Image picker launcher for photo selection
     private val getImageLauncher = registerForActivityResult(
         ActivityResultContracts.GetContent()
     ) { uri ->
@@ -114,10 +118,11 @@ class TimetableActivity: AppCompatActivity() {
             val pictureView: ImageView = binding.PictureView
             pictureView.setImageBitmap(picture)
         } else {
-            // 画像選択がキャンセルされた
+            // Image selection was cancelled
         }
     }
 
+    // Handle back button press in action bar
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             android.R.id.home -> finish()

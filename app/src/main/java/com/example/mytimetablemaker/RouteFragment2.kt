@@ -9,33 +9,34 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.mytimetablemaker.databinding.FragmentGoorback2Binding
 
+// Fragment for displaying route information (second route)
 class RouteFragment2 : Fragment() {
 
-    //Parameter from MainActivity
+    // Parameter keys from MainActivity
     private val argCurrentDay = "currentday"
     private val argCurrentHHMMSS = "currenthhmmss"
     private val argGoOrBack2 = "goorback2"
 
-    //Data from MainActivity
+    // Data received from MainActivity
     private var currentDay: Int = 0
     private var currentHHMMSS: Int = 0
     private var goOrBack2: String = ""
 
-    //ViewBinding
+    // ViewBinding for accessing views
     private lateinit var binding: FragmentGoorback2Binding
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentGoorback2Binding.inflate(layoutInflater, container, false)
 
-        //Data from MainActivity
+        // Get data from MainActivity
         val currentDay: Int = currentDay
         val currentHHMMSS: Int = currentHHMMSS
         val goOrBack2: String = goOrBack2
 
-        //Define class
+        // Initialize route fragment manager
         val myRouteFragment = MyRouteFragment(requireContext(), currentDay, currentHHMMSS)
 
-        //Define view binding
+        // Define view binding for text views
         val textView2: Map<String, Array<TextView>> = mapOf(
             "depart" to arrayOf(binding.stationName120, binding.stationName121, binding.stationName123, binding.stationName125),
             "arrive" to arrayOf(binding.stationName12e, binding.stationName122, binding.stationName124, binding.stationName126),
@@ -45,19 +46,23 @@ class RouteFragment2 : Fragment() {
             "arriveTime" to  arrayOf(binding.startTime12e, binding.startTime122, binding.startTime124, binding.startTime126),
             "countdown" to arrayOf(binding.countdown12),
         )
+        // Define view binding for line views
         val view2: Map<String, Array<View>> = mapOf(
             "line" to arrayOf(binding.lineLine121, binding.lineLine123, binding.lineLine125),
             "transit" to arrayOf(binding.lineLine12e, binding.lineLine120, binding.lineLine122, binding.lineLine124),
         )
+        // Define layout views for route display
         val layoutView2: Array<LinearLayout> =
             arrayOf(binding.linearlayout122, binding.linearlayout123)
 
+        // Initialize route display
         myRouteFragment.mainFun(goOrBack2, textView2, view2, layoutView2)
         return binding.root
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // Extract arguments passed from MainActivity
         arguments?.let {
             currentDay = it.getInt(argCurrentDay)
             currentHHMMSS = it.getInt(argCurrentHHMMSS)
@@ -66,6 +71,7 @@ class RouteFragment2 : Fragment() {
     }
 
     companion object {
+        // Create new instance with parameters
         @JvmStatic
         fun newInstance(currentDay: Int, currentHHMMSS: Int, goOrBack2: String) =
             RouteFragment2().apply {

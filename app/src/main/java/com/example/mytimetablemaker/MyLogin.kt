@@ -19,35 +19,40 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import java.util.regex.Pattern
 
+// Class for managing Firebase authentication
 class MyLogin(
     private val context: Context,
 ) {
 
     private val myPreference = MyPreference(context)
 
-    //Change activity
+    // Change activity with clear task flags
     private fun changeActivity(intent: Intent) {
         context.startActivity(
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
         )
     }
 
-    //Validation
+    // Validation utilities
     fun isValidate(email: String, password: String, confirmPass: String, isChecked: Boolean): Boolean {
         return isValidateEmail(email) &&
                isValidatePassword(password) &&
                isValidateConfirmPass(password, confirmPass) &&
                isChecked
     }
+    // Validate email format
     private fun isValidateEmail(email: String): Boolean {
         return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
     }
+    // Validate password strength
     private fun isValidatePassword(password: String): Boolean {
         return Pattern.compile("^(?=.*[A-Za-z0-9])(?=.*[!@#$~]).{8,}$").matcher(password).matches()
     }
+    // Validate password confirmation
     private fun isValidateConfirmPass(password: String, confirmPass: String): Boolean {
         return password == confirmPass
     }
+    // Display validation error messages
     private fun validateMessage(email: String, password: String, confirmPass: String, isChecked: Boolean) {
         val isValidate = isValidate(email, password, confirmPass, isChecked)
         val message: String = when {
@@ -63,7 +68,7 @@ class MyLogin(
         if (!isValidate) makeAuthToast(message)
     }
 
-    //Sign Up
+    // Sign Up functionality
     fun signup(email: String, password: String, confirmPass: String, isChecked: Boolean, progressBar: ProgressBar) {
         if (isValidate(email, password, confirmPass, isChecked)) {
             progressBar.visibility = View.VISIBLE
@@ -87,18 +92,20 @@ class MyLogin(
         }
     }
 
-    //Login
+    // Login functionality
     fun login(email: String, password: String, progressBar: ProgressBar) {
         if (isValidate(email, password, password, true)) {
             progressBar.visibility = View.VISIBLE
             Firebase.auth.signInWithEmailAndPassword(email, password).addOnCompleteListener { task: Task<AuthResult> ->
                 if (task.isSuccessful) {
                     if (Firebase.auth.currentUser!!.isEmailVerified) {
+                        // Save login state and navigate to main activity
                         myPreference.prefSaveBoolean(loginKey, true)
                         makeAuthToast(R.string.login_successfully.strings)
                         progressBar.visibility = View.INVISIBLE
                         changeActivity(Intent(context, MainActivity::class.java))
                     } else {
+                        // Show email verification required message
                         progressBar.visibility = View.INVISIBLE
                         makeAuthAlert(
                             R.string.not_verified_account.strings,
@@ -106,6 +113,7 @@ class MyLogin(
                         )
                     }
                 } else {
+                    // Handle login errors
                     val message: String = when (task.exception!!) {
                         is FirebaseAuthInvalidCredentialsException -> R.string.incorrect_email_or_password.strings
                         is FirebaseAuthInvalidUserException -> {
@@ -128,7 +136,7 @@ class MyLogin(
         }
     }
 
-    //Logout
+    // Logout functionality
     fun logout(progressBar: ProgressBar) {
         AlertDialog.Builder(context).apply {
             setTitle(R.string.logout.strings)
@@ -136,6 +144,7 @@ class MyLogin(
             println("a")
             setPositiveButton(R.string.ok) { _, _ ->
                 progressBar.visibility = View.VISIBLE
+                // Sign out from Firebase and clear login state
                 Firebase.auth.signOut()
                 myPreference.prefSaveBoolean(loginKey,false)
                 makeAuthToast(R.string.logged_out.strings)
@@ -148,13 +157,14 @@ class MyLogin(
         }
     }
 
-    //Delete Account
+    // Delete Account functionality
     fun deleteAccount(progressBar: ProgressBar) {
         AlertDialog.Builder(context).apply {
             setTitle(R.string.delete_your_account.strings)
             setMessage(R.string.delete_account)
             setNegativeButton(R.string.ok) { _, _ ->
                 progressBar.visibility = View.VISIBLE
+                // Delete user account from Firebase
                 Firebase.auth.currentUser?.delete()?.addOnCompleteListener { task ->
                     if (task.isSuccessful) {
                         myPreference.prefSaveBoolean(loginKey, false)
@@ -173,7 +183,7 @@ class MyLogin(
         }
     }
 
-    //パスワードリセット
+    // Password Reset functionality
     fun passwordReset(progressBar: ProgressBar) {
         val edittext = EditText(context)
         edittext.apply {
@@ -190,6 +200,7 @@ class MyLogin(
             setPositiveButton(R.string.ok) { _, _ ->
                 if (isValidateEmail(edittext.text.toString())) {
                     progressBar.visibility = View.VISIBLE
+                    // Send password reset email
                     Firebase.auth.sendPasswordResetEmail(edittext.text.toString()).addOnCompleteListener { task: Task<Void> ->
                         if (task.isSuccessful) {
                             progressBar.visibility = View.INVISIBLE
@@ -206,14 +217,14 @@ class MyLogin(
         }
     }
 
-    //Toastの表示
+    // Display Toast messages
     private fun makeAuthToast(message: String) {
         val ts = Toast.makeText(context, message, Toast.LENGTH_SHORT)
         ts.setGravity(Gravity.CENTER, 0, 0)
         ts.show()
     }
 
-    //Alertの表示
+    // Display Alert messages
     private fun makeAuthAlert(title: String, message: String) {
         AlertDialog.Builder(context).apply {
             setTitle(title)
@@ -224,6 +235,7 @@ class MyLogin(
     }
 }
 
+// Firebase Auth Error enum (commented out - for reference)
 //enum class FirebaseAuthError(val errorCode: String) {
 //    USER_NOT_FOUND("ERROR_USER_NOT_FOUND"),
 //    INVALID_EMAIL("ERROR_INVALID_EMAIL"),

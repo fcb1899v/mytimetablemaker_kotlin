@@ -7,14 +7,18 @@ import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
 import com.google.android.gms.ads.MobileAds
 
+// AdMob advertisement management class
 class AdMob {
 
+    // Initialize and load AdMob advertisement
     fun setAdMob(adview: AdView, context: Context) {
-        //Admob広告
+        
+        // Initialize AdMob advertisement
         MobileAds.initialize(context)
         val adRequest: AdRequest = AdRequest.Builder().build()
         adview.loadAd(adRequest)
 
+        // Set up ad event listeners
         adview.adListener = object : AdListener() {
             override fun onAdLoaded() {
                 Log.d("debug", "Code to be executed when an ad finishes loading.")
